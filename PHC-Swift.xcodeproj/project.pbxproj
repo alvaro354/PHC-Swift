@@ -13,6 +13,8 @@
 		B19083971A6C35260007CE9D /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B19083961A6C35260007CE9D /* Images.xcassets */; };
 		B190839A1A6C35260007CE9D /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = B19083981A6C35260007CE9D /* LaunchScreen.xib */; };
 		B19083A61A6C35260007CE9D /* PHC_SwiftTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B19083A51A6C35260007CE9D /* PHC_SwiftTests.swift */; };
+		B19083B01A6C38780007CE9D /* ModoLibre.swift in Sources */ = {isa = PBXBuildFile; fileRef = B19083AF1A6C38780007CE9D /* ModoLibre.swift */; };
+		B19083B31A6C405D0007CE9D /* Imagen.swift in Sources */ = {isa = PBXBuildFile; fileRef = B19083B21A6C405D0007CE9D /* Imagen.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +38,8 @@
 		B190839F1A6C35260007CE9D /* PHC-SwiftTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "PHC-SwiftTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B19083A41A6C35260007CE9D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B19083A51A6C35260007CE9D /* PHC_SwiftTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PHC_SwiftTests.swift; sourceTree = "<group>"; };
+		B19083AF1A6C38780007CE9D /* ModoLibre.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModoLibre.swift; sourceTree = "<group>"; };
+		B19083B21A6C405D0007CE9D /* Imagen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Imagen.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,6 +83,8 @@
 			children = (
 				B190838F1A6C35260007CE9D /* AppDelegate.swift */,
 				B19083911A6C35260007CE9D /* ViewController.swift */,
+				B19083AF1A6C38780007CE9D /* ModoLibre.swift */,
+				B19083B11A6C40250007CE9D /* Objetos */,
 				B19083931A6C35260007CE9D /* Main.storyboard */,
 				B19083961A6C35260007CE9D /* Images.xcassets */,
 				B19083981A6C35260007CE9D /* LaunchScreen.xib */,
@@ -110,6 +116,14 @@
 				B19083A41A6C35260007CE9D /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		B19083B11A6C40250007CE9D /* Objetos */ = {
+			isa = PBXGroup;
+			children = (
+				B19083B21A6C405D0007CE9D /* Imagen.swift */,
+			);
+			name = Objetos;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -212,6 +226,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B19083B31A6C405D0007CE9D /* Imagen.swift in Sources */,
+				B19083B01A6C38780007CE9D /* ModoLibre.swift in Sources */,
 				B19083921A6C35260007CE9D /* ViewController.swift in Sources */,
 				B19083901A6C35260007CE9D /* AppDelegate.swift in Sources */,
 			);
@@ -407,6 +423,7 @@
 				B19083AB1A6C35260007CE9D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		B19083AC1A6C35260007CE9D /* Build configuration list for PBXNativeTarget "PHC-SwiftTests" */ = {
 			isa = XCConfigurationList;
@@ -415,6 +432,7 @@
 				B19083AE1A6C35260007CE9D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
