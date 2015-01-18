@@ -21,7 +21,7 @@ class Imagen: NSObject, UIGestureRecognizerDelegate{
 
     init(imagen:UIImage)
     {
-        vistaImagen = UIImageView(frame:CGRectMake(200.0,200.0,100,100));
+        vistaImagen = UIImageView(frame:CGRectMake(200.0,200.0,150,150));
         vistaImagen.image = imagen;
     }
     
@@ -30,7 +30,7 @@ class Imagen: NSObject, UIGestureRecognizerDelegate{
        // let width = CGImageGetWidth(imagen.CGImage) / 2;
        // let height = CGImageGetHeight(imagen.CGImage) / 2;
         
-        vistaImagen = UIImageView(frame:CGRectMake(200.0,200.0,100,100));
+        vistaImagen = UIImageView(frame:CGRectMake(200.0,200.0,150,150));
         vistaImagen.image = imagen;
     }
     
@@ -38,14 +38,29 @@ class Imagen: NSObject, UIGestureRecognizerDelegate{
     {
         padre = controller;
          vistaImagen.userInteractionEnabled = true;
+        vistaImagen.multipleTouchEnabled = true
         // Gestures
         move = UIPanGestureRecognizer(target:padre!, action:Selector("mover:"))
-        move!.delegate = self;
-        //vistaImagen.addGestureRecognizer(move!)
+        move!.delegate = padre as ModoLibre
+        vistaImagen.addGestureRecognizer(move!)
         
         let tap = UITapGestureRecognizer(target:padre!, action:Selector("tocar:"))
+        tap.delegate = padre as ModoLibre
         tap.numberOfTapsRequired = 1
         vistaImagen.addGestureRecognizer(tap)
+        
+        let borrar = UITapGestureRecognizer(target:padre!, action:Selector("borrar:"))
+        borrar.delegate = padre as ModoLibre
+        borrar.numberOfTapsRequired = 2
+        vistaImagen.addGestureRecognizer(borrar )
+        
+        let rotate = UIRotationGestureRecognizer(target:padre!, action:Selector("rotar:"))
+        rotate.delegate = padre as ModoLibre
+        vistaImagen.addGestureRecognizer(rotate)
+        
+        let pitch = UIPinchGestureRecognizer(target:padre!, action:Selector("zoom:"))
+        pitch.delegate = padre as ModoLibre
+        vistaImagen.addGestureRecognizer(pitch)
         
         
         // Añadir

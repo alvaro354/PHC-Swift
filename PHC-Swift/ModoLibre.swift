@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ModoLibre: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate{
+class ModoLibre: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIGestureRecognizerDelegate{
     
     //Declaracion Variables
     
@@ -79,19 +79,43 @@ class ModoLibre: UIViewController, UIImagePickerControllerDelegate, UINavigation
     
     func mover(recognizer:UIPanGestureRecognizer) {
     
-        NSLog("Mover");
+        let translation = recognizer.translationInView(self.view)
+        recognizer.view!.center = CGPoint(x:recognizer.view!.center.x + translation.x,
+            y:recognizer.view!.center.y + translation.y)
+        recognizer.setTranslation(CGPointZero, inView: self.view)
+
         
     }
     
     func tocar(recognizer:UIPanGestureRecognizer) {
         
         NSLog("Tocar");
+        // Traer al frente
+        
+        self.view.bringSubviewToFront(recognizer.view!);
         
     }
     
-    func handleTap(sender: UITapGestureRecognizer) {
-        if sender.state == .Ended {
-            NSLog("Tocado");
-        }
+    func rotar(recognizer:UIRotationGestureRecognizer) {
+        NSLog("Rotar");
+        recognizer.view!.transform = CGAffineTransformRotate(recognizer.view!.transform, recognizer.rotation)
+        recognizer.rotation = 0
+        
+    }
+    
+    func zoom(recognizer : UIPinchGestureRecognizer) {
+        NSLog("Zoom");
+        recognizer.view!.transform = CGAffineTransformScale(recognizer.view!.transform,
+            recognizer.scale, recognizer.scale)
+        recognizer.scale = 1
+    }
+    
+    func borrar(recognizer : UIPinchGestureRecognizer) {
+        NSLog("Borrar");
+        recognizer.view!.removeFromSuperview()
+    }
+    func gestureRecognizer(UIGestureRecognizer,
+        shouldRecognizeSimultaneouslyWithGestureRecognizer:UIGestureRecognizer) -> Bool {
+            return true
     }
 }
