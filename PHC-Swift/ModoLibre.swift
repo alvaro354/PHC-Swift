@@ -8,12 +8,12 @@
 
 import UIKit
 
-class ModoLibre: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIGestureRecognizerDelegate{
+class ModoLibre: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIGestureRecognizerDelegate , CortarDelegate{
     
     //Declaracion Variables
     
-    var cameraRoll = UIImagePickerController();
-   
+    var cameraRoll = UIImagePickerController()
+    var cortarView:Cortar?
     
     @IBOutlet var BotonMenuPrincipal: UIButton?
     @IBOutlet var BotonMenuOpciones: UIButton?
@@ -58,13 +58,19 @@ class ModoLibre: UIViewController, UIImagePickerControllerDelegate, UINavigation
     // Metodos Camera Roll
     
     func imagePickerController(picker: UIImagePickerController!, didFinishPickingMediaWithInfo info:NSDictionary!) {
-        var tempImage:UIImage = info[UIImagePickerControllerOriginalImage] as UIImage
+        var tempImage:UIImage = info[UIImagePickerControllerEditedImage] as UIImage
         //imagePreview.image  = tempImage
-        var imagen = Imagen(imagen:tempImage);
-        imagen.añadir(self);
 
         
-        cameraRoll.dismissViewControllerAnimated(true, completion: nil);
+        cameraRoll.dismissViewControllerAnimated(true, completion: {
+            
+            let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+            self.cortarView = mainStoryboard.instantiateViewControllerWithIdentifier("CortarSB") as? Cortar
+            self.cortarView!.inicializar(tempImage, delegado:self)
+            self.presentViewController(self.cortarView!, animated: true, nil);
+        });
+        
+       
         
     }
     
@@ -89,7 +95,7 @@ class ModoLibre: UIViewController, UIImagePickerControllerDelegate, UINavigation
     
     func tocar(recognizer:UIPanGestureRecognizer) {
         
-        NSLog("Tocar");
+       // NSLog("Tocar");
         // Traer al frente
         
         self.view.bringSubviewToFront(recognizer.view!);
@@ -97,25 +103,42 @@ class ModoLibre: UIViewController, UIImagePickerControllerDelegate, UINavigation
     }
     
     func rotar(recognizer:UIRotationGestureRecognizer) {
-        NSLog("Rotar");
+       // NSLog("Rotar");
         recognizer.view!.transform = CGAffineTransformRotate(recognizer.view!.transform, recognizer.rotation)
         recognizer.rotation = 0
         
     }
     
     func zoom(recognizer : UIPinchGestureRecognizer) {
-        NSLog("Zoom");
+        //NSLog("Zoom");
         recognizer.view!.transform = CGAffineTransformScale(recognizer.view!.transform,
             recognizer.scale, recognizer.scale)
         recognizer.scale = 1
     }
     
     func borrar(recognizer : UIPinchGestureRecognizer) {
-        NSLog("Borrar");
+       // NSLog("Borrar");
         recognizer.view!.removeFromSuperview()
     }
     func gestureRecognizer(UIGestureRecognizer,
         shouldRecognizeSimultaneouslyWithGestureRecognizer:UIGestureRecognizer) -> Bool {
             return true
+    }
+    
+    
+    // Funciones Cortar Delegate 
+    
+    func cortarCerrado()
+    {
+        
+        cortarView!.dismissViewControllerAnimated(true, completion: nil);
+    }
+    
+    func cortarFinalizado(imagenCortada:UIImageView)
+    {
+        
+        cortarView!.dismissViewControllerAnimated(true, completion: nil);
+        var imagen = Imagen(imagen:imagenCortada);
+        imagen.añadir(self);
     }
 }

@@ -19,19 +19,17 @@ class Imagen: NSObject, UIGestureRecognizerDelegate{
     
     var move:UIPanGestureRecognizer?;
 
-    init(imagen:UIImage)
+    init(imagen:UIImageView)
     {
-        vistaImagen = UIImageView(frame:CGRectMake(200.0,200.0,150,150));
-        vistaImagen.image = imagen;
+        vistaImagen = imagen
     }
     
-    func ponerImagen(imagen:UIImage)
+    func ponerImagen(imagen:UIImageView)
     {
        // let width = CGImageGetWidth(imagen.CGImage) / 2;
        // let height = CGImageGetHeight(imagen.CGImage) / 2;
         
-        vistaImagen = UIImageView(frame:CGRectMake(200.0,200.0,150,150));
-        vistaImagen.image = imagen;
+        vistaImagen = imagen
     }
     
     func añadir(controller:UIViewController)
@@ -68,6 +66,10 @@ class Imagen: NSObject, UIGestureRecognizerDelegate{
         
         controller.view.addSubview(vistaImagen);
         controller.view.bringSubviewToFront(vistaImagen);
+        
+        //Escalamos la imagen
+        vistaImagen.transform = CGAffineTransformScale(vistaImagen.transform,
+            0.6, 0.6)
     }
     
     

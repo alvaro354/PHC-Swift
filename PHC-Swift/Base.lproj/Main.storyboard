@@ -5,6 +5,60 @@
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
+        <!--Cortar-->
+        <scene sceneID="9Ay-Kw-fVl">
+            <objects>
+                <viewController storyboardIdentifier="CortarSB" id="FNh-Tk-fMY" customClass="Cortar" customModule="PHC_Swift" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="s42-hv-IH0"/>
+                        <viewControllerLayoutGuide type="bottom" id="Dgc-QQ-qn1"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="pjh-lX-GID">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zsR-W7-kGD">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                            </scrollView>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" barStyle="black" translatesAutoresizingMaskIntoConstraints="NO" id="qbG-z4-F4g">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                                <items>
+                                    <barButtonItem title="Cerrar" id="9pR-Z9-RB0">
+                                        <connections>
+                                            <action selector="cerrar" destination="FNh-Tk-fMY" id="IhN-mn-PYb"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="FCO-H2-7n9"/>
+                                    <barButtonItem systemItem="done" id="Du1-Bu-Qy8">
+                                        <connections>
+                                            <action selector="cortar" destination="FNh-Tk-fMY" id="Vag-Hn-773"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </items>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="barTintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                            </toolbar>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="zsR-W7-kGD" firstAttribute="leading" secondItem="pjh-lX-GID" secondAttribute="leading" id="5tp-7n-Te1"/>
+                            <constraint firstAttribute="trailing" secondItem="zsR-W7-kGD" secondAttribute="trailing" id="DAN-oI-Txd"/>
+                            <constraint firstItem="qbG-z4-F4g" firstAttribute="leading" secondItem="zsR-W7-kGD" secondAttribute="leading" id="DwK-sd-2Bl"/>
+                            <constraint firstItem="qbG-z4-F4g" firstAttribute="trailing" secondItem="zsR-W7-kGD" secondAttribute="trailing" id="Mt4-iw-4Us"/>
+                            <constraint firstItem="qbG-z4-F4g" firstAttribute="top" secondItem="zsR-W7-kGD" secondAttribute="top" id="NaV-kV-AdZ"/>
+                            <constraint firstItem="zsR-W7-kGD" firstAttribute="bottom" secondItem="Dgc-QQ-qn1" secondAttribute="top" id="Yrz-qK-jMd"/>
+                            <constraint firstItem="qbG-z4-F4g" firstAttribute="top" secondItem="s42-hv-IH0" secondAttribute="bottom" id="oEP-6A-bi9"/>
+                        </constraints>
+                    </view>
+                    <nil key="simulatedStatusBarMetrics"/>
+                    <connections>
+                        <outlet property="scrollView" destination="zsR-W7-kGD" id="3tg-P0-czE"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Dqm-SX-Fzb" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="577" y="-279"/>
+        </scene>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
