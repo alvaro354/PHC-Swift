@@ -19,6 +19,8 @@ class Imagen: NSObject, UIGestureRecognizerDelegate{
     
     var move:UIPanGestureRecognizer?;
 
+
+    
     init(imagen:UIImageView)
     {
         vistaImagen = imagen
@@ -59,6 +61,11 @@ class Imagen: NSObject, UIGestureRecognizerDelegate{
         let pitch = UIPinchGestureRecognizer(target:padre!, action:Selector("zoom:"))
         pitch.delegate = padre as ModoLibre
         vistaImagen.addGestureRecognizer(pitch)
+        
+        let long = UILongPressGestureRecognizer(target:padre!, action:Selector("longPress:"))
+        long.minimumPressDuration = 2
+        long.delegate = padre as ModoLibre
+        vistaImagen.addGestureRecognizer(long)
         
         
         // Añadir

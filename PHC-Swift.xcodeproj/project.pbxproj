@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B140DF451A6EBDB300B7A810 /* Menu-Editar.swift in Sources */ = {isa = PBXBuildFile; fileRef = B140DF441A6EBDB300B7A810 /* Menu-Editar.swift */; };
 		B19083901A6C35260007CE9D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B190838F1A6C35260007CE9D /* AppDelegate.swift */; };
 		B19083921A6C35260007CE9D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B19083911A6C35260007CE9D /* ViewController.swift */; };
 		B19083951A6C35260007CE9D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B19083931A6C35260007CE9D /* Main.storyboard */; };
@@ -30,6 +31,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		B140DF441A6EBDB300B7A810 /* Menu-Editar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Menu-Editar.swift"; sourceTree = "<group>"; };
 		B190838A1A6C35260007CE9D /* PHC-Swift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "PHC-Swift.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B190838E1A6C35260007CE9D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B190838F1A6C35260007CE9D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -128,6 +130,7 @@
 			isa = PBXGroup;
 			children = (
 				B19083B21A6C405D0007CE9D /* Imagen.swift */,
+				B140DF441A6EBDB300B7A810 /* Menu-Editar.swift */,
 			);
 			name = Objetos;
 			sourceTree = "<group>";
@@ -237,6 +240,7 @@
 				B19083B31A6C405D0007CE9D /* Imagen.swift in Sources */,
 				B19083B01A6C38780007CE9D /* ModoLibre.swift in Sources */,
 				B19083921A6C35260007CE9D /* ViewController.swift in Sources */,
+				B140DF451A6EBDB300B7A810 /* Menu-Editar.swift in Sources */,
 				B19083901A6C35260007CE9D /* AppDelegate.swift in Sources */,
 				B19083B71A6D41D80007CE9D /* Cortar.swift in Sources */,
 			);

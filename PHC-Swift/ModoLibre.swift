@@ -14,6 +14,7 @@ class ModoLibre: UIViewController, UIImagePickerControllerDelegate, UINavigation
     
     var cameraRoll = UIImagePickerController()
     var cortarView:Cortar?
+    var menuEditar: MenuEditar = MenuEditar()
     
     @IBOutlet var BotonMenuPrincipal: UIButton?
     @IBOutlet var BotonMenuOpciones: UIButton?
@@ -120,6 +121,15 @@ class ModoLibre: UIViewController, UIImagePickerControllerDelegate, UINavigation
        // NSLog("Borrar");
         recognizer.view!.removeFromSuperview()
     }
+    
+    func longPress(recognizer : UIPinchGestureRecognizer) {
+        // NSLog("Borrar");
+       if(recognizer.state == UIGestureRecognizerState.Began)
+       {
+            menuEditar.mostrarMenu(recognizer.view!,padreP: self, botonTmp: UIButton())
+        }
+    }
+    
     func gestureRecognizer(UIGestureRecognizer,
         shouldRecognizeSimultaneouslyWithGestureRecognizer:UIGestureRecognizer) -> Bool {
             return true
@@ -130,7 +140,6 @@ class ModoLibre: UIViewController, UIImagePickerControllerDelegate, UINavigation
     
     func cortarCerrado()
     {
-        
         cortarView!.dismissViewControllerAnimated(true, completion: nil);
     }
     
