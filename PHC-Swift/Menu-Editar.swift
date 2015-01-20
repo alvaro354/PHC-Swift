@@ -14,42 +14,54 @@ import UIKit
 
 class MenuEditar : NSObject
 {
-    var RADIO :CGFloat = 10.0
-    let ALPHA :CGFloat = (10.0 * 3.1415/180.0)
+    var RADIO :CGFloat = 2.0
+    let ALPHA :CGFloat = (30.0 * 3.1415/180.0)
     var numBotones : Int = 0
     var botones = [UIButton]()
-    var padre: Imagen?
+    var padre: UIView?
     var contador:Int = 0;
     let veces = 3;
+    var mostrando : Bool = false
 
     func mostrarMenu(imagenP:UIView ,padreP:UIViewController,botonTmp:UIButton)
     {
+        if(mostrando && imagenP == padre)
+        {
+            esconderMenu()
+        }
+        else
+        {
+        padre = imagenP
         RADIO = imagenP.frame.height + RADIO
-        
+    
        
-        var boton: UIButton = UIButton(frame: CGRectMake(0,0, 50, 50))
+        var boton: UIButton = UIButton(frame: CGRectMake(0,0, 30, 30))
         boton.tintColor = UIColor.blackColor()
         boton.setImage(UIImage(named:"Circulo.png")!, forState: UIControlState.Normal)
         boton.center = imagenP.center
+        boton.alpha = 0
         padreP.view.addSubview(boton)
         
-        UIButton.animateWithDuration(1, delay: 0, options: .CurveEaseOut, animations:
+        UIButton.animateWithDuration(0.15, delay: 0, options: .CurveEaseOut, animations:
             {
                 var frameImagen = imagenP.frame
                 if(self.contador > 0)
                 {
-                    var distanciaPuntos:CGFloat = self.RADIO * sin(self.ALPHA)
-                    var x  = distanciaPuntos * sin((3.1415/2)-self.ALPHA)
-                    var y = distanciaPuntos * sin(self.ALPHA)
+                    var translateTransform:CGAffineTransform  = CGAffineTransformMakeTranslation(imagenP.center.x, imagenP.center.y);
+                    var rotationTransform: CGAffineTransform  = CGAffineTransformMakeRotation(self.ALPHA);
                     
-                    boton.frame.origin.y = CGFloat(UInt(botonTmp.frame.origin.y + y))
-                    boton.frame.origin.x = CGFloat(UInt(botonTmp.frame.origin.x + x))
+                    var customRotation:CGAffineTransform  = CGAffineTransformConcat(CGAffineTransformConcat( CGAffineTransformInvert(translateTransform), rotationTransform), translateTransform);
+                    
+                    var rotatedPoint:CGPoint = CGPointApplyAffineTransform(botonTmp.center, customRotation);
+                    
+                    boton.center = rotatedPoint
                     
                 }
                 else
                 {
                     boton.frame.origin.y -= self.RADIO
                 }
+                boton.alpha = 1
                 
             }, completion:{ finished in
                 println("Animacion Acabada")
@@ -57,13 +69,46 @@ class MenuEditar : NSObject
                 {
                     self.mostrarMenu(imagenP, padreP: padreP, botonTmp: boton)
                 }
+                else
+                {
+                    self.mostrando=true
+                }
         })
 
         botones.append(boton)
-        
+        }
         
     }
     
+    func esconderMenu()
+    {
+        mostrando = false
+        UIButton.animateWithDuration(0.15, delay: 0, options: .CurveEaseOut, animations:
+            {
+                if(self.contador > 0)
+                {
+                    self.botones[self.contador-1].center = self.padre!.center
+                    self.botones[self.contador-1].alpha = 0
+                    
+                }
+
+                
+            }, completion:{ finished in
+                
+                if(self.contador > 0)
+                {
+                    self.botones[self.contador-1].removeFromSuperview()
+                    self.botones.removeLast()
+                    self.contador--
+                    self.esconderMenu()
+                }
+                else
+                {
+                    self.mostrando=false
+                }
+
+    })
+    }
     
     
     
