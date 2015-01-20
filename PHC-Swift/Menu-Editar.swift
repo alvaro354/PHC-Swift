@@ -14,7 +14,7 @@ import UIKit
 
 class MenuEditar : NSObject
 {
-    var RADIO :CGFloat = 2.0
+    var RADIO :CGFloat = 50.0
     let ALPHA :CGFloat = (30.0 * 3.1415/180.0)
     var numBotones : Int = 0
     var botones = [UIButton]()
@@ -22,6 +22,7 @@ class MenuEditar : NSObject
     var contador:Int = 0;
     let veces = 3;
     var mostrando : Bool = false
+    var centro : CGPoint?
 
     func mostrarMenu(imagenP:UIView ,padreP:UIViewController,botonTmp:UIButton)
     {
@@ -32,7 +33,7 @@ class MenuEditar : NSObject
         else
         {
         padre = imagenP
-        RADIO = imagenP.frame.height + RADIO
+        RADIO = imagenP.frame.height - RADIO
     
        
         var boton: UIButton = UIButton(frame: CGRectMake(0,0, 30, 30))
@@ -72,6 +73,7 @@ class MenuEditar : NSObject
                 else
                 {
                     self.mostrando=true
+                    self.centro=self.padre!.center
                 }
         })
 
@@ -82,12 +84,15 @@ class MenuEditar : NSObject
     
     func esconderMenu()
     {
-        mostrando = false
+        if(mostrando)
+        {
+            
+        
         UIButton.animateWithDuration(0.15, delay: 0, options: .CurveEaseOut, animations:
             {
                 if(self.contador > 0)
                 {
-                    self.botones[self.contador-1].center = self.padre!.center
+                    self.botones[self.contador-1].center = self.centro!
                     self.botones[self.contador-1].alpha = 0
                     
                 }
@@ -105,9 +110,11 @@ class MenuEditar : NSObject
                 else
                 {
                     self.mostrando=false
+                    self.RADIO = 50.0
                 }
 
     })
+    }
     }
     
     

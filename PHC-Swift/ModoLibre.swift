@@ -85,7 +85,7 @@ class ModoLibre: UIViewController, UIImagePickerControllerDelegate, UINavigation
     // Funciones de modificacion
     
     func mover(recognizer:UIPanGestureRecognizer) {
-    
+        menuEditar.esconderMenu()
         let translation = recognizer.translationInView(self.view)
         recognizer.view!.center = CGPoint(x:recognizer.view!.center.x + translation.x,
             y:recognizer.view!.center.y + translation.y)
@@ -98,13 +98,14 @@ class ModoLibre: UIViewController, UIImagePickerControllerDelegate, UINavigation
         
        // NSLog("Tocar");
         // Traer al frente
-        
+        menuEditar.esconderMenu()
         self.view.bringSubviewToFront(recognizer.view!);
         
     }
     
     func rotar(recognizer:UIRotationGestureRecognizer) {
        // NSLog("Rotar");
+        menuEditar.esconderMenu()
         recognizer.view!.transform = CGAffineTransformRotate(recognizer.view!.transform, recognizer.rotation)
         recognizer.rotation = 0
         
@@ -112,6 +113,7 @@ class ModoLibre: UIViewController, UIImagePickerControllerDelegate, UINavigation
     
     func zoom(recognizer : UIPinchGestureRecognizer) {
         //NSLog("Zoom");
+        menuEditar.esconderMenu()
         recognizer.view!.transform = CGAffineTransformScale(recognizer.view!.transform,
             recognizer.scale, recognizer.scale)
         recognizer.scale = 1
@@ -119,7 +121,9 @@ class ModoLibre: UIViewController, UIImagePickerControllerDelegate, UINavigation
     
     func borrar(recognizer : UIPinchGestureRecognizer) {
        // NSLog("Borrar");
+        menuEditar.esconderMenu()
         recognizer.view!.removeFromSuperview()
+        menuEditar.esconderMenu()
     }
     
     func longPress(recognizer : UIPinchGestureRecognizer) {
