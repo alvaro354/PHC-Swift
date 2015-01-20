@@ -153,6 +153,8 @@ class Cortar: UIViewController,UIScrollViewDelegate
         plantillaView.addGestureRecognizer(move)
         
         self.view.addSubview(plantillaView)
+        
+       // plantillaView.transform = CGAffineTransformScale(plantillaView.transform,0.8, 0.8)
     }
     
     
