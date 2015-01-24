@@ -57,7 +57,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Dqm-SX-Fzb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="577" y="-279"/>
+            <point key="canvasLocation" x="542" y="-306"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -99,6 +99,45 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="34" y="372"/>
+        </scene>
+        <!--Menu Shapes-->
+        <scene sceneID="chb-XP-LFo">
+            <objects>
+                <viewController storyboardIdentifier="MenuShapes" id="vkN-lb-nG8" customClass="MenuShapes" customModule="PHC_Swift" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="qY5-oj-Rwp"/>
+                        <viewControllerLayoutGuide type="bottom" id="AHt-aj-FJo"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="3x6-rD-4ik">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1ip-Dl-KhH">
+                                <rect key="frame" x="503" y="50" width="46" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="46" id="I9Z-n5-bgR"/>
+                                </constraints>
+                                <state key="normal" title="Cerrar">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="cerrarVista" destination="vkN-lb-nG8" eventType="touchUpInside" id="IPE-pB-ZVB"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="1ip-Dl-KhH" secondAttribute="trailing" constant="35" id="QXe-Q2-7ld"/>
+                            <constraint firstItem="1ip-Dl-KhH" firstAttribute="top" secondItem="qY5-oj-Rwp" secondAttribute="bottom" constant="30" id="c4k-py-9nJ"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="cerrar" destination="1ip-Dl-KhH" id="qcd-yA-Csb"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="MD4-8s-09q" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1283" y="-306"/>
         </scene>
         <!--Modo Libre-->
         <scene sceneID="4x8-jb-J9a">

@@ -8,16 +8,19 @@
 
 import UIKit
 
-class ModoLibre: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIGestureRecognizerDelegate , CortarDelegate{
+class ModoLibre: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIGestureRecognizerDelegate , CortarDelegate ,ShapesDelegate{
     
     //Declaracion Variables
     
     var cameraRoll = UIImagePickerController()
     var cortarView:Cortar?
+    var menuShapes:MenuShapes?
     var menuEditar: MenuEditar = MenuEditar()
     
     @IBOutlet var BotonMenuPrincipal: UIButton?
     @IBOutlet var BotonMenuOpciones: UIButton?
+    
+    var imagenShape: UIImage = UIImage()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,7 +41,13 @@ class ModoLibre: UIViewController, UIImagePickerControllerDelegate, UINavigation
     
     @IBAction func pasarMenuOpciones(sender: UIButton)
     {
-        presentViewController(cameraRoll, animated: true, nil);
+       // presentViewController(cameraRoll, animated: true, nil);
+        
+        let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        self.menuShapes = mainStoryboard.instantiateViewControllerWithIdentifier("MenuShapes") as? MenuShapes
+        self.menuShapes!.delegate = self
+        self.view.addSubview(menuShapes!.view)
+
     }
     
     @IBAction func pasarMenuPrincipal(sender: UIButton)
@@ -153,5 +162,13 @@ class ModoLibre: UIViewController, UIImagePickerControllerDelegate, UINavigation
         cortarView!.dismissViewControllerAnimated(true, completion: nil);
         var imagen = Imagen(imagen:imagenCortada);
         imagen.añadir(self);
+    }
+    
+    // Delegate Eleccion Shape
+    
+    func eleccionFinalizado(imagen:UIImage)
+    {
+        imagenShape = imagen
+        presentViewController(cameraRoll, animated: true, nil);
     }
 }

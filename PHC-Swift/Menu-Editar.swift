@@ -86,9 +86,16 @@ class MenuEditar : NSObject
     {
         if(mostrando)
         {
-            
-        
-        UIButton.animateWithDuration(0.15, delay: 0, options: .CurveEaseOut, animations:
+            esconderMenuRecursivo()
+        }
+    }
+
+    func esconderMenuRecursivo()
+    {
+    
+     self.mostrando=false
+    
+      UIButton.animateWithDuration(0.15, delay: 0, options: .CurveEaseOut, animations:
             {
                 if(self.contador > 0)
                 {
@@ -105,16 +112,14 @@ class MenuEditar : NSObject
                     self.botones[self.contador-1].removeFromSuperview()
                     self.botones.removeLast()
                     self.contador--
-                    self.esconderMenu()
+                    self.esconderMenuRecursivo()
                 }
                 else
                 {
-                    self.mostrando=false
+                   
                     self.RADIO = 50.0
-                }
+                }})
 
-    })
-    }
     }
     
     

@@ -63,7 +63,7 @@ class Imagen: NSObject, UIGestureRecognizerDelegate{
         vistaImagen.addGestureRecognizer(pitch)
         
         let long = UILongPressGestureRecognizer(target:padre!, action:Selector("longPress:"))
-        long.minimumPressDuration = 2
+        long.minimumPressDuration = 1
         long.delegate = padre as ModoLibre
         vistaImagen.addGestureRecognizer(long)
         
