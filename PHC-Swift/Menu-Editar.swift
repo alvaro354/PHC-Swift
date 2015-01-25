@@ -9,11 +9,13 @@
 import UIKit
 
 
+ let opcionesBotones : [(String,String)] = [("Circulo.png",""),("Circulo.png",""),("Circulo.png",""),("Circulo.png","esconderMenu")]
 
  var sharedMenu : MenuEditar? = nil
 
 class MenuEditar : NSObject
 {
+    
     var RADIO :CGFloat = 50.0
     let ALPHA :CGFloat = (30.0 * 3.1415/180.0)
     var numBotones : Int = 0
@@ -35,10 +37,12 @@ class MenuEditar : NSObject
         padre = imagenP
         RADIO = imagenP.frame.height - RADIO
     
+            let (imagen:String,funcion:String) = opcionesBotones[botones.count]
        
         var boton: UIButton = UIButton(frame: CGRectMake(0,0, 30, 30))
         boton.tintColor = UIColor.blackColor()
-        boton.setImage(UIImage(named:"Circulo.png")!, forState: UIControlState.Normal)
+        boton.setImage(UIImage(named:imagen)!, forState: UIControlState.Normal)
+        boton.addTarget(self, action: Selector(funcion), forControlEvents: UIControlEvents.TouchDown)
         boton.center = imagenP.center
         boton.alpha = 0
         padreP.view.addSubview(boton)

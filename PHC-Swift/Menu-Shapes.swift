@@ -15,8 +15,11 @@ import UIKit
     
 }
 
+ let opcionesShapes : [(String,String)] = [("Circulo.png",""),("Circulo.png",""),("Circulo.png",""),("Circulo.png","")]
 
 class MenuShapes : UIViewController, UICollectionViewDelegate ,UICollectionViewDataSource{
+    
+    
     
     @IBOutlet var cerrar : UIButton?
      var grid : UICollectionView?
