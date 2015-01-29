@@ -11,11 +11,11 @@ import UIKit
 @objc protocol ShapesDelegate
 {
     
-    optional func eleccionFinalizado(imagen:UIImage)
+    optional func eleccionFinalizado(imagen:Int)
     
 }
 
- let opcionesShapes : [(String,String)] = [("Circulo.png",""),("Circulo.png",""),("Circulo.png",""),("Circulo.png","")]
+ let opcionesShapes : [String] = ["Circulo.png","Corazon.png","Cuadroc.png"]
 
 class MenuShapes : UIViewController, UICollectionViewDelegate ,UICollectionViewDataSource{
     
@@ -40,7 +40,7 @@ class MenuShapes : UIViewController, UICollectionViewDelegate ,UICollectionViewD
         grid!.delegate = self
         grid!.layer.cornerRadius = 10
         grid!.center = self.view.center
-        grid!.registerClass(UICollectionViewCell.self, forCellWithReuseIdentifier: "CeldaShape")
+        grid!.registerClass(CeldaShape.self, forCellWithReuseIdentifier: "CeldaShape")
         
         self.view.addSubview(grid!)
         
@@ -62,19 +62,22 @@ class MenuShapes : UIViewController, UICollectionViewDelegate ,UICollectionViewD
     //Delegado COllection
     
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 10
+        return opcionesShapes.count
     }
     
      func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-        let cell : UICollectionViewCell = collectionView.dequeueReusableCellWithReuseIdentifier("CeldaShape", forIndexPath: indexPath) as UICollectionViewCell
+        let cell = collectionView.dequeueReusableCellWithReuseIdentifier("CeldaShape", forIndexPath: indexPath) as CeldaShape
         cell.layer.cornerRadius = 10
-        cell.backgroundColor = UIColor.redColor()
+        cell.backgroundColor = UIColor.whiteColor()
+        cell.imageView.image = UIImage(named: opcionesShapes[indexPath.row])
+        
         return cell
     }
     
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
-        delegate?.eleccionFinalizado!(UIImage())
+        delegate?.eleccionFinalizado!(indexPath.row)
         self.cerrarVista()
     }
     
 }
+

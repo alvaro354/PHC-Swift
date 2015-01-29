@@ -46,10 +46,12 @@ class Cortar: UIViewController,UIScrollViewDelegate
          super.init(coder: aDecoder)
     }
 
-    func inicializar(imagenC:UIImage, delegado:CortarDelegate)
+    func inicializar(imagenC:UIImage, plantillaC:UIImage, delegado:CortarDelegate)
     {
+        
     delegate=delegado
     photo = imagenC
+    plantilla = plantillaC
     
     }
     
@@ -180,7 +182,6 @@ class Cortar: UIViewController,UIScrollViewDelegate
     func ponerPlantilla()
     {
         let screenSize: CGRect = UIScreen.mainScreen().bounds
-        plantilla = UIImage(named:"Circulo.png")!
         
         plantillaView = UIImageView(frame:CGRectMake(screenSize.width/2,screenSize.height/2,200,200));
         plantillaView.image = plantilla

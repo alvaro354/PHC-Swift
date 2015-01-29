@@ -17,6 +17,7 @@ class ModoLibre: UIViewController, UIImagePickerControllerDelegate, UINavigation
     var menuShapes:MenuShapes?
     var menuEditar: MenuEditar = MenuEditar()
     var imagenes : [Imagen] = [Imagen]()
+    var intElegidoShape :Int = 0
     
     @IBOutlet var BotonMenuPrincipal: UIButton?
     @IBOutlet var BotonMenuOpciones: UIButton?
@@ -77,7 +78,7 @@ class ModoLibre: UIViewController, UIImagePickerControllerDelegate, UINavigation
             
             let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
             self.cortarView = mainStoryboard.instantiateViewControllerWithIdentifier("CortarSB") as? Cortar
-            self.cortarView!.inicializar(tempImage, delegado:self)
+            self.cortarView!.inicializar(tempImage, plantillaC:self.imagenShape, delegado:self)
             self.presentViewController(self.cortarView!, animated: true, nil);
         });
         
@@ -206,16 +207,37 @@ class ModoLibre: UIViewController, UIImagePickerControllerDelegate, UINavigation
         
         cortarView!.dismissViewControllerAnimated(true, completion: nil);
         var imagen = Imagen(imagen:imagenCortada);
+        imagen.intPlantilla = intElegidoShape
         imagen.añadir(self);
     }
     
     // Delegate Eleccion Shape
     
-    func eleccionFinalizado(imagen:UIImage)
+    func eleccionFinalizado(imagen:Int)
     {
-        imagenShape = imagen
+        intElegidoShape = imagen
+        
+        switch imagen
+        {
+        case 0:
+            imagenShape = UIImage(named:"Circulo.png")!
+            break;
+        case 1:
+            imagenShape = UIImage(named:"Corazon.png")!
+            break;
+        case 2:
+            imagenShape = UIImage(named:"Cuadroc.png")!
+            break;
+           
+        default:
+            break;
+            
+        }
+        
+        
         presentViewController(cameraRoll, animated: true, nil);
     }
+    
     
     func devolverImagen(vista:UIView) -> Imagen?
     {

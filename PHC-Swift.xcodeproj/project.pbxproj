@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B10A76BD1A7AAF0800D7A922 /* Corazon.png in Resources */ = {isa = PBXBuildFile; fileRef = B10A76BB1A7AAF0800D7A922 /* Corazon.png */; };
+		B10A76BE1A7AAF0800D7A922 /* Cuadroc.png in Resources */ = {isa = PBXBuildFile; fileRef = B10A76BC1A7AAF0800D7A922 /* Cuadroc.png */; };
+		B10A76C01A7AB14B00D7A922 /* CeldaShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10A76BF1A7AB14B00D7A922 /* CeldaShape.swift */; };
 		B140DF451A6EBDB300B7A810 /* Menu-Editar.swift in Sources */ = {isa = PBXBuildFile; fileRef = B140DF441A6EBDB300B7A810 /* Menu-Editar.swift */; };
 		B19083901A6C35260007CE9D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B190838F1A6C35260007CE9D /* AppDelegate.swift */; };
 		B19083921A6C35260007CE9D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B19083911A6C35260007CE9D /* ViewController.swift */; };
@@ -32,6 +35,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		B10A76BB1A7AAF0800D7A922 /* Corazon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Corazon.png; sourceTree = "<group>"; };
+		B10A76BC1A7AAF0800D7A922 /* Cuadroc.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Cuadroc.png; sourceTree = "<group>"; };
+		B10A76BF1A7AB14B00D7A922 /* CeldaShape.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CeldaShape.swift; sourceTree = "<group>"; };
 		B140DF441A6EBDB300B7A810 /* Menu-Editar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Menu-Editar.swift"; sourceTree = "<group>"; };
 		B190838A1A6C35260007CE9D /* PHC-Swift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "PHC-Swift.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B190838E1A6C35260007CE9D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -90,6 +96,8 @@
 			isa = PBXGroup;
 			children = (
 				B19083B81A6D76EF0007CE9D /* Circulo.png */,
+				B10A76BB1A7AAF0800D7A922 /* Corazon.png */,
+				B10A76BC1A7AAF0800D7A922 /* Cuadroc.png */,
 				B190838F1A6C35260007CE9D /* AppDelegate.swift */,
 				B19083911A6C35260007CE9D /* ViewController.swift */,
 				B19083AF1A6C38780007CE9D /* ModoLibre.swift */,
@@ -134,6 +142,7 @@
 				B19083B21A6C405D0007CE9D /* Imagen.swift */,
 				B140DF441A6EBDB300B7A810 /* Menu-Editar.swift */,
 				B1E24F251A7419E7000CF06A /* Menu-Shapes.swift */,
+				B10A76BF1A7AB14B00D7A922 /* CeldaShape.swift */,
 			);
 			name = Objetos;
 			sourceTree = "<group>";
@@ -219,6 +228,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B10A76BD1A7AAF0800D7A922 /* Corazon.png in Resources */,
+				B10A76BE1A7AAF0800D7A922 /* Cuadroc.png in Resources */,
 				B19083951A6C35260007CE9D /* Main.storyboard in Resources */,
 				B190839A1A6C35260007CE9D /* LaunchScreen.xib in Resources */,
 				B19083B91A6D76EF0007CE9D /* Circulo.png in Resources */,
@@ -245,6 +256,7 @@
 				B1E24F261A7419E7000CF06A /* Menu-Shapes.swift in Sources */,
 				B19083921A6C35260007CE9D /* ViewController.swift in Sources */,
 				B140DF451A6EBDB300B7A810 /* Menu-Editar.swift in Sources */,
+				B10A76C01A7AB14B00D7A922 /* CeldaShape.swift in Sources */,
 				B19083901A6C35260007CE9D /* AppDelegate.swift in Sources */,
 				B19083B71A6D41D80007CE9D /* Cortar.swift in Sources */,
 			);

@@ -100,6 +100,27 @@ class MenuEditar : NSObject
     
     func añadirBorde()
     {
+        var plantilla : UIImage?
+        
+        //Plantilla Elegida
+        switch Int(datosImagen!.intPlantilla)
+        {
+            case 0:
+            plantilla = UIImage(named:"Circulo.png")!
+            break;
+            case 1:
+            plantilla = UIImage(named:"Corazon.png")!
+            break;
+            case 2:
+            plantilla = UIImage(named:"Cuadroc.png")!
+            break;
+            
+            default:
+            break;
+            
+        }
+
+        
         //Radio del borde
         
         let radio : CGFloat = 8.0
@@ -115,28 +136,28 @@ class MenuEditar : NSObject
         
         
         let imagenView :UIImageView = padre as UIImageView
-        let   plantilla = UIImage(named:"Circulo.png")!
+
         let colorSpace:CGColorSpace = CGColorSpaceCreateDeviceRGB()
         let bitmapInfo = CGBitmapInfo(CGImageAlphaInfo.PremultipliedLast.rawValue)
         
-        let maskImageRef:CGImageRef  = plantilla.CGImage;
+        let maskImageRef:CGImageRef  = plantilla!.CGImage;
         
         // create a bitmap graphics context the size of the image
-        let mainViewContentContext:CGContextRef = CGBitmapContextCreate (nil, UInt(plantilla.size.width), UInt(plantilla.size.height), 8, 0, colorSpace, bitmapInfo);
+        let mainViewContentContext:CGContextRef = CGBitmapContextCreate (nil, UInt(plantilla!.size.width), UInt(plantilla!.size.height), 8, 0, colorSpace, bitmapInfo);
         
         
         
         var ratio:CGFloat  = 0;
         let scale:CGFloat  = 0.5;
         
-        ratio = plantilla.size.width / image.size.width;
+        ratio = plantilla!.size.width / image.size.width;
         
-        if(ratio * image.size.height < plantilla.size.height) {
-            ratio = plantilla.size.height / image.size.height;
+        if(ratio * image.size.height < plantilla!.size.height) {
+            ratio = plantilla!.size.height / image.size.height;
         }
         
-        let rect1:CGRect  = CGRectMake(0, 0,plantilla.size.width , plantilla.size.height)
-        let rect2:CGRect  = CGRectMake(-((image.size.width*ratio) - plantilla.size.width)/2 , -((image.size.height*ratio)-plantilla.size.height)/2, image.size.width*ratio , image.size.height*ratio)
+        let rect1:CGRect  = CGRectMake(0, 0,plantilla!.size.width , plantilla!.size.height)
+        let rect2:CGRect  = CGRectMake(-((image.size.width*ratio) - plantilla!.size.width)/2 , -((image.size.height*ratio)-plantilla!.size.height)/2, image.size.width*ratio , image.size.height*ratio)
         
         UIColor.clearColor().setFill()
         CGContextClipToMask(mainViewContentContext, rect1, maskImageRef);
@@ -149,10 +170,13 @@ class MenuEditar : NSObject
         
         let theImage:UIImage  = UIImage(CGImage: newImage)!;
 
+        //Calculamos el angulo
+        
+        
         let imagenViewF : UIImageView = UIImageView(image: theImage)
-        imagenViewF.frame = CGRectMake(0, 0, imagenView.frame.width+radio, imagenView.frame.height+radio)
         imagenViewF.center =  imagenView.center
-       // CGAffineTransformScale(imagenViewF.transform,1.2, 1.2)
+        imagenViewF.transform = imagenView.transform
+        imagenViewF.transform = CGAffineTransformScale(imagenViewF.transform,(imagenView.bounds.width + radio) / imagenView.bounds.width  , (imagenView.bounds.height + radio) / imagenView.bounds.height )
         padreController!.view.addSubview(imagenViewF)
         padreController!.view.sendSubviewToBack(imagenViewF)
         datosImagen?.vistaBorde = imagenViewF

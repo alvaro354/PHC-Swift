@@ -16,6 +16,7 @@ class Imagen: NSObject, UIGestureRecognizerDelegate{
     var vistaBorde : UIImageView;
     var padre:AnyObject? = nil ;
     var borde : Bool = false
+    var intPlantilla :Int = 0
     //PanGestures
     
     var move:UIPanGestureRecognizer?;
