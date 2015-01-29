@@ -110,11 +110,11 @@ class Cortar: UIViewController,UIScrollViewDelegate
         
         photoCortada = UIImage(CGImage: imageRef)
         
-        
+       /*
         //Mask
         
         
-        let maskLayer:CALayer = CALayer()
+        let maskLayer:CAShapeLayer = CAShapeLayer()
         maskLayer.contents = plantilla.CGImage
         //  maskLayer.contentsGravity = kCAGravityCenter;
         maskLayer.frame = CGRectMake(0.0, 0.0,plantilla.size.width,plantilla.size.height);
@@ -123,9 +123,48 @@ class Cortar: UIViewController,UIScrollViewDelegate
         photoViewCortada.image = photo;
         
         photoViewCortada.layer.mask = maskLayer;
-      //  viewToMask.layer.mask.borderWidth= 8;
-     //   viewToMask.layer.mask.borderColor= [UIColor blueColor].CGColor;
         
+        delegate?.cortarFinalizado!(photoViewCortada)
+        */
+        
+        //Mask 2
+        let colorSpace:CGColorSpace = CGColorSpaceCreateDeviceRGB()
+        let bitmapInfo = CGBitmapInfo(CGImageAlphaInfo.PremultipliedLast.rawValue)
+        
+        let maskImageRef:CGImageRef  = plantilla.CGImage;
+        
+        // create a bitmap graphics context the size of the image
+        let mainViewContentContext:CGContextRef = CGBitmapContextCreate (nil, UInt(plantilla.size.width), UInt(plantilla.size.height), 8, 0, colorSpace, bitmapInfo);
+        
+       
+        
+        var ratio:CGFloat  = 0;
+        let scale:CGFloat  = 0.5;
+        let image :UIImage = photo!
+        
+        ratio = plantilla.size.width / image.size.width;
+        
+        if(ratio * image.size.height < plantilla.size.height) {
+            ratio = plantilla.size.height / image.size.height;
+        }
+        
+        let rect1:CGRect  = CGRectMake(0, 0,plantilla.size.width , plantilla.size.height)
+        let rect2:CGRect  = CGRectMake(-((image.size.width*ratio) - plantilla.size.width)/2 , -((image.size.height*ratio)-plantilla.size.height)/2, image.size.width*ratio , image.size.height*ratio)
+        
+        UIColor.clearColor().setFill()
+        CGContextClipToMask(mainViewContentContext, rect1, maskImageRef);
+        CGContextDrawImage(mainViewContentContext, rect2, image.CGImage);
+        CGAffineTransformMakeScale(scale,scale);
+        
+        // release that bitmap context
+        let newImage:CGImageRef = CGBitmapContextCreateImage(mainViewContentContext);
+        
+        
+        let theImage:UIImage  = UIImage(CGImage: newImage)!;
+        
+        photoViewCortada = UIImageView(frame:CGRectMake(0, 0, plantilla.size.width, plantilla.size.height));
+        photoViewCortada.image = theImage;
+        photoViewCortada.backgroundColor = UIColor.clearColor()
         delegate?.cortarFinalizado!(photoViewCortada)
         
     }

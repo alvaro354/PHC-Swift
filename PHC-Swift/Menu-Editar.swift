@@ -9,7 +9,7 @@
 import UIKit
 
 
- let opcionesBotones : [(String,String)] = [("Circulo.png",""),("Circulo.png",""),("Circulo.png",""),("Circulo.png","esconderMenu")]
+ let opcionesBotones : [(String,String)] = [("Circulo.png","añadirBorde"),("Circulo.png",""),("Circulo.png",""),("Circulo.png","esconderMenu")]
 
  var sharedMenu : MenuEditar? = nil
 
@@ -21,12 +21,14 @@ class MenuEditar : NSObject
     var numBotones : Int = 0
     var botones = [UIButton]()
     var padre: UIView?
+      var padreController: UIViewController?
     var contador:Int = 0;
     let veces = 3;
     var mostrando : Bool = false
     var centro : CGPoint?
+    var datosImagen : Imagen?
 
-    func mostrarMenu(imagenP:UIView ,padreP:UIViewController,botonTmp:UIButton)
+    func mostrarMenu(imagenP:UIView ,padreP:UIViewController,botonTmp:UIButton ,dImagen : Imagen )
     {
         if(mostrando && imagenP == padre)
         {
@@ -35,6 +37,8 @@ class MenuEditar : NSObject
         else
         {
         padre = imagenP
+        padreController = padreP
+        datosImagen = dImagen
         RADIO = imagenP.frame.height - RADIO
     
             let (imagen:String,funcion:String) = opcionesBotones[botones.count]
@@ -72,7 +76,7 @@ class MenuEditar : NSObject
                 println("Animacion Acabada")
                 if(self.contador++ < self.veces)
                 {
-                    self.mostrarMenu(imagenP, padreP: padreP, botonTmp: boton)
+                    self.mostrarMenu(imagenP, padreP: padreP, botonTmp: boton ,dImagen: dImagen)
                 }
                 else
                 {
@@ -92,6 +96,66 @@ class MenuEditar : NSObject
         {
             esconderMenuRecursivo()
         }
+    }
+    
+    func añadirBorde()
+    {
+        //Radio del borde
+        
+        let radio : CGFloat = 8.0
+        
+        let imageSize:CGSize = CGSizeMake(300, 300);
+        let fillColor : UIColor = UIColor.blackColor();
+        UIGraphicsBeginImageContextWithOptions(imageSize, true, 0);
+        let context:CGContextRef  = UIGraphicsGetCurrentContext();
+        fillColor.setFill()
+        CGContextFillRect(context, CGRectMake(0, 0, imageSize.width, imageSize.height));
+        let image:UIImage = UIGraphicsGetImageFromCurrentImageContext();
+        UIGraphicsEndImageContext();
+        
+        
+        let imagenView :UIImageView = padre as UIImageView
+        let   plantilla = UIImage(named:"Circulo.png")!
+        let colorSpace:CGColorSpace = CGColorSpaceCreateDeviceRGB()
+        let bitmapInfo = CGBitmapInfo(CGImageAlphaInfo.PremultipliedLast.rawValue)
+        
+        let maskImageRef:CGImageRef  = plantilla.CGImage;
+        
+        // create a bitmap graphics context the size of the image
+        let mainViewContentContext:CGContextRef = CGBitmapContextCreate (nil, UInt(plantilla.size.width), UInt(plantilla.size.height), 8, 0, colorSpace, bitmapInfo);
+        
+        
+        
+        var ratio:CGFloat  = 0;
+        let scale:CGFloat  = 0.5;
+        
+        ratio = plantilla.size.width / image.size.width;
+        
+        if(ratio * image.size.height < plantilla.size.height) {
+            ratio = plantilla.size.height / image.size.height;
+        }
+        
+        let rect1:CGRect  = CGRectMake(0, 0,plantilla.size.width , plantilla.size.height)
+        let rect2:CGRect  = CGRectMake(-((image.size.width*ratio) - plantilla.size.width)/2 , -((image.size.height*ratio)-plantilla.size.height)/2, image.size.width*ratio , image.size.height*ratio)
+        
+        UIColor.clearColor().setFill()
+        CGContextClipToMask(mainViewContentContext, rect1, maskImageRef);
+        CGContextDrawImage(mainViewContentContext, rect2, image.CGImage);
+        CGAffineTransformMakeScale(scale,scale);
+        
+        // release that bitmap context
+        let newImage:CGImageRef = CGBitmapContextCreateImage(mainViewContentContext);
+        
+        
+        let theImage:UIImage  = UIImage(CGImage: newImage)!;
+
+        let imagenViewF : UIImageView = UIImageView(image: theImage)
+        imagenViewF.frame = CGRectMake(0, 0, imagenView.frame.width+radio, imagenView.frame.height+radio)
+        imagenViewF.center =  imagenView.center
+       // CGAffineTransformScale(imagenViewF.transform,1.2, 1.2)
+        padreController!.view.addSubview(imagenViewF)
+        padreController!.view.sendSubviewToBack(imagenViewF)
+        datosImagen?.vistaBorde = imagenViewF
     }
 
     func esconderMenuRecursivo()

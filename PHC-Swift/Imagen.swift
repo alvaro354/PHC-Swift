@@ -13,6 +13,7 @@ import UIKit
 class Imagen: NSObject, UIGestureRecognizerDelegate{
     
     var vistaImagen : UIImageView;
+    var vistaBorde : UIImageView;
     var padre:AnyObject? = nil ;
     
     //PanGestures
@@ -24,6 +25,7 @@ class Imagen: NSObject, UIGestureRecognizerDelegate{
     init(imagen:UIImageView)
     {
         vistaImagen = imagen
+        vistaBorde = imagen
     }
     
     func ponerImagen(imagen:UIImageView)
@@ -32,6 +34,7 @@ class Imagen: NSObject, UIGestureRecognizerDelegate{
        // let height = CGImageGetHeight(imagen.CGImage) / 2;
         
         vistaImagen = imagen
+         vistaBorde = imagen
     }
     
     func añadir(controller:UIViewController)
@@ -73,6 +76,8 @@ class Imagen: NSObject, UIGestureRecognizerDelegate{
         
         controller.view.addSubview(vistaImagen);
         controller.view.bringSubviewToFront(vistaImagen);
+        var modoLibre = controller as ModoLibre
+        modoLibre.imagenes.append(self)
         
         //Escalamos la imagen
         vistaImagen.transform = CGAffineTransformScale(vistaImagen.transform,

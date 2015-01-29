@@ -16,6 +16,7 @@ class ModoLibre: UIViewController, UIImagePickerControllerDelegate, UINavigation
     var cortarView:Cortar?
     var menuShapes:MenuShapes?
     var menuEditar: MenuEditar = MenuEditar()
+    var imagenes : [Imagen] = [Imagen]()
     
     @IBOutlet var BotonMenuPrincipal: UIButton?
     @IBOutlet var BotonMenuOpciones: UIButton?
@@ -96,8 +97,14 @@ class ModoLibre: UIViewController, UIImagePickerControllerDelegate, UINavigation
     func mover(recognizer:UIPanGestureRecognizer) {
         menuEditar.esconderMenu()
         let translation = recognizer.translationInView(self.view)
-        recognizer.view!.center = CGPoint(x:recognizer.view!.center.x + translation.x,
-            y:recognizer.view!.center.y + translation.y)
+        
+        var imagen = self.devolverImagen(recognizer.view!)!
+        
+        imagen.vistaImagen.center = CGPoint(x:imagen.vistaImagen.center.x + translation.x,
+            y:imagen.vistaImagen.center.y + translation.y)
+        imagen.vistaBorde.center = CGPoint(x:imagen.vistaBorde.center.x + translation.x,
+            y:imagen.vistaBorde.center.y + translation.y)
+        
         recognizer.setTranslation(CGPointZero, inView: self.view)
 
         
@@ -115,7 +122,12 @@ class ModoLibre: UIViewController, UIImagePickerControllerDelegate, UINavigation
     func rotar(recognizer:UIRotationGestureRecognizer) {
        // NSLog("Rotar");
         menuEditar.esconderMenu()
-        recognizer.view!.transform = CGAffineTransformRotate(recognizer.view!.transform, recognizer.rotation)
+        
+          var imagen = self.devolverImagen(recognizer.view!)!
+        
+        imagen.vistaImagen.transform = CGAffineTransformRotate(imagen.vistaImagen.transform, recognizer.rotation)
+        imagen.vistaBorde.transform = CGAffineTransformRotate(imagen.vistaBorde.transform, recognizer.rotation)
+        
         recognizer.rotation = 0
         
     }
@@ -123,15 +135,26 @@ class ModoLibre: UIViewController, UIImagePickerControllerDelegate, UINavigation
     func zoom(recognizer : UIPinchGestureRecognizer) {
         //NSLog("Zoom");
         menuEditar.esconderMenu()
-        recognizer.view!.transform = CGAffineTransformScale(recognizer.view!.transform,
+        
+         var imagen = self.devolverImagen(recognizer.view!)!
+        
+        imagen.vistaImagen.transform = CGAffineTransformScale(imagen.vistaImagen.transform,
             recognizer.scale, recognizer.scale)
+        
+        imagen.vistaBorde.transform = CGAffineTransformScale(imagen.vistaBorde.transform,
+            recognizer.scale, recognizer.scale)
+        
         recognizer.scale = 1
     }
     
     func borrar(recognizer : UIPinchGestureRecognizer) {
        // NSLog("Borrar");
         menuEditar.esconderMenu()
-        recognizer.view!.removeFromSuperview()
+         var imagen = self.devolverImagen(recognizer.view!)!
+        
+         imagen.vistaBorde.removeFromSuperview()
+         imagen.vistaImagen.removeFromSuperview()
+        
         menuEditar.esconderMenu()
     }
     
@@ -139,7 +162,7 @@ class ModoLibre: UIViewController, UIImagePickerControllerDelegate, UINavigation
         // NSLog("Borrar");
        if(recognizer.state == UIGestureRecognizerState.Began)
        {
-            menuEditar.mostrarMenu(recognizer.view!,padreP: self, botonTmp: UIButton())
+        menuEditar.mostrarMenu(recognizer.view!,padreP: self, botonTmp: UIButton(),dImagen:self.devolverImagen(recognizer.view!)!)
         }
     }
     
@@ -170,5 +193,22 @@ class ModoLibre: UIViewController, UIImagePickerControllerDelegate, UINavigation
     {
         imagenShape = imagen
         presentViewController(cameraRoll, animated: true, nil);
+    }
+    
+    func devolverImagen(vista:UIView) -> Imagen?
+    {
+        let vistaBuscar :UIImageView = vista as UIImageView
+        let imagenT : Imagen?
+        
+        for imagen in imagenes
+        {
+            if(imagen.vistaImagen == vistaBuscar)
+            {
+                return imagen
+                break
+            }
+        }
+        
+        return imagenT
     }
 }
