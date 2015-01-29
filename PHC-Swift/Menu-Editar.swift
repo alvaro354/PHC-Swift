@@ -156,6 +156,7 @@ class MenuEditar : NSObject
         padreController!.view.addSubview(imagenViewF)
         padreController!.view.sendSubviewToBack(imagenViewF)
         datosImagen?.vistaBorde = imagenViewF
+        datosImagen?.borde = true
     }
 
     func esconderMenuRecursivo()

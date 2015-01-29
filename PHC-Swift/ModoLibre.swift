@@ -102,8 +102,12 @@ class ModoLibre: UIViewController, UIImagePickerControllerDelegate, UINavigation
         
         imagen.vistaImagen.center = CGPoint(x:imagen.vistaImagen.center.x + translation.x,
             y:imagen.vistaImagen.center.y + translation.y)
-        imagen.vistaBorde.center = CGPoint(x:imagen.vistaBorde.center.x + translation.x,
+        
+        if(imagen.borde)
+        {
+            imagen.vistaBorde.center = CGPoint(x:imagen.vistaBorde.center.x + translation.x,
             y:imagen.vistaBorde.center.y + translation.y)
+        }
         
         recognizer.setTranslation(CGPointZero, inView: self.view)
 
@@ -115,7 +119,15 @@ class ModoLibre: UIViewController, UIImagePickerControllerDelegate, UINavigation
        // NSLog("Tocar");
         // Traer al frente
         menuEditar.esconderMenu()
-        self.view.bringSubviewToFront(recognizer.view!);
+        
+        var imagen = self.devolverImagen(recognizer.view!)!
+        
+        self.view.bringSubviewToFront(imagen.vistaImagen);
+        
+        if(imagen.borde)
+        {
+             self.view.bringSubviewToFront(imagen.vistaBorde);
+        }
         
     }
     
@@ -126,8 +138,11 @@ class ModoLibre: UIViewController, UIImagePickerControllerDelegate, UINavigation
           var imagen = self.devolverImagen(recognizer.view!)!
         
         imagen.vistaImagen.transform = CGAffineTransformRotate(imagen.vistaImagen.transform, recognizer.rotation)
-        imagen.vistaBorde.transform = CGAffineTransformRotate(imagen.vistaBorde.transform, recognizer.rotation)
         
+        if(imagen.borde)
+        {
+        imagen.vistaBorde.transform = CGAffineTransformRotate(imagen.vistaBorde.transform, recognizer.rotation)
+        }
         recognizer.rotation = 0
         
     }
@@ -141,8 +156,11 @@ class ModoLibre: UIViewController, UIImagePickerControllerDelegate, UINavigation
         imagen.vistaImagen.transform = CGAffineTransformScale(imagen.vistaImagen.transform,
             recognizer.scale, recognizer.scale)
         
+        if(imagen.borde)
+        {
         imagen.vistaBorde.transform = CGAffineTransformScale(imagen.vistaBorde.transform,
             recognizer.scale, recognizer.scale)
+        }
         
         recognizer.scale = 1
     }
@@ -153,7 +171,11 @@ class ModoLibre: UIViewController, UIImagePickerControllerDelegate, UINavigation
          var imagen = self.devolverImagen(recognizer.view!)!
         
          imagen.vistaBorde.removeFromSuperview()
+        
+        if(imagen.borde)
+        {
          imagen.vistaImagen.removeFromSuperview()
+        }
         
         menuEditar.esconderMenu()
     }
