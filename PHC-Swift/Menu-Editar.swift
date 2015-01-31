@@ -9,15 +9,15 @@
 import UIKit
 
 
- let opcionesBotones : [(String,String)] = [("Circulo.png","añadirBorde"),("Circulo.png",""),("Circulo.png",""),("Circulo.png","esconderMenu")]
+ let opcionesBotones : [(String,String)] = [("Circulo.png","elegirColorBorde"),("Circulo.png",""),("Circulo.png",""),("Circulo.png","esconderMenu")]
 
  var sharedMenu : MenuEditar? = nil
 
-class MenuEditar : NSObject
+class MenuEditar : NSObject,ColorPickerDelegate
 {
     
-    var RADIO :CGFloat = 50.0
-    let ALPHA :CGFloat = (30.0 * 3.1415/180.0)
+    var RADIO :CGFloat = 30.0
+    let ALPHA :CGFloat = (25.0 * 3.1415/180.0)
     var numBotones : Int = 0
     var botones = [UIButton]()
     var padre: UIView?
@@ -27,6 +27,7 @@ class MenuEditar : NSObject
     var mostrando : Bool = false
     var centro : CGPoint?
     var datosImagen : Imagen?
+    var menuColor:ColorPicker?
 
     func mostrarMenu(imagenP:UIView ,padreP:UIViewController,botonTmp:UIButton ,dImagen : Imagen )
     {
@@ -39,7 +40,7 @@ class MenuEditar : NSObject
         padre = imagenP
         padreController = padreP
         datosImagen = dImagen
-        RADIO = imagenP.frame.height - RADIO
+        RADIO = (imagenP.bounds.size.height / 2) + RADIO
     
             let (imagen:String,funcion:String) = opcionesBotones[botones.count]
        
@@ -68,7 +69,7 @@ class MenuEditar : NSObject
                 }
                 else
                 {
-                    boton.frame.origin.y -= self.RADIO
+                    boton.center.y =  imagenP.center.y - self.RADIO
                 }
                 boton.alpha = 1
                 
@@ -98,9 +99,27 @@ class MenuEditar : NSObject
         }
     }
     
-    func añadirBorde()
+    func elegirColorBorde()
+    {
+        let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        self.menuColor = mainStoryboard.instantiateViewControllerWithIdentifier("ColorPicker") as? ColorPicker
+        self.menuColor!.delegate = self
+        padreController!.view.addSubview(menuColor!.view)
+    }
+ 
+     func eleccionColorFinalizado(imagen:UIColor)
+     {
+        añadirBorde(imagen)
+    }
+    
+    func añadirBorde(color:UIColor)
     {
         var plantilla : UIImage?
+        
+        if (datosImagen!.borde)
+        {
+            datosImagen!.vistaBorde.removeFromSuperview()
+        }
         
         //Plantilla Elegida
         switch Int(datosImagen!.intPlantilla)
@@ -126,7 +145,7 @@ class MenuEditar : NSObject
         let radio : CGFloat = 8.0
         
         let imageSize:CGSize = CGSizeMake(300, 300);
-        let fillColor : UIColor = UIColor.blackColor();
+        let fillColor : UIColor = color
         UIGraphicsBeginImageContextWithOptions(imageSize, true, 0);
         let context:CGContextRef  = UIGraphicsGetCurrentContext();
         fillColor.setFill()

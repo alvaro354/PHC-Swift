@@ -8,15 +8,17 @@
 
 import UIKit
 
-class ModoLibre: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIGestureRecognizerDelegate , CortarDelegate ,ShapesDelegate{
+class ModoLibre: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIGestureRecognizerDelegate , CortarDelegate ,ShapesDelegate, ColorPickerDelegate{
     
     //Declaracion Variables
     
     var cameraRoll = UIImagePickerController()
     var cortarView:Cortar?
     var menuShapes:MenuShapes?
+    var menuColor:ColorPicker?
     var menuEditar: MenuEditar = MenuEditar()
     var imagenes : [Imagen] = [Imagen]()
+    var imagenT : Imagen?
     var intElegidoShape :Int = 0
     
     @IBOutlet var BotonMenuPrincipal: UIButton?
@@ -57,7 +59,21 @@ class ModoLibre: UIViewController, UIImagePickerControllerDelegate, UINavigation
         dismissViewControllerAnimated(true, completion: nil);
     }
     
+    //Funcion eñegir color
     
+    func elegirColorBorde(imagenP:Imagen)
+    {
+        
+        imagenT = imagenP
+        let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        self.menuColor = mainStoryboard.instantiateViewControllerWithIdentifier("ColorPicker") as? ColorPicker
+        self.menuColor!.delegate = self
+        self.view.addSubview(menuColor!.view)
+    }
+    func eleccionColorFinalizado(imagen:UIColor)
+    {
+       // image
+    }
     // Segues
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
@@ -171,12 +187,13 @@ class ModoLibre: UIViewController, UIImagePickerControllerDelegate, UINavigation
         menuEditar.esconderMenu()
          var imagen = self.devolverImagen(recognizer.view!)!
         
-         imagen.vistaBorde.removeFromSuperview()
         
         if(imagen.borde)
         {
          imagen.vistaImagen.removeFromSuperview()
         }
+        
+         imagen.vistaBorde.removeFromSuperview()
         
         menuEditar.esconderMenu()
     }
