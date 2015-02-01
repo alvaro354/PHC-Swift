@@ -20,6 +20,7 @@ class ModoLibre: UIViewController, UIImagePickerControllerDelegate, UINavigation
     var imagenes : [Imagen] = [Imagen]()
     var imagenT : Imagen?
     var intElegidoShape :Int = 0
+    var vistaBotones : UIView = UIView()
     
     @IBOutlet var BotonMenuPrincipal: UIButton?
     @IBOutlet var BotonMenuOpciones: UIButton?
@@ -42,10 +43,48 @@ class ModoLibre: UIViewController, UIImagePickerControllerDelegate, UINavigation
     
     
         // Acciones
+    @IBAction func pasarMenuOpciones(sender : UIButton)
+    {
+        // presentViewController(cameraRoll, animated: true, nil);
+        
+       //  menuEditar.mostrarMenu(sender,padreP: self, botonTmp: UIButton(),dImagen: nil , botonOpciones : true)
+        
+        vistaBotones = UIView(frame: self.view.frame)
+        vistaBotones.backgroundColor = UIColor(white: 0.0, alpha: 0.4)
+        self.view.addSubview(vistaBotones)
+        
+        var boton: UIButton = UIButton(frame: CGRectMake(0,0, 60, 60))
+        boton.tintColor = UIColor.blackColor()
+        boton.setImage(UIImage(named:"Circulo.png")!, forState: UIControlState.Normal)
+        boton.addTarget(self, action: Selector("mostrarOpcionesShapes"), forControlEvents: UIControlEvents.TouchDown)
+        boton.center = self.view.center
+        boton.center.x -= (boton.bounds.size.width)
+        vistaBotones.addSubview(boton)
+        
+        var botonFondo: UIButton = UIButton(frame: CGRectMake(0,0, 60, 60))
+        botonFondo.tintColor = UIColor.blackColor()
+        botonFondo.setImage(UIImage(named:"Circulo.png")!, forState: UIControlState.Normal)
+        botonFondo.addTarget(self, action: Selector("mostrarOpcionesFondo"), forControlEvents: UIControlEvents.TouchDown)
+        botonFondo.center = self.view.center
+        botonFondo.center.x += (botonFondo.bounds.size.width)
+        vistaBotones.addSubview(botonFondo)
+        
+    }
     
-    @IBAction func pasarMenuOpciones(sender: UIButton)
+    func mostrarOpcionesFondo()
+    {
+        vistaBotones.removeFromSuperview()
+        
+        let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        self.menuColor = mainStoryboard.instantiateViewControllerWithIdentifier("ColorPicker") as? ColorPicker
+        self.menuColor!.delegate = self
+        self.view.addSubview(menuColor!.view)
+    }
+     func mostrarOpcionesShapes()
     {
        // presentViewController(cameraRoll, animated: true, nil);
+        
+        vistaBotones.removeFromSuperview()
         
         let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
         self.menuShapes = mainStoryboard.instantiateViewControllerWithIdentifier("MenuShapes") as? MenuShapes
@@ -70,10 +109,7 @@ class ModoLibre: UIViewController, UIImagePickerControllerDelegate, UINavigation
         self.menuColor!.delegate = self
         self.view.addSubview(menuColor!.view)
     }
-    func eleccionColorFinalizado(imagen:UIColor)
-    {
-       // image
-    }
+
     // Segues
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
@@ -139,12 +175,14 @@ class ModoLibre: UIViewController, UIImagePickerControllerDelegate, UINavigation
         
         var imagen = self.devolverImagen(recognizer.view!)!
         
-        self.view.bringSubviewToFront(imagen.vistaImagen);
-        
         if(imagen.borde)
         {
-             self.view.bringSubviewToFront(imagen.vistaBorde);
+            self.view.bringSubviewToFront(imagen.vistaBorde);
         }
+        
+        self.view.bringSubviewToFront(imagen.vistaImagen);
+        
+        
         
     }
     
@@ -185,15 +223,10 @@ class ModoLibre: UIViewController, UIImagePickerControllerDelegate, UINavigation
     func borrar(recognizer : UIPinchGestureRecognizer) {
        // NSLog("Borrar");
         menuEditar.esconderMenu()
-         var imagen = self.devolverImagen(recognizer.view!)!
+        var imagen : Imagen = self.devolverImagen(recognizer.view!)!
         
         
-        if(imagen.borde)
-        {
-         imagen.vistaImagen.removeFromSuperview()
-        }
-        
-         imagen.vistaBorde.removeFromSuperview()
+        imagen.borrar()
         
         menuEditar.esconderMenu()
     }
@@ -202,7 +235,7 @@ class ModoLibre: UIViewController, UIImagePickerControllerDelegate, UINavigation
         // NSLog("Borrar");
        if(recognizer.state == UIGestureRecognizerState.Began)
        {
-        menuEditar.mostrarMenu(recognizer.view!,padreP: self, botonTmp: UIButton(),dImagen:self.devolverImagen(recognizer.view!)!)
+        menuEditar.mostrarMenu(recognizer.view!,padreP: self, botonTmp: UIButton(),dImagen:self.devolverImagen(recognizer.view!)!, botonOpciones : false)
         }
     }
     
@@ -271,5 +304,10 @@ class ModoLibre: UIViewController, UIImagePickerControllerDelegate, UINavigation
         }
         
         return imagenT
+    }
+    
+    func eleccionColorFinalizado(color:UIColor)
+    {
+        self.view.backgroundColor = color
     }
 }

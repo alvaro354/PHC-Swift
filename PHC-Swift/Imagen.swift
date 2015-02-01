@@ -38,6 +38,18 @@ class Imagen: NSObject, UIGestureRecognizerDelegate{
          vistaBorde = imagen
     }
     
+    func borrar()
+    {
+    
+        if(borde)
+        {
+            vistaBorde.removeFromSuperview()
+        }
+        
+        vistaImagen.removeFromSuperview()
+        
+    }
+    
     func añadir(controller:UIViewController)
     {
         padre = controller;

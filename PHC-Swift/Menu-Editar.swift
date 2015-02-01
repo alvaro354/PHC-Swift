@@ -10,12 +10,13 @@ import UIKit
 
 
  let opcionesBotones : [(String,String)] = [("Circulo.png","elegirColorBorde"),("Circulo.png",""),("Circulo.png",""),("Circulo.png","esconderMenu")]
+ let opcionesEditar : [(String,String)] = [("Circulo.png","añadirFoto"),("Circulo.png","cambiarFondo")]
 
  var sharedMenu : MenuEditar? = nil
 
 class MenuEditar : NSObject,ColorPickerDelegate
 {
-    
+    //Si secambia radio y alpha al esocnder restablecer
     var RADIO :CGFloat = 30.0
     let ALPHA :CGFloat = (25.0 * 3.1415/180.0)
     var numBotones : Int = 0
@@ -23,13 +24,13 @@ class MenuEditar : NSObject,ColorPickerDelegate
     var padre: UIView?
       var padreController: UIViewController?
     var contador:Int = 0;
-    let veces = 3;
+    var veces = 0;
     var mostrando : Bool = false
     var centro : CGPoint?
     var datosImagen : Imagen?
     var menuColor:ColorPicker?
 
-    func mostrarMenu(imagenP:UIView ,padreP:UIViewController,botonTmp:UIButton ,dImagen : Imagen )
+    func mostrarMenu(imagenP:UIView ,padreP:UIViewController,botonTmp:UIButton ,dImagen : Imagen? , botonOpciones: Bool)
     {
         if(mostrando && imagenP == padre)
         {
@@ -37,12 +38,24 @@ class MenuEditar : NSObject,ColorPickerDelegate
         }
         else
         {
+        
         padre = imagenP
         padreController = padreP
         datosImagen = dImagen
         RADIO = (imagenP.bounds.size.height / 2) + RADIO
-    
-            let (imagen:String,funcion:String) = opcionesBotones[botones.count]
+        var array : [(String,String)] = [(String,String)]()
+            
+            if(botonOpciones)
+            {
+                array = opcionesEditar
+            }
+            else
+            {
+                array = opcionesBotones
+            }
+            
+            self.veces = array.count
+            let(imagen:String,funcion:String) = array[botones.count]
        
         var boton: UIButton = UIButton(frame: CGRectMake(0,0, 30, 30))
         boton.tintColor = UIColor.blackColor()
@@ -75,9 +88,9 @@ class MenuEditar : NSObject,ColorPickerDelegate
                 
             }, completion:{ finished in
                 println("Animacion Acabada")
-                if(self.contador++ < self.veces)
+                if(++self.contador < self.veces)
                 {
-                    self.mostrarMenu(imagenP, padreP: padreP, botonTmp: boton ,dImagen: dImagen)
+                    self.mostrarMenu(imagenP, padreP: padreP, botonTmp: boton ,dImagen: dImagen , botonOpciones : botonOpciones)
                 }
                 else
                 {
@@ -99,6 +112,17 @@ class MenuEditar : NSObject,ColorPickerDelegate
         }
     }
     
+    func añadirFoto()
+    {
+        esconderMenu()
+         (padreController as ModoLibre).mostrarOpcionesShapes()
+    }
+    
+    func cambiarFondo()
+    {
+         esconderMenu()
+        (padreController as ModoLibre).mostrarOpcionesShapes()
+    }
     func elegirColorBorde()
     {
         let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
@@ -107,9 +131,9 @@ class MenuEditar : NSObject,ColorPickerDelegate
         padreController!.view.addSubview(menuColor!.view)
     }
  
-     func eleccionColorFinalizado(imagen:UIColor)
+     func eleccionColorFinalizado(color:UIColor)
      {
-        añadirBorde(imagen)
+        añadirBorde(color)
     }
     
     func añadirBorde(color:UIColor)
@@ -228,8 +252,8 @@ class MenuEditar : NSObject,ColorPickerDelegate
                 }
                 else
                 {
-                   
-                    self.RADIO = 50.0
+                   self.botones.removeAll(keepCapacity: false)
+                   self.RADIO = 30.0
                 }})
 
     }

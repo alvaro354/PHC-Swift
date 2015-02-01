@@ -11,7 +11,7 @@ import UIKit
 @objc protocol ColorPickerDelegate
 {
     
-    optional func eleccionColorFinalizado(imagen:UIColor)
+    optional func eleccionColorFinalizado(color:UIColor)
     
 }
 
