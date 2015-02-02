@@ -80,6 +80,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B1330BE31A7FEB6800018E87 /* Imagenes */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Imagenes;
+			sourceTree = "<group>";
+		};
 		B19083811A6C35260007CE9D = {
 			isa = PBXGroup;
 			children = (
@@ -110,6 +117,7 @@
 				B19083911A6C35260007CE9D /* ViewController.swift */,
 				B19083AF1A6C38780007CE9D /* ModoLibre.swift */,
 				B19083B61A6D41D80007CE9D /* Cortar.swift */,
+				B1330BE31A7FEB6800018E87 /* Imagenes */,
 				B19083B11A6C40250007CE9D /* Objetos */,
 				B19083931A6C35260007CE9D /* Main.storyboard */,
 				B19083961A6C35260007CE9D /* Images.xcassets */,

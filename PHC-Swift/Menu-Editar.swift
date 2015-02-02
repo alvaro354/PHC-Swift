@@ -220,8 +220,7 @@ class MenuEditar : NSObject,ColorPickerDelegate
         imagenViewF.center =  imagenView.center
         imagenViewF.transform = imagenView.transform
         imagenViewF.transform = CGAffineTransformScale(imagenViewF.transform,(imagenView.bounds.width + radio) / imagenView.bounds.width  , (imagenView.bounds.height + radio) / imagenView.bounds.height )
-        padreController!.view.addSubview(imagenViewF)
-        padreController!.view.sendSubviewToBack(imagenViewF)
+        padreController!.view.insertSubview(imagenViewF, belowSubview: datosImagen!.vistaImagen)
         datosImagen?.vistaBorde = imagenViewF
         datosImagen?.borde = true
     }

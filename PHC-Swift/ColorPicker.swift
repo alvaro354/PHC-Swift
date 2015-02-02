@@ -17,7 +17,7 @@ import UIKit
 
 
 
-class ColorPicker : UIViewController, UICollectionViewDelegate ,UICollectionViewDataSource{
+class ColorPicker : UIViewController, UICollectionViewDelegate ,UICollectionViewDataSource, UICollectionViewDelegateFlowLayout{
 
 
     
@@ -33,18 +33,21 @@ class ColorPicker : UIViewController, UICollectionViewDelegate ,UICollectionView
         // Do any additional setup after loading the view, typically from a nib.
         
         //Inicializar Collection View
-       /*
+       
         let layout : UICollectionViewFlowLayout = UICollectionViewFlowLayout()
-        layout.sectionInset = UIEdgeInsets(top: 20, left: 20, bottom: 20, right: 20)
-        grid = UICollectionView(frame: CGRectMake(0,0, 300, 400), collectionViewLayout: layout )
+        layout.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+        layout.minimumInteritemSpacing = 1
+        layout.minimumLineSpacing = 1
+        grid = UICollectionView(frame: CGRectMake(0,0, 340, 500), collectionViewLayout: layout )
         grid!.dataSource = self
         grid!.delegate = self
-        grid!.layer.cornerRadius = 10
+       // grid!.layer.cornerRadius = 10
+        grid!.backgroundColor = UIColor.clearColor()
         grid!.center = self.view.center
-        grid!.registerClass( UICollectionViewCell.self, forCellWithReuseIdentifier: "CeldaColor")
+        grid!.registerClass( UICollectionViewCell.self, forCellWithReuseIdentifier: "Cell")
         
         self.view.addSubview(grid!)
-        */
+        
         self.view.backgroundColor = UIColor(white: 0.2, alpha: 0.2)
         
         //Cargamos el array de colores
@@ -86,7 +89,6 @@ class ColorPicker : UIViewController, UICollectionViewDelegate ,UICollectionView
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier("Cell", forIndexPath: indexPath) as UICollectionViewCell
         //cell.layer.borderWidth = 1
        // cell.layer.borderColor =  UIColor.blackColor().CGColor
-        
         cell.backgroundColor = hexStringToUIColor(colorPalette[tag])
         cell.tag = tag++
 
@@ -125,4 +127,13 @@ class ColorPicker : UIViewController, UICollectionViewDelegate ,UICollectionView
             alpha: CGFloat(1.0)
         )
     }
+    
+    
+    func collectionView(collectionView: UICollectionView,
+        layout collectionViewLayout: UICollectionViewLayout,
+        sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize
+    {
+        return CGSizeMake(31, 31                       )
+    }
+    
 }

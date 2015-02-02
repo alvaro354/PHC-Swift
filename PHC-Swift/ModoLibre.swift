@@ -1,4 +1,4 @@
-//
+ //
 //  ModoLibre.swift
 //  PHC-Swift
 //
@@ -21,6 +21,8 @@ class ModoLibre: UIViewController, UIImagePickerControllerDelegate, UINavigation
     var imagenT : Imagen?
     var intElegidoShape :Int = 0
     var vistaBotones : UIView = UIView()
+    var camaraFondo : Bool = false
+     var viewFondo : UIImageView = UIImageView()
     
     @IBOutlet var BotonMenuPrincipal: UIButton?
     @IBOutlet var BotonMenuOpciones: UIButton?
@@ -31,7 +33,7 @@ class ModoLibre: UIViewController, UIImagePickerControllerDelegate, UINavigation
         super.viewDidLoad()
         cameraRoll.delegate = self
         cameraRoll.sourceType = UIImagePickerControllerSourceType.SavedPhotosAlbum
-        cameraRoll.allowsEditing = true
+        cameraRoll.allowsEditing = false
         // Do any additional setup after loading the view, typically from a nib.
         
     }
@@ -75,6 +77,37 @@ class ModoLibre: UIViewController, UIImagePickerControllerDelegate, UINavigation
     {
         vistaBotones.removeFromSuperview()
         
+        vistaBotones = UIView(frame: self.view.frame)
+        vistaBotones.backgroundColor = UIColor(white: 0.0, alpha: 0.4)
+        self.view.addSubview(vistaBotones)
+        
+        var boton: UIButton = UIButton(frame: CGRectMake(0,0, 60, 60))
+        boton.tintColor = UIColor.blackColor()
+        boton.setImage(UIImage(named:"Circulo.png")!, forState: UIControlState.Normal)
+        boton.addTarget(self, action: Selector("mostrarFondoFoto"), forControlEvents: UIControlEvents.TouchDown)
+        boton.center = self.view.center
+        boton.center.x -= (boton.bounds.size.width)
+        vistaBotones.addSubview(boton)
+        
+        var botonFondo: UIButton = UIButton(frame: CGRectMake(0,0, 60, 60))
+        botonFondo.tintColor = UIColor.blackColor()
+        botonFondo.setImage(UIImage(named:"Circulo.png")!, forState: UIControlState.Normal)
+        botonFondo.addTarget(self, action: Selector("mostrarFondoColor"), forControlEvents: UIControlEvents.TouchDown)
+        botonFondo.center = self.view.center
+        botonFondo.center.x += (botonFondo.bounds.size.width)
+        vistaBotones.addSubview(botonFondo)
+    }
+    
+    func mostrarFondoFoto()
+    {
+        camaraFondo = true
+        cameraRoll.allowsEditing = false
+        vistaBotones.removeFromSuperview()
+        presentViewController(cameraRoll, animated: true, nil);
+    }
+    func mostrarFondoColor()
+    {
+        vistaBotones.removeFromSuperview()
         let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
         self.menuColor = mainStoryboard.instantiateViewControllerWithIdentifier("ColorPicker") as? ColorPicker
         self.menuColor!.delegate = self
@@ -122,16 +155,39 @@ class ModoLibre: UIViewController, UIImagePickerControllerDelegate, UINavigation
     // Metodos Camera Roll
     
     func imagePickerController(picker: UIImagePickerController!, didFinishPickingMediaWithInfo info:NSDictionary!) {
-        var tempImage:UIImage = info[UIImagePickerControllerEditedImage] as UIImage
+        var tempImage:UIImage
+        
+        if(picker.allowsEditing)
+        {
+            tempImage = info[UIImagePickerControllerEditedImage] as UIImage
+        }
+        else
+        {
+            tempImage = info[UIImagePickerControllerOriginalImage] as UIImage
+        }
         //imagePreview.image  = tempImage
 
         
         cameraRoll.dismissViewControllerAnimated(true, completion: {
             
+            if(self.camaraFondo)
+            {
+                //Foto Para el fondo
+                self.viewFondo.removeFromSuperview()
+                self.viewFondo = UIImageView(frame: self.view.bounds)
+                self.viewFondo.image = tempImage
+                self.view.insertSubview(self.viewFondo, atIndex: 0)
+                
+                self.camaraFondo = false
+            }
+            else
+            {
+                //Foto para un Shape
             let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
             self.cortarView = mainStoryboard.instantiateViewControllerWithIdentifier("CortarSB") as? Cortar
             self.cortarView!.inicializar(tempImage, plantillaC:self.imagenShape, delegado:self)
             self.presentViewController(self.cortarView!, animated: true, nil);
+            }
         });
         
        
@@ -284,7 +340,7 @@ class ModoLibre: UIViewController, UIImagePickerControllerDelegate, UINavigation
             
         }
         
-        
+        cameraRoll.allowsEditing = true
         presentViewController(cameraRoll, animated: true, nil);
     }
     
@@ -308,6 +364,7 @@ class ModoLibre: UIViewController, UIImagePickerControllerDelegate, UINavigation
     
     func eleccionColorFinalizado(color:UIColor)
     {
+        viewFondo.removeFromSuperview()
         self.view.backgroundColor = color
     }
 }

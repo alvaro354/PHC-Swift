@@ -46,6 +46,13 @@ class MenuShapes : UIViewController, UICollectionViewDelegate ,UICollectionViewD
         
         self.view.backgroundColor = UIColor(white: 0.2, alpha: 0.2)
         
+        let vistaAtras : UIView = UIView(frame: self.view.bounds)
+        vistaAtras.center = self.view.center
+        self.view.insertSubview(vistaAtras, belowSubview: grid!)
+        
+        let tap = UITapGestureRecognizer(target:self, action:Selector("cerrarVista"))
+        tap.numberOfTapsRequired = 1
+        vistaAtras.addGestureRecognizer(tap)
         
     }
     
@@ -68,7 +75,7 @@ class MenuShapes : UIViewController, UICollectionViewDelegate ,UICollectionViewD
      func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier("CeldaShape", forIndexPath: indexPath) as CeldaShape
         cell.layer.cornerRadius = 10
-        cell.backgroundColor = UIColor.whiteColor()
+        cell.backgroundColor = UIColor.clearColor()
         cell.imageView.image = UIImage(named: opcionesShapes[indexPath.row])
         
         return cell
