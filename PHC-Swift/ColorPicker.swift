@@ -43,6 +43,7 @@ class ColorPicker : UIViewController, UICollectionViewDelegate ,UICollectionView
         grid!.delegate = self
        // grid!.layer.cornerRadius = 10
         grid!.backgroundColor = UIColor.clearColor()
+        
         grid!.center = self.view.center
         grid!.registerClass( UICollectionViewCell.self, forCellWithReuseIdentifier: "Cell")
         
@@ -87,8 +88,8 @@ class ColorPicker : UIViewController, UICollectionViewDelegate ,UICollectionView
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier("Cell", forIndexPath: indexPath) as UICollectionViewCell
-        //cell.layer.borderWidth = 1
-       // cell.layer.borderColor =  UIColor.blackColor().CGColor
+        cell.layer.borderWidth = 1
+        cell.layer.borderColor =  UIColor.blackColor().CGColor
         cell.backgroundColor = hexStringToUIColor(colorPalette[tag])
         cell.tag = tag++
 

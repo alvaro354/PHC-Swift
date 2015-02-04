@@ -55,6 +55,10 @@ class ModoLibre: UIViewController, UIImagePickerControllerDelegate, UINavigation
         vistaBotones.backgroundColor = UIColor(white: 0.0, alpha: 0.4)
         self.view.addSubview(vistaBotones)
         
+        let vista = UIVisualEffectView(effect: UIBlurEffect(style: .Light)) as UIVisualEffectView
+        vista.frame = vistaBotones.frame
+        vistaBotones.addSubview(vista)
+        
         var boton: UIButton = UIButton(frame: CGRectMake(0,0, 60, 60))
         boton.tintColor = UIColor.blackColor()
         boton.setImage(UIImage(named:"Circulo.png")!, forState: UIControlState.Normal)
@@ -80,6 +84,10 @@ class ModoLibre: UIViewController, UIImagePickerControllerDelegate, UINavigation
         vistaBotones = UIView(frame: self.view.frame)
         vistaBotones.backgroundColor = UIColor(white: 0.0, alpha: 0.4)
         self.view.addSubview(vistaBotones)
+        
+        let vista = UIVisualEffectView(effect: UIBlurEffect(style: .Light)) as UIVisualEffectView
+        vista.frame = vistaBotones.frame
+        vistaBotones.addSubview(vista)
         
         var boton: UIButton = UIButton(frame: CGRectMake(0,0, 60, 60))
         boton.tintColor = UIColor.blackColor()
