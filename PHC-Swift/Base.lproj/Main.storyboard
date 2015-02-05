@@ -71,78 +71,116 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vKJ-3R-1Tc">
-                                <rect key="frame" x="110" y="218" width="154" height="154"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="154" id="IQW-oY-8yZ"/>
-                                    <constraint firstAttribute="height" constant="154" id="vcp-59-13v"/>
-                                </constraints>
-                                <state key="normal" title="Modo Libre" image="Boton-Frames.png">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="pasarModoLibre:" destination="BYZ-38-t0r" eventType="touchUpInside" id="N3Q-ic-fx8"/>
-                                </connections>
-                            </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Modo Libre" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zgn-NZ-vD5">
-                                <rect key="frame" x="128" y="380" width="119" height="21"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="119" id="xSG-8K-GDD"/>
-                                    <constraint firstAttribute="height" constant="21" id="yd6-cM-TBZ"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="17"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Modo Frame" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ywb-nk-fSa">
-                                <rect key="frame" x="128" y="600" width="119" height="21"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="21" id="ScP-5M-Fom"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="17"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RlR-MA-iIg">
-                                <rect key="frame" x="110" y="438" width="154" height="154"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="154" id="dfx-P6-LQ8"/>
-                                </constraints>
-                                <state key="normal" title="Modo Libre" image="Boton-Frames.png">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="pasarModoLibre:" destination="BYZ-38-t0r" eventType="touchUpInside" id="PPR-bA-Kie"/>
-                                </connections>
-                            </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Titulo-PHC.png" translatesAutoresizingMaskIntoConstraints="NO" id="9a3-c8-aQF">
                                 <rect key="frame" x="29" y="48" width="330" height="138"/>
                             </imageView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RZ6-0E-g6O">
+                                <rect key="frame" x="16" y="217" width="343" height="178"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vKJ-3R-1Tc">
+                                        <rect key="frame" x="8" y="24" width="130" height="130"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="130" id="IQW-oY-8yZ"/>
+                                            <constraint firstAttribute="height" constant="130" id="vcp-59-13v"/>
+                                        </constraints>
+                                        <state key="normal" title="Modo Libre" image="Boton-Frames.png">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="pasarModoLibre:" destination="BYZ-38-t0r" eventType="touchUpInside" id="N3Q-ic-fx8"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Modo Libre" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zgn-NZ-vD5">
+                                        <rect key="frame" x="178" y="78" width="157" height="21"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="157" id="xSG-8K-GDD"/>
+                                            <constraint firstAttribute="height" constant="21" id="yd6-cM-TBZ"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="24"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <gestureRecognizers/>
+                                <constraints>
+                                    <constraint firstItem="vKJ-3R-1Tc" firstAttribute="leading" secondItem="RZ6-0E-g6O" secondAttribute="leadingMargin" id="2B5-iP-H2E"/>
+                                    <constraint firstItem="vKJ-3R-1Tc" firstAttribute="centerY" secondItem="RZ6-0E-g6O" secondAttribute="centerY" id="8ET-TH-AyH"/>
+                                    <constraint firstItem="vKJ-3R-1Tc" firstAttribute="top" secondItem="RZ6-0E-g6O" secondAttribute="top" constant="24" id="A1M-Si-gRb"/>
+                                    <constraint firstItem="Zgn-NZ-vD5" firstAttribute="top" secondItem="RZ6-0E-g6O" secondAttribute="top" constant="78" id="omL-IQ-MJo"/>
+                                    <constraint firstItem="Zgn-NZ-vD5" firstAttribute="trailing" secondItem="RZ6-0E-g6O" secondAttribute="trailingMargin" id="tCt-3n-0yn"/>
+                                </constraints>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="QsK-9o-M8p" appends="YES" id="Zk3-4n-U4v"/>
+                                </connections>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ae6-6Y-9of">
+                                <rect key="frame" x="16" y="403" width="343" height="178"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gbY-En-Bds">
+                                        <rect key="frame" x="8" y="24" width="130" height="130"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="130" id="fIx-81-mqh"/>
+                                            <constraint firstAttribute="width" constant="130" id="zc1-Bo-Lxd"/>
+                                        </constraints>
+                                        <state key="normal" title="Modo Libre" image="Boton-Frames.png">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="pasarModoLibre:" destination="BYZ-38-t0r" eventType="touchUpInside" id="eK8-dT-7WC"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Modo Frame" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WdB-Ko-UPS">
+                                        <rect key="frame" x="178" y="78" width="157" height="28"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="28" id="5Ub-9W-Mfy"/>
+                                            <constraint firstAttribute="width" constant="157" id="xpW-hX-BQh"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="24"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <gestureRecognizers/>
+                                <constraints>
+                                    <constraint firstItem="WdB-Ko-UPS" firstAttribute="top" secondItem="Ae6-6Y-9of" secondAttribute="top" constant="78" id="2f9-dT-dET"/>
+                                    <constraint firstItem="WdB-Ko-UPS" firstAttribute="trailing" secondItem="Ae6-6Y-9of" secondAttribute="trailingMargin" id="A63-4T-1N4"/>
+                                    <constraint firstItem="gbY-En-Bds" firstAttribute="leading" secondItem="Ae6-6Y-9of" secondAttribute="leadingMargin" id="CkR-ZC-rKW"/>
+                                    <constraint firstItem="gbY-En-Bds" firstAttribute="top" secondItem="Ae6-6Y-9of" secondAttribute="top" constant="24" id="SG4-50-fnq"/>
+                                    <constraint firstItem="gbY-En-Bds" firstAttribute="centerY" secondItem="Ae6-6Y-9of" secondAttribute="centerY" id="n6Q-7e-PqS"/>
+                                </constraints>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="O16-5v-hMb" appends="YES" id="5P6-rp-gHh"/>
+                                </connections>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="vKJ-3R-1Tc" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="198" id="07T-ag-Grt"/>
                             <constraint firstAttribute="trailingMargin" secondItem="9a3-c8-aQF" secondAttribute="trailing" id="1uj-vw-4Ls"/>
-                            <constraint firstItem="vKJ-3R-1Tc" firstAttribute="top" secondItem="9a3-c8-aQF" secondAttribute="bottom" constant="32" id="2Ug-le-QDU"/>
                             <constraint firstItem="9a3-c8-aQF" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="13" id="5pP-Vq-XZr"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="ywb-nk-fSa" secondAttribute="bottom" constant="46" id="CqB-bI-hXb"/>
-                            <constraint firstItem="Zgn-NZ-vD5" firstAttribute="top" secondItem="vKJ-3R-1Tc" secondAttribute="bottom" constant="8" id="Gce-vn-urT"/>
-                            <constraint firstItem="vKJ-3R-1Tc" firstAttribute="centerX" secondItem="Zgn-NZ-vD5" secondAttribute="centerX" id="L25-kn-rey"/>
-                            <constraint firstItem="ywb-nk-fSa" firstAttribute="trailing" secondItem="Zgn-NZ-vD5" secondAttribute="trailing" id="Pqr-be-sTY"/>
-                            <constraint firstAttribute="trailingMargin" relation="lessThanOrEqual" secondItem="vKJ-3R-1Tc" secondAttribute="trailing" constant="400" id="RpD-FE-u7D"/>
-                            <constraint firstItem="RlR-MA-iIg" firstAttribute="leading" secondItem="vKJ-3R-1Tc" secondAttribute="leading" id="egw-Nv-2xp"/>
+                            <constraint firstItem="RZ6-0E-g6O" firstAttribute="leading" secondItem="Ae6-6Y-9of" secondAttribute="leading" id="NCn-Mx-FTR"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="Ae6-6Y-9of" secondAttribute="bottom" constant="86" id="Tqo-d8-4A5"/>
+                            <constraint firstItem="RZ6-0E-g6O" firstAttribute="trailing" secondItem="9a3-c8-aQF" secondAttribute="trailing" id="fXQ-5J-aDh"/>
                             <constraint firstItem="9a3-c8-aQF" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="28" id="mQR-wA-3b7"/>
-                            <constraint firstItem="ywb-nk-fSa" firstAttribute="top" secondItem="RlR-MA-iIg" secondAttribute="bottom" constant="8" id="oVd-it-KcP"/>
-                            <constraint firstItem="vKJ-3R-1Tc" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="60" id="oi1-cd-P1p"/>
-                            <constraint firstItem="RlR-MA-iIg" firstAttribute="top" secondItem="Zgn-NZ-vD5" secondAttribute="bottom" constant="37" id="r2C-cy-DJW"/>
-                            <constraint firstItem="vKJ-3R-1Tc" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" constant="-0.5" id="rGi-4o-1qI"/>
-                            <constraint firstItem="ywb-nk-fSa" firstAttribute="leading" secondItem="Zgn-NZ-vD5" secondAttribute="leading" id="sAp-cm-Q4h"/>
+                            <constraint firstItem="RZ6-0E-g6O" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="u28-ih-L7p"/>
+                            <constraint firstItem="Ae6-6Y-9of" firstAttribute="trailing" secondItem="RZ6-0E-g6O" secondAttribute="trailing" id="uTe-Lm-SHq"/>
+                            <constraint firstItem="RZ6-0E-g6O" firstAttribute="top" secondItem="9a3-c8-aQF" secondAttribute="bottom" constant="31" id="vvQ-rD-RhQ"/>
+                            <constraint firstItem="Ae6-6Y-9of" firstAttribute="top" secondItem="RZ6-0E-g6O" secondAttribute="bottom" constant="8" symbolic="YES" id="wYu-Y3-fR6"/>
                         </constraints>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
+                        <outlet property="vistaFrame" destination="Ae6-6Y-9of" id="mZP-3W-f2n"/>
+                        <outlet property="vistaLibre" destination="RZ6-0E-g6O" id="VYD-s1-xc3"/>
                         <segue destination="YZ3-YA-oHL" kind="showDetail" identifier="ModoLibre" id="Rqg-c4-4un"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="QsK-9o-M8p">
+                    <connections>
+                        <action selector="pasarModoLibre:" destination="BYZ-38-t0r" id="CBD-td-ClW"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="O16-5v-hMb"/>
             </objects>
             <point key="canvasLocation" x="33.5" y="371.5"/>
         </scene>
@@ -284,7 +322,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Boton-Frames.png" width="828" height="831"/>
+        <image name="Boton-Frames.png" width="833" height="839"/>
         <image name="Titulo-PHC.png" width="3439" height="1302"/>
     </resources>
 </document>

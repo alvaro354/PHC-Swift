@@ -19,6 +19,8 @@ class ViewController: UIViewController {
     //Declaracion Variables
     
     @IBOutlet var ModoLibre: UIButton?
+    @IBOutlet var vistaLibre: UIView?
+    @IBOutlet var vistaFrame: UIView?
      var imagenFondo : UIImageView?
     
     override func viewDidLoad() {
