@@ -28,6 +28,9 @@
 		B19B6A3A1A82BAE10079A108 /* Titulo-PHC.png in Resources */ = {isa = PBXBuildFile; fileRef = B19B6A391A82BAE10079A108 /* Titulo-PHC.png */; };
 		B19B6A3C1A83A21D0079A108 /* Boton-Frames.png in Resources */ = {isa = PBXBuildFile; fileRef = B19B6A3B1A83A21D0079A108 /* Boton-Frames.png */; };
 		B1E24F261A7419E7000CF06A /* Menu-Shapes.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1E24F251A7419E7000CF06A /* Menu-Shapes.swift */; };
+		B1FAAB811A88E5FC00253591 /* FondoMenus.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1FAAB801A88E5FC00253591 /* FondoMenus.swift */; };
+		B1FAAB831A88E82B00253591 /* FondoSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1FAAB821A88E82B00253591 /* FondoSelector.swift */; };
+		B1FAAB871A8A391900253591 /* iCarousel.m in Sources */ = {isa = PBXBuildFile; fileRef = B1FAAB861A8A391900253591 /* iCarousel.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -66,6 +69,11 @@
 		B19B6A391A82BAE10079A108 /* Titulo-PHC.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Titulo-PHC.png"; sourceTree = "<group>"; };
 		B19B6A3B1A83A21D0079A108 /* Boton-Frames.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Boton-Frames.png"; sourceTree = "<group>"; };
 		B1E24F251A7419E7000CF06A /* Menu-Shapes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Menu-Shapes.swift"; sourceTree = "<group>"; };
+		B1FAAB801A88E5FC00253591 /* FondoMenus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FondoMenus.swift; sourceTree = "<group>"; };
+		B1FAAB821A88E82B00253591 /* FondoSelector.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FondoSelector.swift; sourceTree = "<group>"; };
+		B1FAAB851A8A391900253591 /* iCarousel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iCarousel.h; sourceTree = "<group>"; };
+		B1FAAB861A8A391900253591 /* iCarousel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iCarousel.m; sourceTree = "<group>"; };
+		B1FAAB881A8A396600253591 /* SwiftExample-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SwiftExample-Bridging-Header.h"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -129,6 +137,7 @@
 				B1330BE31A7FEB6800018E87 /* Imagenes */,
 				B19083B11A6C40250007CE9D /* Objetos */,
 				B19083931A6C35260007CE9D /* Main.storyboard */,
+				B1FAAB841A8A391900253591 /* iCarousel */,
 				B19083961A6C35260007CE9D /* Images.xcassets */,
 				B19083981A6C35260007CE9D /* LaunchScreen.xib */,
 				B190838D1A6C35260007CE9D /* Supporting Files */,
@@ -164,13 +173,25 @@
 		B19083B11A6C40250007CE9D /* Objetos */ = {
 			isa = PBXGroup;
 			children = (
+				B1FAAB881A8A396600253591 /* SwiftExample-Bridging-Header.h */,
 				B19083B21A6C405D0007CE9D /* Imagen.swift */,
 				B140DF441A6EBDB300B7A810 /* Menu-Editar.swift */,
 				B1E24F251A7419E7000CF06A /* Menu-Shapes.swift */,
 				B16B1C421A7D49B100B5C3E6 /* ColorPicker.swift */,
 				B10A76BF1A7AB14B00D7A922 /* CeldaShape.swift */,
+				B1FAAB821A88E82B00253591 /* FondoSelector.swift */,
+				B1FAAB801A88E5FC00253591 /* FondoMenus.swift */,
 			);
 			name = Objetos;
+			sourceTree = "<group>";
+		};
+		B1FAAB841A8A391900253591 /* iCarousel */ = {
+			isa = PBXGroup;
+			children = (
+				B1FAAB851A8A391900253591 /* iCarousel.h */,
+				B1FAAB861A8A391900253591 /* iCarousel.m */,
+			);
+			path = iCarousel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -283,12 +304,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				B19083B31A6C405D0007CE9D /* Imagen.swift in Sources */,
+				B1FAAB811A88E5FC00253591 /* FondoMenus.swift in Sources */,
 				B19083B01A6C38780007CE9D /* ModoLibre.swift in Sources */,
+				B1FAAB831A88E82B00253591 /* FondoSelector.swift in Sources */,
 				B1E24F261A7419E7000CF06A /* Menu-Shapes.swift in Sources */,
 				B19083921A6C35260007CE9D /* ViewController.swift in Sources */,
 				B140DF451A6EBDB300B7A810 /* Menu-Editar.swift in Sources */,
 				B16B1C431A7D49B100B5C3E6 /* ColorPicker.swift in Sources */,
 				B10A76C01A7AB14B00D7A922 /* CeldaShape.swift in Sources */,
+				B1FAAB871A8A391900253591 /* iCarousel.m in Sources */,
 				B19083901A6C35260007CE9D /* AppDelegate.swift in Sources */,
 				B19083B71A6D41D80007CE9D /* Cortar.swift in Sources */,
 			);
@@ -419,8 +443,10 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = "PHC-Swift/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				NewSetting = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "PHC-Swift/SwiftExample-Bridging-Header.h";
 			};
 			name = Debug;
 		};
@@ -432,8 +458,10 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = "PHC-Swift/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				NewSetting = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "PHC-Swift/SwiftExample-Bridging-Header.h";
 			};
 			name = Release;
 		};

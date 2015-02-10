@@ -108,10 +108,14 @@ class ModoLibre: UIViewController, UIImagePickerControllerDelegate, UINavigation
     
     func mostrarFondoFoto()
     {
+        /*
         camaraFondo = true
         cameraRoll.allowsEditing = false
         vistaBotones.removeFromSuperview()
         presentViewController(cameraRoll, animated: true, nil);
+ */
+        let selectorFondo = FondoSelector()
+        self.view.addSubview(selectorFondo.view)
     }
     func mostrarFondoColor()
     {
