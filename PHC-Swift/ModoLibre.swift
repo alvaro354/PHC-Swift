@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ModoLibre: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIGestureRecognizerDelegate , CortarDelegate ,ShapesDelegate, ColorPickerDelegate{
+class ModoLibre: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIGestureRecognizerDelegate , CortarDelegate ,ShapesDelegate, ColorPickerDelegate,FondoDelegate{
     
     //Declaracion Variables
     
@@ -16,6 +16,7 @@ class ModoLibre: UIViewController, UIImagePickerControllerDelegate, UINavigation
     var cortarView:Cortar?
     var menuShapes:MenuShapes?
     var menuColor:ColorPicker?
+    var fondoSelector:FondoSelector?
     var menuEditar: MenuEditar = MenuEditar()
     var imagenes : [Imagen] = [Imagen]()
     var imagenT : Imagen?
@@ -75,7 +76,12 @@ class ModoLibre: UIViewController, UIImagePickerControllerDelegate, UINavigation
         botonFondo.center.x += (botonFondo.bounds.size.width)
         vistaBotones.addSubview(botonFondo)
         
+        let tap = UITapGestureRecognizer(target:self, action:Selector("cerrar:"))
+        tap.numberOfTapsRequired = 1
+        vistaBotones.addGestureRecognizer(tap)
+        
     }
+   
     
     func mostrarOpcionesFondo()
     {
@@ -104,6 +110,10 @@ class ModoLibre: UIViewController, UIImagePickerControllerDelegate, UINavigation
         botonFondo.center = self.view.center
         botonFondo.center.x += (botonFondo.bounds.size.width)
         vistaBotones.addSubview(botonFondo)
+        
+        let tap = UITapGestureRecognizer(target:self, action:Selector("cerrar:"))
+        tap.numberOfTapsRequired = 1
+        vistaBotones.addGestureRecognizer(tap)
     }
     
     func mostrarFondoFoto()
@@ -114,8 +124,13 @@ class ModoLibre: UIViewController, UIImagePickerControllerDelegate, UINavigation
         vistaBotones.removeFromSuperview()
         presentViewController(cameraRoll, animated: true, nil);
  */
-        let selectorFondo = FondoSelector()
-        self.view.addSubview(selectorFondo.view)
+        
+        
+        vistaBotones.removeFromSuperview()
+        let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        self.fondoSelector  = mainStoryboard.instantiateViewControllerWithIdentifier("FondoSelector") as? FondoSelector
+        self.fondoSelector!.delegate = self
+        self.view.addSubview(fondoSelector!.view)
     }
     func mostrarFondoColor()
     {
@@ -378,5 +393,20 @@ class ModoLibre: UIViewController, UIImagePickerControllerDelegate, UINavigation
     {
         viewFondo.removeFromSuperview()
         self.view.backgroundColor = color
+    }
+    
+    func eleccionFondoFinalizado(imagen:String)
+    {
+        self.viewFondo.removeFromSuperview()
+        self.viewFondo = UIImageView(frame: self.view.bounds)
+        self.viewFondo.image = UIImage(named: imagen)
+        self.view.insertSubview(self.viewFondo, atIndex: 0)
+        
+        self.camaraFondo = false
+    }
+    
+    func cerrar(recognizer:UIPanGestureRecognizer)
+    {
+        recognizer.view?.removeFromSuperview()
     }
 }

@@ -25,6 +25,7 @@ class MenuShapes : UIViewController, UICollectionViewDelegate ,UICollectionViewD
      var grid : UICollectionView?
     
      var delegate:ShapesDelegate?
+    var fondoMenu : UIVisualEffectView?;
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,6 +33,12 @@ class MenuShapes : UIViewController, UICollectionViewDelegate ,UICollectionViewD
         // Do any additional setup after loading the view, typically from a nib.
         
         //Inicializar Collection View
+        
+        
+        fondoMenu = UIVisualEffectView(effect: UIBlurEffect(style: .Light)) as UIVisualEffectView
+        fondoMenu!.frame = self.view.bounds
+        
+        self.view.addSubview(fondoMenu!)
         
         let layout : UICollectionViewFlowLayout = UICollectionViewFlowLayout()
         layout.sectionInset = UIEdgeInsets(top: 20, left: 20, bottom: 20, right: 20)

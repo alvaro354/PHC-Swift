@@ -31,6 +31,8 @@
 		B1FAAB811A88E5FC00253591 /* FondoMenus.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1FAAB801A88E5FC00253591 /* FondoMenus.swift */; };
 		B1FAAB831A88E82B00253591 /* FondoSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1FAAB821A88E82B00253591 /* FondoSelector.swift */; };
 		B1FAAB871A8A391900253591 /* iCarousel.m in Sources */ = {isa = PBXBuildFile; fileRef = B1FAAB861A8A391900253591 /* iCarousel.m */; };
+		B1FAAB931A8BEC0900253591 /* imagenFondo1.png in Resources */ = {isa = PBXBuildFile; fileRef = B1FAAB911A8BEC0900253591 /* imagenFondo1.png */; };
+		B1FAAB941A8BEC0900253591 /* imagenFondo2.png in Resources */ = {isa = PBXBuildFile; fileRef = B1FAAB921A8BEC0900253591 /* imagenFondo2.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -74,6 +76,8 @@
 		B1FAAB851A8A391900253591 /* iCarousel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iCarousel.h; sourceTree = "<group>"; };
 		B1FAAB861A8A391900253591 /* iCarousel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iCarousel.m; sourceTree = "<group>"; };
 		B1FAAB881A8A396600253591 /* SwiftExample-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SwiftExample-Bridging-Header.h"; sourceTree = "<group>"; };
+		B1FAAB911A8BEC0900253591 /* imagenFondo1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = imagenFondo1.png; sourceTree = "<group>"; };
+		B1FAAB921A8BEC0900253591 /* imagenFondo2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = imagenFondo2.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,6 +101,8 @@
 		B1330BE31A7FEB6800018E87 /* Imagenes */ = {
 			isa = PBXGroup;
 			children = (
+				B1FAAB911A8BEC0900253591 /* imagenFondo1.png */,
+				B1FAAB921A8BEC0900253591 /* imagenFondo2.png */,
 			);
 			name = Imagenes;
 			sourceTree = "<group>";
@@ -282,7 +288,9 @@
 				B16B1C451A7D501D00B5C3E6 /* colorPalette.plist in Resources */,
 				B19083951A6C35260007CE9D /* Main.storyboard in Resources */,
 				B19B6A361A82AFC80079A108 /* ImagenFondo.jpg in Resources */,
+				B1FAAB931A8BEC0900253591 /* imagenFondo1.png in Resources */,
 				B190839A1A6C35260007CE9D /* LaunchScreen.xib in Resources */,
+				B1FAAB941A8BEC0900253591 /* imagenFondo2.png in Resources */,
 				B19083B91A6D76EF0007CE9D /* Circulo.png in Resources */,
 				B19083971A6C35260007CE9D /* Images.xcassets in Resources */,
 				B19B6A3A1A82BAE10079A108 /* Titulo-PHC.png in Resources */,

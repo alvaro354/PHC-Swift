@@ -223,6 +223,24 @@
             </objects>
             <point key="canvasLocation" x="1191" y="-377"/>
         </scene>
+        <!--Fondo Selector-->
+        <scene sceneID="NNq-Fd-YvU">
+            <objects>
+                <viewController storyboardIdentifier="FondoSelector" id="hWz-iX-ELr" customClass="FondoSelector" customModule="PHC_Swift" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="MTa-Yc-5LQ"/>
+                        <viewControllerLayoutGuide type="bottom" id="NQ9-Iu-DRb"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="qr8-Uo-CPz">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="O6N-nB-ka0" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2191" y="-1004"/>
+        </scene>
         <!--ColorPicker-->
         <scene sceneID="cZF-3S-EXc">
             <objects>
