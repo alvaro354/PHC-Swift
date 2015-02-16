@@ -35,7 +35,7 @@ class MenuShapes : UIViewController, UICollectionViewDelegate ,UICollectionViewD
         //Inicializar Collection View
         
         
-        fondoMenu = UIVisualEffectView(effect: UIBlurEffect(style: .Light)) as UIVisualEffectView
+        fondoMenu = UIVisualEffectView(effect: UIBlurEffect(style: .Dark)) as UIVisualEffectView
         fondoMenu!.frame = self.view.bounds
         
         self.view.addSubview(fondoMenu!)
