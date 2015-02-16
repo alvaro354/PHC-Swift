@@ -39,7 +39,7 @@ class MenuOpciones: UIViewController
     
     }
     
-    func cerrar()
+   @IBAction func cerrar()
     {
         self.view.removeFromSuperview()
     }

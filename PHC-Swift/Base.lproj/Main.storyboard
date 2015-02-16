@@ -308,22 +308,18 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aeY-Yt-vbs">
                                         <rect key="frame" x="8" y="24" width="130" height="130"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="130" id="0iE-xy-vZW"/>
-                                            <constraint firstAttribute="height" constant="130" id="CxU-lw-jYB"/>
+                                            <constraint firstAttribute="width" constant="130" id="MdX-c2-2x0"/>
                                         </constraints>
                                         <state key="normal" title="Modo Libre" image="Boton-Volver.png">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
+                                            <action selector="cerrar" destination="a9n-jk-iMX" eventType="touchUpInside" id="eVQ-3L-FJG"/>
                                             <action selector="pasarModoLibre:" destination="BYZ-38-t0r" eventType="touchUpInside" id="6BZ-aJ-D3e"/>
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Volver" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2ra-QE-haW">
                                         <rect key="frame" x="178" y="78" width="157" height="28"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="28" id="WKB-1Z-kiB"/>
-                                            <constraint firstAttribute="width" constant="157" id="bc8-pG-VDI"/>
-                                        </constraints>
                                         <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="24"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -331,11 +327,12 @@
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <gestureRecognizers/>
                                 <constraints>
-                                    <constraint firstItem="2ra-QE-haW" firstAttribute="top" secondItem="w41-tr-XBh" secondAttribute="top" constant="78" id="2n0-Br-LJT"/>
-                                    <constraint firstItem="aeY-Yt-vbs" firstAttribute="leading" secondItem="w41-tr-XBh" secondAttribute="leadingMargin" id="3Vk-Wr-Kfw"/>
-                                    <constraint firstItem="aeY-Yt-vbs" firstAttribute="top" secondItem="w41-tr-XBh" secondAttribute="top" constant="24" id="7fI-NF-7M7"/>
-                                    <constraint firstItem="aeY-Yt-vbs" firstAttribute="centerY" secondItem="w41-tr-XBh" secondAttribute="centerY" id="7iM-yX-V7W"/>
-                                    <constraint firstItem="2ra-QE-haW" firstAttribute="trailing" secondItem="w41-tr-XBh" secondAttribute="trailingMargin" id="QEc-FV-zAp"/>
+                                    <constraint firstItem="2ra-QE-haW" firstAttribute="trailing" secondItem="w41-tr-XBh" secondAttribute="trailingMargin" id="2Su-fG-O8A"/>
+                                    <constraint firstItem="aeY-Yt-vbs" firstAttribute="leading" secondItem="w41-tr-XBh" secondAttribute="leadingMargin" id="44X-v1-IIv"/>
+                                    <constraint firstItem="aeY-Yt-vbs" firstAttribute="centerY" secondItem="w41-tr-XBh" secondAttribute="centerY" id="PUz-xR-njm"/>
+                                    <constraint firstItem="2ra-QE-haW" firstAttribute="top" secondItem="w41-tr-XBh" secondAttribute="top" constant="78" id="opQ-sC-1QA"/>
+                                    <constraint firstItem="2ra-QE-haW" firstAttribute="leading" secondItem="aeY-Yt-vbs" secondAttribute="trailing" constant="40" id="phX-D8-y6P"/>
+                                    <constraint firstItem="aeY-Yt-vbs" firstAttribute="top" secondItem="w41-tr-XBh" secondAttribute="top" constant="24" id="soM-Ij-ymv"/>
                                 </constraints>
                                 <connections>
                                     <outlet property="boton" destination="aeY-Yt-vbs" id="8QV-9h-So9"/>
@@ -348,8 +345,7 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zzH-W0-8ZC">
                                         <rect key="frame" x="8" y="24" width="130" height="130"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="130" id="N1W-HP-zKX"/>
-                                            <constraint firstAttribute="width" constant="130" id="PpH-xb-GOa"/>
+                                            <constraint firstAttribute="width" constant="130" id="pW5-Hh-KM7"/>
                                         </constraints>
                                         <state key="normal" title="Modo Libre" image="Boton-Casa.png">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -360,10 +356,6 @@
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Menu Principal" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LGa-kL-8Bm">
                                         <rect key="frame" x="162" y="83" width="173" height="28"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="173" id="HIz-xg-wcl"/>
-                                            <constraint firstAttribute="height" constant="28" id="NrU-AL-qS6"/>
-                                        </constraints>
                                         <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="24"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -371,12 +363,13 @@
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <gestureRecognizers/>
                                 <constraints>
-                                    <constraint firstItem="zzH-W0-8ZC" firstAttribute="top" secondItem="g2U-hh-X00" secondAttribute="top" constant="24" id="387-vk-cpy"/>
-                                    <constraint firstItem="LGa-kL-8Bm" firstAttribute="trailing" secondItem="g2U-hh-X00" secondAttribute="trailingMargin" id="4fA-U5-B7i"/>
-                                    <constraint firstItem="LGa-kL-8Bm" firstAttribute="top" secondItem="g2U-hh-X00" secondAttribute="top" constant="83" id="6RR-Wt-MbG"/>
-                                    <constraint firstItem="zzH-W0-8ZC" firstAttribute="leading" secondItem="g2U-hh-X00" secondAttribute="leadingMargin" id="H2X-ng-Oih"/>
-                                    <constraint firstItem="zzH-W0-8ZC" firstAttribute="centerY" secondItem="g2U-hh-X00" secondAttribute="centerY" id="HwH-k3-dyb"/>
-                                    <constraint firstItem="LGa-kL-8Bm" firstAttribute="baseline" secondItem="zzH-W0-8ZC" secondAttribute="firstBaseline" id="bAS-6t-SOi"/>
+                                    <constraint firstItem="zzH-W0-8ZC" firstAttribute="centerY" secondItem="g2U-hh-X00" secondAttribute="centerY" id="3He-pf-BWC"/>
+                                    <constraint firstAttribute="bottom" secondItem="LGa-kL-8Bm" secondAttribute="bottom" constant="67" id="Owr-Sz-JQp"/>
+                                    <constraint firstItem="zzH-W0-8ZC" firstAttribute="top" secondItem="g2U-hh-X00" secondAttribute="top" constant="24" id="Sye-Xm-GRU"/>
+                                    <constraint firstItem="LGa-kL-8Bm" firstAttribute="trailing" secondItem="g2U-hh-X00" secondAttribute="trailingMargin" id="a5l-ET-ORx"/>
+                                    <constraint firstItem="LGa-kL-8Bm" firstAttribute="top" secondItem="g2U-hh-X00" secondAttribute="top" constant="83" id="cU5-hP-5gl"/>
+                                    <constraint firstItem="LGa-kL-8Bm" firstAttribute="baseline" secondItem="zzH-W0-8ZC" secondAttribute="firstBaseline" id="jU2-ef-quh"/>
+                                    <constraint firstItem="zzH-W0-8ZC" firstAttribute="leading" secondItem="g2U-hh-X00" secondAttribute="leadingMargin" id="qzx-h7-yrr"/>
                                 </constraints>
                                 <connections>
                                     <outlet property="boton" destination="zzH-W0-8ZC" id="Tqq-6T-dEF"/>
@@ -386,12 +379,13 @@
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="bottom" secondItem="w41-tr-XBh" secondAttribute="bottom" constant="20" symbolic="YES" id="Gzl-ca-gyW"/>
-                            <constraint firstItem="g2U-hh-X00" firstAttribute="leading" secondItem="Tky-hk-KM7" secondAttribute="leadingMargin" id="LXG-qo-7YM"/>
-                            <constraint firstItem="w41-tr-XBh" firstAttribute="top" secondItem="g2U-hh-X00" secondAttribute="bottom" constant="8" symbolic="YES" id="Wah-7Q-0Sc"/>
-                            <constraint firstItem="g2U-hh-X00" firstAttribute="trailing" secondItem="w41-tr-XBh" secondAttribute="trailing" id="Yy9-Ky-XjN"/>
-                            <constraint firstItem="w41-tr-XBh" firstAttribute="leading" secondItem="g2U-hh-X00" secondAttribute="leading" id="ps2-9y-uRH"/>
-                            <constraint firstItem="w41-tr-XBh" firstAttribute="trailing" secondItem="Tky-hk-KM7" secondAttribute="trailingMargin" id="qWK-2k-eKu"/>
+                            <constraint firstItem="g2U-hh-X00" firstAttribute="trailing" secondItem="w41-tr-XBh" secondAttribute="trailing" id="Oav-9e-cFZ"/>
+                            <constraint firstItem="g2U-hh-X00" firstAttribute="leading" secondItem="Tky-hk-KM7" secondAttribute="leadingMargin" id="QU0-S4-pOj"/>
+                            <constraint firstItem="g2U-hh-X00" firstAttribute="top" secondItem="tK0-4q-fhI" secondAttribute="bottom" constant="263" id="gqA-d1-JS3"/>
+                            <constraint firstItem="g2U-hh-X00" firstAttribute="leading" secondItem="w41-tr-XBh" secondAttribute="leading" id="nwx-Ih-5jY"/>
+                            <constraint firstAttribute="bottom" secondItem="w41-tr-XBh" secondAttribute="bottom" constant="20" symbolic="YES" id="p2P-p8-Y0T"/>
+                            <constraint firstItem="w41-tr-XBh" firstAttribute="top" secondItem="g2U-hh-X00" secondAttribute="bottom" constant="8" symbolic="YES" id="qdI-vf-eZC"/>
+                            <constraint firstItem="w41-tr-XBh" firstAttribute="trailing" secondItem="Tky-hk-KM7" secondAttribute="trailingMargin" id="zhw-bP-VaO"/>
                         </constraints>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
