@@ -309,14 +309,6 @@
                             <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pcK-L9-2j5" customClass="VistaBoton" customModule="PHC_Swift" customModuleProvider="target">
                                 <rect key="frame" x="16" y="339" width="359" height="150"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Menu Principal" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iwy-VA-O66">
-                                        <rect key="frame" x="178" y="61" width="173" height="28"/>
-                                        <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="24"/>
-                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                        <nil key="highlightedColor"/>
-                                        <color key="shadowColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                        <size key="shadowOffset" width="2" height="0.0"/>
-                                    </label>
                                     <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OjU-LR-nBf">
                                         <rect key="frame" x="8" y="10" width="130" height="130"/>
                                         <constraints>
@@ -330,6 +322,14 @@
                                             <action selector="pasarModoLibre:" destination="BYZ-38-t0r" eventType="touchUpInside" id="1aa-ls-bcK"/>
                                         </connections>
                                     </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Menu Principal" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iwy-VA-O66">
+                                        <rect key="frame" x="164" y="61" width="173" height="28"/>
+                                        <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="24"/>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                        <color key="shadowColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                        <size key="shadowOffset" width="2" height="0.0"/>
+                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <gestureRecognizers/>
@@ -354,7 +354,7 @@
                                         <constraints>
                                             <constraint firstAttribute="width" constant="130" id="geP-HL-Bdt"/>
                                         </constraints>
-                                        <state key="normal" title="Modo Libre" image="Boton-Volver.png">
+                                        <state key="normal" title="Modo Libre" image="Boton-Ayuda.png">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
@@ -362,8 +362,8 @@
                                             <action selector="pasarModoLibre:" destination="BYZ-38-t0r" eventType="touchUpInside" id="HMA-iV-9Ux"/>
                                         </connections>
                                     </button>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Volver" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KEY-Xb-p2m">
-                                        <rect key="frame" x="178" y="61" width="157" height="28"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Ayuda" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KEY-Xb-p2m">
+                                        <rect key="frame" x="168" y="61" width="157" height="28"/>
                                         <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="24"/>
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
@@ -395,7 +395,7 @@
                                         <constraints>
                                             <constraint firstAttribute="width" constant="130" id="3Bf-Hf-j9W"/>
                                         </constraints>
-                                        <state key="normal" title="Modo Libre" image="Boton-Volver.png">
+                                        <state key="normal" title="Modo Libre" image="Boton-Terminar.png">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
@@ -403,8 +403,8 @@
                                             <action selector="pasarModoLibre:" destination="BYZ-38-t0r" eventType="touchUpInside" id="fab-dD-fvo"/>
                                         </connections>
                                     </button>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Volver" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Sf-8D-ihU">
-                                        <rect key="frame" x="178" y="61" width="157" height="28"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Finalizar" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Sf-8D-ihU">
+                                        <rect key="frame" x="168" y="61" width="157" height="28"/>
                                         <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="24"/>
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
@@ -445,7 +445,7 @@
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" alpha="0.89999999999999991" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Volver" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2ra-QE-haW">
-                                        <rect key="frame" x="178" y="61" width="157" height="28"/>
+                                        <rect key="frame" x="170" y="61" width="157" height="28"/>
                                         <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="24"/>
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
@@ -554,8 +554,10 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Boton-Casa.png" width="833" height="839"/>
-        <image name="Boton-Volver.png" width="833" height="839"/>
+        <image name="Boton-Ayuda.png" width="2412" height="2415"/>
+        <image name="Boton-Casa.png" width="2412" height="2415"/>
+        <image name="Boton-Terminar.png" width="2412" height="2415"/>
+        <image name="Boton-Volver.png" width="2412" height="2415"/>
         <image name="Titulo-PHC.png" width="3439" height="1302"/>
     </resources>
 </document>

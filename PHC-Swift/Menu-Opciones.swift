@@ -53,6 +53,7 @@ class MenuOpciones: UIViewController
         //Iniciamos los valores para la animacion
         
         posicionX = vistaTerminar!.center.x
+        self.view.alpha = 0
         
         for vista : VistaBoton in vistaBotones
         {
@@ -61,6 +62,20 @@ class MenuOpciones: UIViewController
             vista.center.x =  vista.center.x + self.view.bounds.width
         }
     
+        //Animar alpha Entrada
+    
+        UIView.animateWithDuration(0.15, delay: 0, options: .CurveEaseOut, animations:
+            {
+                self.view.alpha = 1
+                
+                
+            }, completion:{ finished in
+                
+               // self.view.removeFromSuperview()
+                
+        })
+        
+        
          self.animarEntrada()
     }
     
@@ -90,9 +105,51 @@ class MenuOpciones: UIViewController
         
     }
     
+    func animarSalida()
+    {
+        
+        var vistaB : VistaBoton  = self.vistaBotones[self.contadorTmp]
+        
+        UIView.animateWithDuration(0.15, delay: 0, options: .CurveEaseOut, animations:
+            {
+                vistaB.alpha = 0
+                vistaB.center.x =  -self.view.bounds.width
+                
+                
+            }, completion:{ finished in
+                println("Animacion Acabada")
+                if(self.contadorTmp > 0)
+                {
+                    self.contadorTmp--
+                    self.animarSalida()
+                }
+
+                else
+                {
+                    //Alpha Vista
+                    
+                    UIView.animateWithDuration(0.15, delay: 0, options: .CurveEaseOut, animations:
+                        {
+                            self.view.alpha = 0
+                            
+                            
+                        }, completion:{ finished in
+                           
+                                self.view.removeFromSuperview()
+                            
+                    })
+                }
+                
+                
+        })
+        
+        
+    }
+    
    @IBAction func cerrar()
     {
-        self.view.removeFromSuperview()
+      //  self.view.removeFromSuperview()
+        animarSalida()
     }
     
 }
