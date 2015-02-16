@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ModoLibre: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIGestureRecognizerDelegate , CortarDelegate ,ShapesDelegate, ColorPickerDelegate,FondoDelegate{
+class ModoLibre: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIGestureRecognizerDelegate , CortarDelegate ,ShapesDelegate, ColorPickerDelegate,FondoDelegate,MenuOpcionesDelegate{
     
     //Declaracion Variables
     
@@ -17,6 +17,7 @@ class ModoLibre: UIViewController, UIImagePickerControllerDelegate, UINavigation
     var menuShapes:MenuShapes?
     var menuColor:ColorPicker?
     var fondoSelector:FondoSelector?
+    var menuOpciones:MenuOpciones?
     var menuEditar: MenuEditar = MenuEditar()
     var imagenes : [Imagen] = [Imagen]()
     var imagenT : Imagen?
@@ -403,6 +404,14 @@ class ModoLibre: UIViewController, UIImagePickerControllerDelegate, UINavigation
         self.view.insertSubview(self.viewFondo, atIndex: 0)
         
         self.camaraFondo = false
+    }
+    
+    @IBAction func mostrarMenuOpciones()
+    {
+        let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        self.menuOpciones = mainStoryboard.instantiateViewControllerWithIdentifier("MenuOpciones") as? MenuOpciones
+        self.menuOpciones!.delegate = self
+        self.view.addSubview(menuOpciones!.view)
     }
     
     func cerrar(recognizer:UIPanGestureRecognizer)

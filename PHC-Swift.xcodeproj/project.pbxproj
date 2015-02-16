@@ -10,6 +10,10 @@
 		B10A76BD1A7AAF0800D7A922 /* Corazon.png in Resources */ = {isa = PBXBuildFile; fileRef = B10A76BB1A7AAF0800D7A922 /* Corazon.png */; };
 		B10A76BE1A7AAF0800D7A922 /* Cuadroc.png in Resources */ = {isa = PBXBuildFile; fileRef = B10A76BC1A7AAF0800D7A922 /* Cuadroc.png */; };
 		B10A76C01A7AB14B00D7A922 /* CeldaShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10A76BF1A7AB14B00D7A922 /* CeldaShape.swift */; };
+		B12DA2301A9204510005663D /* Boton-Volver.png in Resources */ = {isa = PBXBuildFile; fileRef = B12DA22F1A9204510005663D /* Boton-Volver.png */; };
+		B12DA2331A9209260005663D /* Boton-Casa.png in Resources */ = {isa = PBXBuildFile; fileRef = B12DA2321A9209260005663D /* Boton-Casa.png */; };
+		B12DA2351A9215400005663D /* VistaBoton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B12DA2341A9215400005663D /* VistaBoton.swift */; };
+		B12DA2371A92161D0005663D /* Menu-Opciones.swift in Sources */ = {isa = PBXBuildFile; fileRef = B12DA2361A92161D0005663D /* Menu-Opciones.swift */; };
 		B140DF451A6EBDB300B7A810 /* Menu-Editar.swift in Sources */ = {isa = PBXBuildFile; fileRef = B140DF441A6EBDB300B7A810 /* Menu-Editar.swift */; };
 		B16B1C431A7D49B100B5C3E6 /* ColorPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = B16B1C421A7D49B100B5C3E6 /* ColorPicker.swift */; };
 		B16B1C451A7D501D00B5C3E6 /* colorPalette.plist in Resources */ = {isa = PBXBuildFile; fileRef = B16B1C441A7D501D00B5C3E6 /* colorPalette.plist */; };
@@ -49,6 +53,10 @@
 		B10A76BB1A7AAF0800D7A922 /* Corazon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Corazon.png; sourceTree = "<group>"; };
 		B10A76BC1A7AAF0800D7A922 /* Cuadroc.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Cuadroc.png; sourceTree = "<group>"; };
 		B10A76BF1A7AB14B00D7A922 /* CeldaShape.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CeldaShape.swift; sourceTree = "<group>"; };
+		B12DA22F1A9204510005663D /* Boton-Volver.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Boton-Volver.png"; sourceTree = "<group>"; };
+		B12DA2321A9209260005663D /* Boton-Casa.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Boton-Casa.png"; sourceTree = "<group>"; };
+		B12DA2341A9215400005663D /* VistaBoton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VistaBoton.swift; sourceTree = "<group>"; };
+		B12DA2361A92161D0005663D /* Menu-Opciones.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Menu-Opciones.swift"; sourceTree = "<group>"; };
 		B140DF441A6EBDB300B7A810 /* Menu-Editar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Menu-Editar.swift"; sourceTree = "<group>"; };
 		B16B1C421A7D49B100B5C3E6 /* ColorPicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorPicker.swift; sourceTree = "<group>"; };
 		B16B1C441A7D501D00B5C3E6 /* colorPalette.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = colorPalette.plist; sourceTree = "<group>"; };
@@ -98,9 +106,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B12DA2311A92045A0005663D /* Botones */ = {
+			isa = PBXGroup;
+			children = (
+				B12DA2321A9209260005663D /* Boton-Casa.png */,
+				B19B6A3B1A83A21D0079A108 /* Boton-Frames.png */,
+				B12DA22F1A9204510005663D /* Boton-Volver.png */,
+			);
+			name = Botones;
+			sourceTree = "<group>";
+		};
 		B1330BE31A7FEB6800018E87 /* Imagenes */ = {
 			isa = PBXGroup;
 			children = (
+				B12DA2311A92045A0005663D /* Botones */,
 				B1FAAB911A8BEC0900253591 /* imagenFondo1.png */,
 				B1FAAB921A8BEC0900253591 /* imagenFondo2.png */,
 			);
@@ -131,7 +150,6 @@
 				B19083B81A6D76EF0007CE9D /* Circulo.png */,
 				B16B1C461A7D560C00B5C3E6 /* palette2.png */,
 				B10A76BB1A7AAF0800D7A922 /* Corazon.png */,
-				B19B6A3B1A83A21D0079A108 /* Boton-Frames.png */,
 				B19B6A351A82AFC80079A108 /* ImagenFondo.jpg */,
 				B16B1C441A7D501D00B5C3E6 /* colorPalette.plist */,
 				B10A76BC1A7AAF0800D7A922 /* Cuadroc.png */,
@@ -183,10 +201,12 @@
 				B19083B21A6C405D0007CE9D /* Imagen.swift */,
 				B140DF441A6EBDB300B7A810 /* Menu-Editar.swift */,
 				B1E24F251A7419E7000CF06A /* Menu-Shapes.swift */,
+				B12DA2361A92161D0005663D /* Menu-Opciones.swift */,
 				B16B1C421A7D49B100B5C3E6 /* ColorPicker.swift */,
 				B10A76BF1A7AB14B00D7A922 /* CeldaShape.swift */,
 				B1FAAB821A88E82B00253591 /* FondoSelector.swift */,
 				B1FAAB801A88E5FC00253591 /* FondoMenus.swift */,
+				B12DA2341A9215400005663D /* VistaBoton.swift */,
 			);
 			name = Objetos;
 			sourceTree = "<group>";
@@ -281,6 +301,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B12DA2301A9204510005663D /* Boton-Volver.png in Resources */,
 				B16B1C471A7D560C00B5C3E6 /* palette2.png in Resources */,
 				B10A76BD1A7AAF0800D7A922 /* Corazon.png in Resources */,
 				B10A76BE1A7AAF0800D7A922 /* Cuadroc.png in Resources */,
@@ -292,6 +313,7 @@
 				B190839A1A6C35260007CE9D /* LaunchScreen.xib in Resources */,
 				B1FAAB941A8BEC0900253591 /* imagenFondo2.png in Resources */,
 				B19083B91A6D76EF0007CE9D /* Circulo.png in Resources */,
+				B12DA2331A9209260005663D /* Boton-Casa.png in Resources */,
 				B19083971A6C35260007CE9D /* Images.xcassets in Resources */,
 				B19B6A3A1A82BAE10079A108 /* Titulo-PHC.png in Resources */,
 			);
@@ -313,7 +335,9 @@
 			files = (
 				B19083B31A6C405D0007CE9D /* Imagen.swift in Sources */,
 				B1FAAB811A88E5FC00253591 /* FondoMenus.swift in Sources */,
+				B12DA2351A9215400005663D /* VistaBoton.swift in Sources */,
 				B19083B01A6C38780007CE9D /* ModoLibre.swift in Sources */,
+				B12DA2371A92161D0005663D /* Menu-Opciones.swift in Sources */,
 				B1FAAB831A88E82B00253591 /* FondoSelector.swift in Sources */,
 				B1E24F261A7419E7000CF06A /* Menu-Shapes.swift in Sources */,
 				B19083921A6C35260007CE9D /* ViewController.swift in Sources */,
