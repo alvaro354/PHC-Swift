@@ -35,7 +35,7 @@ class MenuOpciones: UIViewController
         fondoMenu = UIVisualEffectView(effect: UIBlurEffect(style: .Light)) as UIVisualEffectView
         fondoMenu!.frame = self.view.bounds
         
-        self.view.addSubview(fondoMenu!)
+        self.view.insertSubview(fondoMenu!, atIndex: 0)
     
     }
     

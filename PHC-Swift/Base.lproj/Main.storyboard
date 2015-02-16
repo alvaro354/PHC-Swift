@@ -318,10 +318,10 @@
                                             <action selector="pasarModoLibre:" destination="BYZ-38-t0r" eventType="touchUpInside" id="6BZ-aJ-D3e"/>
                                         </connections>
                                     </button>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Volver" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2ra-QE-haW">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Volver" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2ra-QE-haW">
                                         <rect key="frame" x="178" y="78" width="157" height="28"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="21" id="WKB-1Z-kiB"/>
+                                            <constraint firstAttribute="height" constant="28" id="WKB-1Z-kiB"/>
                                             <constraint firstAttribute="width" constant="157" id="bc8-pG-VDI"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="24"/>
@@ -358,11 +358,11 @@
                                             <action selector="pasarModoLibre:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Gpn-F0-YIM"/>
                                         </connections>
                                     </button>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Menu Principal" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LGa-kL-8Bm">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Menu Principal" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LGa-kL-8Bm">
                                         <rect key="frame" x="162" y="83" width="173" height="28"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="157" id="HIz-xg-wcl"/>
-                                            <constraint firstAttribute="height" constant="21" id="NrU-AL-qS6"/>
+                                            <constraint firstAttribute="width" constant="173" id="HIz-xg-wcl"/>
+                                            <constraint firstAttribute="height" constant="28" id="NrU-AL-qS6"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="24"/>
                                         <nil key="highlightedColor"/>
@@ -373,7 +373,7 @@
                                 <constraints>
                                     <constraint firstItem="zzH-W0-8ZC" firstAttribute="top" secondItem="g2U-hh-X00" secondAttribute="top" constant="24" id="387-vk-cpy"/>
                                     <constraint firstItem="LGa-kL-8Bm" firstAttribute="trailing" secondItem="g2U-hh-X00" secondAttribute="trailingMargin" id="4fA-U5-B7i"/>
-                                    <constraint firstItem="LGa-kL-8Bm" firstAttribute="top" secondItem="g2U-hh-X00" secondAttribute="top" constant="78" id="6RR-Wt-MbG"/>
+                                    <constraint firstItem="LGa-kL-8Bm" firstAttribute="top" secondItem="g2U-hh-X00" secondAttribute="top" constant="83" id="6RR-Wt-MbG"/>
                                     <constraint firstItem="zzH-W0-8ZC" firstAttribute="leading" secondItem="g2U-hh-X00" secondAttribute="leadingMargin" id="H2X-ng-Oih"/>
                                     <constraint firstItem="zzH-W0-8ZC" firstAttribute="centerY" secondItem="g2U-hh-X00" secondAttribute="centerY" id="HwH-k3-dyb"/>
                                     <constraint firstItem="LGa-kL-8Bm" firstAttribute="baseline" secondItem="zzH-W0-8ZC" secondAttribute="firstBaseline" id="bAS-6t-SOi"/>
