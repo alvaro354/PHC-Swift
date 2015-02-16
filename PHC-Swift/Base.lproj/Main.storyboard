@@ -384,7 +384,7 @@
                                 </connections>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="bottom" secondItem="w41-tr-XBh" secondAttribute="bottom" constant="20" symbolic="YES" id="Gzl-ca-gyW"/>
                             <constraint firstItem="g2U-hh-X00" firstAttribute="leading" secondItem="Tky-hk-KM7" secondAttribute="leadingMargin" id="LXG-qo-7YM"/>
