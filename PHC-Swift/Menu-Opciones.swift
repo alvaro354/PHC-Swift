@@ -22,8 +22,6 @@ class MenuOpciones: UIViewController
     
     let imagenes : [String] = ["imagenFondo1.png","imagenFondo2.png"]
     
-    var carousel : iCarousel!
-    var botonCerrar : UIButton?
     var delegate:MenuOpcionesDelegate?
     var fondoMenu : UIVisualEffectView?;
     var contadorTmp : Int = 0
@@ -76,6 +74,7 @@ class MenuOpciones: UIViewController
                 {
                     vistaB.alpha = 1
                     vistaB.center.x =  vistaB.centroX
+                    vistaB.centroX = 0
                     
                     
                 }, completion:{ finished in
