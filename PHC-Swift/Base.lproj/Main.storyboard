@@ -2,8 +2,6 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
-        <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
-        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -302,11 +300,124 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pcK-L9-2j5" customClass="VistaBoton" customModule="PHC_Swift" customModuleProvider="target">
+                                <rect key="frame" x="16" y="339" width="359" height="150"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Menu Principal" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iwy-VA-O66">
+                                        <rect key="frame" x="178" y="61" width="173" height="28"/>
+                                        <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="24"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OjU-LR-nBf">
+                                        <rect key="frame" x="8" y="10" width="130" height="130"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="130" id="z9t-vp-hZY"/>
+                                        </constraints>
+                                        <state key="normal" title="Modo Libre" image="Boton-Casa.png">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="cerrar" destination="a9n-jk-iMX" eventType="touchUpInside" id="zep-D7-dh1"/>
+                                            <action selector="pasarModoLibre:" destination="BYZ-38-t0r" eventType="touchUpInside" id="1aa-ls-bcK"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <gestureRecognizers/>
+                                <constraints>
+                                    <constraint firstItem="OjU-LR-nBf" firstAttribute="top" secondItem="pcK-L9-2j5" secondAttribute="top" constant="10" id="0lQ-9c-xXQ"/>
+                                    <constraint firstItem="OjU-LR-nBf" firstAttribute="centerY" secondItem="pcK-L9-2j5" secondAttribute="centerY" id="SDi-Gb-ODn"/>
+                                    <constraint firstItem="iwy-VA-O66" firstAttribute="leading" secondItem="OjU-LR-nBf" secondAttribute="trailing" constant="40" id="X25-w2-mNt"/>
+                                    <constraint firstItem="iwy-VA-O66" firstAttribute="top" secondItem="pcK-L9-2j5" secondAttribute="top" constant="61" id="XCi-Pc-v3g"/>
+                                    <constraint firstItem="iwy-VA-O66" firstAttribute="trailing" secondItem="pcK-L9-2j5" secondAttribute="trailingMargin" id="isz-f9-EId"/>
+                                    <constraint firstItem="OjU-LR-nBf" firstAttribute="leading" secondItem="pcK-L9-2j5" secondAttribute="leadingMargin" id="toN-Fo-bDQ"/>
+                                </constraints>
+                                <connections>
+                                    <outlet property="boton" destination="OjU-LR-nBf" id="ee5-sO-q7n"/>
+                                    <outlet property="texto" destination="iwy-VA-O66" id="0Au-Ik-164"/>
+                                </connections>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oI3-PX-VG8" customClass="VistaBoton" customModule="PHC_Swift" customModuleProvider="target">
+                                <rect key="frame" x="16" y="181" width="343" height="150"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pl9-yn-hGf">
+                                        <rect key="frame" x="8" y="10" width="130" height="130"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="130" id="geP-HL-Bdt"/>
+                                        </constraints>
+                                        <state key="normal" title="Modo Libre" image="Boton-Volver.png">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="cerrar" destination="a9n-jk-iMX" eventType="touchUpInside" id="iDH-oo-AJz"/>
+                                            <action selector="pasarModoLibre:" destination="BYZ-38-t0r" eventType="touchUpInside" id="HMA-iV-9Ux"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Volver" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KEY-Xb-p2m">
+                                        <rect key="frame" x="178" y="61" width="157" height="28"/>
+                                        <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="24"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <gestureRecognizers/>
+                                <constraints>
+                                    <constraint firstItem="pl9-yn-hGf" firstAttribute="centerY" secondItem="oI3-PX-VG8" secondAttribute="centerY" id="2Yc-aZ-I5d"/>
+                                    <constraint firstItem="pl9-yn-hGf" firstAttribute="top" secondItem="oI3-PX-VG8" secondAttribute="top" constant="10" id="3Be-by-Cz8"/>
+                                    <constraint firstItem="pl9-yn-hGf" firstAttribute="leading" secondItem="oI3-PX-VG8" secondAttribute="leadingMargin" id="3RE-KM-8YL"/>
+                                    <constraint firstItem="KEY-Xb-p2m" firstAttribute="leading" secondItem="pl9-yn-hGf" secondAttribute="trailing" constant="40" id="BQe-wn-n4c"/>
+                                    <constraint firstItem="KEY-Xb-p2m" firstAttribute="centerY" secondItem="pl9-yn-hGf" secondAttribute="centerY" id="GTU-Za-KHd"/>
+                                    <constraint firstItem="KEY-Xb-p2m" firstAttribute="top" secondItem="oI3-PX-VG8" secondAttribute="top" constant="61" id="WJC-EM-40s"/>
+                                    <constraint firstItem="KEY-Xb-p2m" firstAttribute="trailing" secondItem="oI3-PX-VG8" secondAttribute="trailingMargin" id="sKD-eq-xCo"/>
+                                </constraints>
+                                <connections>
+                                    <outlet property="boton" destination="pl9-yn-hGf" id="hpF-kb-2m0"/>
+                                    <outlet property="texto" destination="KEY-Xb-p2m" id="6KD-w7-LcH"/>
+                                </connections>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lgQ-cq-FRt" customClass="VistaBoton" customModule="PHC_Swift" customModuleProvider="target">
+                                <rect key="frame" x="16" y="23" width="343" height="150"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nO4-B7-KJQ">
+                                        <rect key="frame" x="8" y="10" width="130" height="130"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="130" id="3Bf-Hf-j9W"/>
+                                        </constraints>
+                                        <state key="normal" title="Modo Libre" image="Boton-Volver.png">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="cerrar" destination="a9n-jk-iMX" eventType="touchUpInside" id="Wlj-7W-dcb"/>
+                                            <action selector="pasarModoLibre:" destination="BYZ-38-t0r" eventType="touchUpInside" id="fab-dD-fvo"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Volver" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Sf-8D-ihU">
+                                        <rect key="frame" x="178" y="61" width="157" height="28"/>
+                                        <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="24"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <gestureRecognizers/>
+                                <constraints>
+                                    <constraint firstItem="4Sf-8D-ihU" firstAttribute="leading" secondItem="nO4-B7-KJQ" secondAttribute="trailing" constant="40" id="2Vb-3S-zjf"/>
+                                    <constraint firstItem="4Sf-8D-ihU" firstAttribute="top" secondItem="lgQ-cq-FRt" secondAttribute="top" constant="61" id="4xb-WN-6bV"/>
+                                    <constraint firstItem="nO4-B7-KJQ" firstAttribute="top" secondItem="lgQ-cq-FRt" secondAttribute="top" constant="10" id="84T-lX-ZIu"/>
+                                    <constraint firstItem="nO4-B7-KJQ" firstAttribute="leading" secondItem="lgQ-cq-FRt" secondAttribute="leadingMargin" id="AeM-wD-yGj"/>
+                                    <constraint firstItem="4Sf-8D-ihU" firstAttribute="centerY" secondItem="nO4-B7-KJQ" secondAttribute="centerY" id="p8W-fU-fOw"/>
+                                    <constraint firstItem="nO4-B7-KJQ" firstAttribute="centerY" secondItem="lgQ-cq-FRt" secondAttribute="centerY" id="tQ0-7U-Kdr"/>
+                                    <constraint firstItem="4Sf-8D-ihU" firstAttribute="trailing" secondItem="lgQ-cq-FRt" secondAttribute="trailingMargin" id="yJn-Y6-oUV"/>
+                                </constraints>
+                                <connections>
+                                    <outlet property="boton" destination="nO4-B7-KJQ" id="ZxD-YK-BI1"/>
+                                    <outlet property="texto" destination="4Sf-8D-ihU" id="zL1-ri-ASt"/>
+                                </connections>
+                            </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="w41-tr-XBh" customClass="VistaBoton" customModule="PHC_Swift" customModuleProvider="target">
-                                <rect key="frame" x="16" y="469" width="343" height="178"/>
+                                <rect key="frame" x="16" y="497" width="343" height="150"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aeY-Yt-vbs">
-                                        <rect key="frame" x="8" y="24" width="130" height="130"/>
+                                        <rect key="frame" x="8" y="10" width="130" height="130"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="130" id="MdX-c2-2x0"/>
                                         </constraints>
@@ -319,7 +430,7 @@
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Volver" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2ra-QE-haW">
-                                        <rect key="frame" x="178" y="78" width="157" height="28"/>
+                                        <rect key="frame" x="178" y="61" width="157" height="28"/>
                                         <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="24"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -330,61 +441,30 @@
                                     <constraint firstItem="2ra-QE-haW" firstAttribute="trailing" secondItem="w41-tr-XBh" secondAttribute="trailingMargin" id="2Su-fG-O8A"/>
                                     <constraint firstItem="aeY-Yt-vbs" firstAttribute="leading" secondItem="w41-tr-XBh" secondAttribute="leadingMargin" id="44X-v1-IIv"/>
                                     <constraint firstItem="aeY-Yt-vbs" firstAttribute="centerY" secondItem="w41-tr-XBh" secondAttribute="centerY" id="PUz-xR-njm"/>
-                                    <constraint firstItem="2ra-QE-haW" firstAttribute="top" secondItem="w41-tr-XBh" secondAttribute="top" constant="78" id="opQ-sC-1QA"/>
+                                    <constraint firstItem="2ra-QE-haW" firstAttribute="top" secondItem="w41-tr-XBh" secondAttribute="top" constant="61" id="opQ-sC-1QA"/>
                                     <constraint firstItem="2ra-QE-haW" firstAttribute="leading" secondItem="aeY-Yt-vbs" secondAttribute="trailing" constant="40" id="phX-D8-y6P"/>
-                                    <constraint firstItem="aeY-Yt-vbs" firstAttribute="top" secondItem="w41-tr-XBh" secondAttribute="top" constant="24" id="soM-Ij-ymv"/>
+                                    <constraint firstItem="aeY-Yt-vbs" firstAttribute="top" secondItem="w41-tr-XBh" secondAttribute="top" constant="10" id="soM-Ij-ymv"/>
+                                    <constraint firstItem="2ra-QE-haW" firstAttribute="centerY" secondItem="aeY-Yt-vbs" secondAttribute="centerY" id="tD3-lu-ooN"/>
                                 </constraints>
                                 <connections>
                                     <outlet property="boton" destination="aeY-Yt-vbs" id="8QV-9h-So9"/>
                                     <outlet property="texto" destination="2ra-QE-haW" id="Ty4-Hg-oRx"/>
                                 </connections>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="g2U-hh-X00" customClass="VistaBoton" customModule="PHC_Swift" customModuleProvider="target">
-                                <rect key="frame" x="16" y="283" width="343" height="178"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zzH-W0-8ZC">
-                                        <rect key="frame" x="8" y="24" width="130" height="130"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="130" id="pW5-Hh-KM7"/>
-                                        </constraints>
-                                        <state key="normal" title="Modo Libre" image="Boton-Casa.png">
-                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="pasarModoLibre:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Gpn-F0-YIM"/>
-                                        </connections>
-                                    </button>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Menu Principal" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LGa-kL-8Bm">
-                                        <rect key="frame" x="162" y="83" width="173" height="28"/>
-                                        <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="24"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                </subviews>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <gestureRecognizers/>
-                                <constraints>
-                                    <constraint firstItem="zzH-W0-8ZC" firstAttribute="centerY" secondItem="g2U-hh-X00" secondAttribute="centerY" id="3He-pf-BWC"/>
-                                    <constraint firstAttribute="bottom" secondItem="LGa-kL-8Bm" secondAttribute="bottom" constant="67" id="Owr-Sz-JQp"/>
-                                    <constraint firstItem="zzH-W0-8ZC" firstAttribute="top" secondItem="g2U-hh-X00" secondAttribute="top" constant="24" id="Sye-Xm-GRU"/>
-                                    <constraint firstItem="LGa-kL-8Bm" firstAttribute="trailing" secondItem="g2U-hh-X00" secondAttribute="trailingMargin" id="a5l-ET-ORx"/>
-                                    <constraint firstItem="LGa-kL-8Bm" firstAttribute="top" secondItem="g2U-hh-X00" secondAttribute="top" constant="83" id="cU5-hP-5gl"/>
-                                    <constraint firstItem="LGa-kL-8Bm" firstAttribute="baseline" secondItem="zzH-W0-8ZC" secondAttribute="firstBaseline" id="jU2-ef-quh"/>
-                                    <constraint firstItem="zzH-W0-8ZC" firstAttribute="leading" secondItem="g2U-hh-X00" secondAttribute="leadingMargin" id="qzx-h7-yrr"/>
-                                </constraints>
-                                <connections>
-                                    <outlet property="boton" destination="zzH-W0-8ZC" id="Tqq-6T-dEF"/>
-                                    <outlet property="texto" destination="LGa-kL-8Bm" id="wVC-H7-cvU"/>
-                                </connections>
-                            </view>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="g2U-hh-X00" firstAttribute="trailing" secondItem="w41-tr-XBh" secondAttribute="trailing" id="Oav-9e-cFZ"/>
-                            <constraint firstItem="g2U-hh-X00" firstAttribute="leading" secondItem="Tky-hk-KM7" secondAttribute="leadingMargin" id="QU0-S4-pOj"/>
-                            <constraint firstItem="g2U-hh-X00" firstAttribute="top" secondItem="tK0-4q-fhI" secondAttribute="bottom" constant="263" id="gqA-d1-JS3"/>
-                            <constraint firstItem="g2U-hh-X00" firstAttribute="leading" secondItem="w41-tr-XBh" secondAttribute="leading" id="nwx-Ih-5jY"/>
+                            <constraint firstItem="oI3-PX-VG8" firstAttribute="top" secondItem="lgQ-cq-FRt" secondAttribute="bottom" constant="8" symbolic="YES" id="4EC-Nj-B0p"/>
+                            <constraint firstItem="lgQ-cq-FRt" firstAttribute="leading" secondItem="oI3-PX-VG8" secondAttribute="leading" id="795-34-US8"/>
+                            <constraint firstItem="w41-tr-XBh" firstAttribute="trailing" secondItem="oI3-PX-VG8" secondAttribute="trailing" id="7tX-iY-Ia0"/>
+                            <constraint firstItem="lgQ-cq-FRt" firstAttribute="top" secondItem="tK0-4q-fhI" secondAttribute="bottom" constant="3" id="Efy-KQ-P1Y"/>
+                            <constraint firstItem="w41-tr-XBh" firstAttribute="top" secondItem="pcK-L9-2j5" secondAttribute="bottom" constant="8" symbolic="YES" id="H8Y-8S-E3U"/>
+                            <constraint firstItem="w41-tr-XBh" firstAttribute="leading" secondItem="pcK-L9-2j5" secondAttribute="leading" id="Hnn-n1-xlt"/>
+                            <constraint firstItem="pcK-L9-2j5" firstAttribute="top" secondItem="oI3-PX-VG8" secondAttribute="bottom" constant="8" symbolic="YES" id="LNC-pD-tyb"/>
+                            <constraint firstItem="pcK-L9-2j5" firstAttribute="leading" secondItem="oI3-PX-VG8" secondAttribute="leading" id="MT8-MK-4A2"/>
+                            <constraint firstItem="lgQ-cq-FRt" firstAttribute="leading" secondItem="Tky-hk-KM7" secondAttribute="leadingMargin" id="YmZ-WI-CkF"/>
+                            <constraint firstItem="oI3-PX-VG8" firstAttribute="trailing" secondItem="lgQ-cq-FRt" secondAttribute="trailing" id="nln-Bm-gqo"/>
                             <constraint firstAttribute="bottom" secondItem="w41-tr-XBh" secondAttribute="bottom" constant="20" symbolic="YES" id="p2P-p8-Y0T"/>
-                            <constraint firstItem="w41-tr-XBh" firstAttribute="top" secondItem="g2U-hh-X00" secondAttribute="bottom" constant="8" symbolic="YES" id="qdI-vf-eZC"/>
                             <constraint firstItem="w41-tr-XBh" firstAttribute="trailing" secondItem="Tky-hk-KM7" secondAttribute="trailingMargin" id="zhw-bP-VaO"/>
                         </constraints>
                     </view>
@@ -392,7 +472,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kt5-u9-UJO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2559" y="-484"/>
+            <point key="canvasLocation" x="2558.5" y="-484.5"/>
         </scene>
         <!--Modo Libre-->
         <scene sceneID="4x8-jb-J9a">
