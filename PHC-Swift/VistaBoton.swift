@@ -17,6 +17,8 @@ class VistaBoton : UIView
     @IBOutlet var boton : UIButton?
     @IBOutlet var texto : UILabel?
     
+    var centroX : CGFloat = 0
+    
     func animar()
     {
         

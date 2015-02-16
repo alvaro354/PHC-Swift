@@ -487,6 +487,12 @@
                         </constraints>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="vistaAyuda" destination="oI3-PX-VG8" id="Wih-BO-Mk6"/>
+                        <outlet property="vistaCerrar" destination="w41-tr-XBh" id="72a-2X-emX"/>
+                        <outlet property="vistaHome" destination="pcK-L9-2j5" id="Lpb-cD-5R5"/>
+                        <outlet property="vistaTerminar" destination="lgQ-cq-FRt" id="1XG-7R-PZV"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kt5-u9-UJO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

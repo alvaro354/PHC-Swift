@@ -26,17 +26,69 @@ class MenuOpciones: UIViewController
     var botonCerrar : UIButton?
     var delegate:MenuOpcionesDelegate?
     var fondoMenu : UIVisualEffectView?;
+    var contadorTmp : Int = 0
+    var posicionX : CGFloat = 0
+    var vistaBotones : [VistaBoton] = [VistaBoton]()
+    
+    @IBOutlet var vistaTerminar : VistaBoton?
+    @IBOutlet var vistaAyuda : VistaBoton?
+    @IBOutlet var vistaHome : VistaBoton?
+    @IBOutlet var vistaCerrar : VistaBoton?
+    
     
     override func viewDidLoad()
     {
         super.viewDidLoad()
         
+        vistaBotones.append(vistaTerminar!)
+        vistaBotones.append(vistaAyuda!)
+        vistaBotones.append(vistaHome!)
+        vistaBotones.append(vistaCerrar!)
         
         fondoMenu = UIVisualEffectView(effect: UIBlurEffect(style: .Dark)) as UIVisualEffectView
         fondoMenu!.frame = self.view.bounds
         
         self.view.insertSubview(fondoMenu!, atIndex: 0)
+        
+        
+        
+        //Iniciamos los valores para la animacion
+        
+        posicionX = vistaTerminar!.center.x
+        
+        for vista : VistaBoton in vistaBotones
+        {
+            vista.alpha = 0
+            vista.centroX = vista.center.x
+            vista.center.x =  vista.center.x + self.view.bounds.width
+        }
     
+         self.animarEntrada()
+    }
+    
+    func animarEntrada()
+    {
+        
+        
+        var vistaB : VistaBoton  = self.vistaBotones[self.contadorTmp]
+        
+            UIView.animateWithDuration(0.3, delay: 0, options: .CurveEaseOut, animations:
+                {
+                    vistaB.alpha = 1
+                    vistaB.center.x =  vistaB.centroX
+                    
+                    
+                }, completion:{ finished in
+                    println("Animacion Acabada")
+                    if(self.contadorTmp+1 < self.vistaBotones.count)
+                    {
+                        self.contadorTmp++
+                        self.animarEntrada()
+                    }
+                    
+            })
+            
+        
     }
     
    @IBAction func cerrar()
