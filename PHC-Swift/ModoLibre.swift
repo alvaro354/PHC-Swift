@@ -247,6 +247,9 @@ class ModoLibre: UIViewController, UIImagePickerControllerDelegate, UINavigation
         }
         
         recognizer.setTranslation(CGPointZero, inView: self.view)
+        
+        
+        self.traerBotonesAlfrente()
 
         
     }
@@ -267,6 +270,9 @@ class ModoLibre: UIViewController, UIImagePickerControllerDelegate, UINavigation
         self.view.bringSubviewToFront(imagen.vistaImagen);
         
         
+        self.traerBotonesAlfrente()
+        
+        
         
     }
     
@@ -283,6 +289,9 @@ class ModoLibre: UIViewController, UIImagePickerControllerDelegate, UINavigation
         imagen.vistaBorde.transform = CGAffineTransformRotate(imagen.vistaBorde.transform, recognizer.rotation)
         }
         recognizer.rotation = 0
+        
+        
+        self.traerBotonesAlfrente()
         
     }
     
@@ -302,6 +311,9 @@ class ModoLibre: UIViewController, UIImagePickerControllerDelegate, UINavigation
         }
         
         recognizer.scale = 1
+        
+        
+        self.traerBotonesAlfrente()
     }
     
     func borrar(recognizer : UIPinchGestureRecognizer) {
@@ -313,6 +325,7 @@ class ModoLibre: UIViewController, UIImagePickerControllerDelegate, UINavigation
         imagen.borrar()
         
         menuEditar.esconderMenu()
+        self.traerBotonesAlfrente()
     }
     
     func longPress(recognizer : UIPinchGestureRecognizer) {
@@ -343,6 +356,8 @@ class ModoLibre: UIViewController, UIImagePickerControllerDelegate, UINavigation
         var imagen = Imagen(imagen:imagenCortada);
         imagen.intPlantilla = intElegidoShape
         imagen.añadir(self);
+        
+        self.traerBotonesAlfrente()
     }
     
     // Delegate Eleccion Shape
@@ -414,6 +429,11 @@ class ModoLibre: UIViewController, UIImagePickerControllerDelegate, UINavigation
         self.view.addSubview(menuOpciones!.view)
     }
     
+    func traerBotonesAlfrente()
+    {
+        self.view.bringSubviewToFront(BotonMenuOpciones!)
+        self.view.bringSubviewToFront(BotonMenuPrincipal!)
+    }
     func cerrar(recognizer:UIPanGestureRecognizer)
     {
         recognizer.view?.removeFromSuperview()

@@ -107,7 +107,7 @@ class MenuOpciones: UIViewController
     
     func animarSalida()
     {
-        
+         
         var vistaB : VistaBoton  = self.vistaBotones[self.contadorTmp]
         
         UIView.animateWithDuration(0.15, delay: 0, options: .CurveEaseOut, animations:

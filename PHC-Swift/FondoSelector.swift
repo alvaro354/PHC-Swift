@@ -46,7 +46,7 @@ class FondoSelector : UIViewController, iCarouselDataSource, iCarouselDelegate
         
         botonCerrar = UIButton(frame: CGRectMake(0,0, 30, 30))
         botonCerrar!.tintColor = UIColor.blackColor()
-        botonCerrar!.setImage(UIImage(named:"Circulo.png")!, forState: UIControlState.Normal)
+        botonCerrar!.setImage(UIImage(named:"Boton-Cerrar.png")!, forState: UIControlState.Normal)
         botonCerrar!.addTarget(self, action: Selector("cerrar"), forControlEvents: UIControlEvents.TouchDown)
         botonCerrar!.center = CGPointMake(self.view.bounds.width - 80, 80)
         self.view.addSubview(botonCerrar!)
