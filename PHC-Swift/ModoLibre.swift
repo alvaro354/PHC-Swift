@@ -26,6 +26,13 @@ class ModoLibre: UIViewController, UIImagePickerControllerDelegate, UINavigation
     var camaraFondo : Bool = false
      var viewFondo : UIImageView = UIImageView()
     
+    //Menus Mostrar
+    
+    var labelIzq:UILabel = UILabel()
+    var labelDer:UILabel = UILabel()
+    var botonFondo: UIButton = UIButton()
+    var boton: UIButton = UIButton()
+    
     @IBOutlet var BotonMenuPrincipal: UIButton?
     @IBOutlet var BotonMenuOpciones: UIButton?
     
@@ -45,6 +52,87 @@ class ModoLibre: UIViewController, UIImagePickerControllerDelegate, UINavigation
         // Dispose of any resources that can be recreated.
     }
     
+    func animarEntradaMenu()
+    {
+     //   vistaBotones.alpha=0
+                
+                UIView.animateWithDuration(0.25, delay: 0, options: .CurveEaseOut, animations:
+                    {
+                        
+                        self.boton.transform = CGAffineTransformScale(self.boton.transform,100, 100)
+                       // self.labelDer.alpha = 1
+                        self.botonFondo.transform = CGAffineTransformScale(self.botonFondo.transform,100, 100)
+                       // self.labelIzq.alpha = 1
+                        
+                    }, completion:{ finished in
+                        
+                        UIView.animateWithDuration(0.25, delay: 0, options: .CurveEaseOut, animations:
+                            {
+                              self.labelDer.alpha = 1
+                              self.labelIzq.alpha = 1
+                                
+                            }, completion:{ finished in
+                                
+                                // Animamos los botones
+                                
+                                
+                                
+                        })
+                        
+                        
+                        
+                })
+
+    }
+    
+    func animarCambioMenu()
+    {
+        UIView.animateWithDuration(0.25, delay: 0, options: .CurveEaseOut, animations:
+            {
+                
+                self.labelDer.alpha = 0
+                self.labelIzq.alpha = 0
+                
+            }, completion:{ finished in
+                
+                UIView.animateWithDuration(0.25, delay: 0, options: .CurveEaseOut, animations:
+                    {
+                        self.boton.transform = CGAffineTransformScale(self.boton.transform,0.01, 0.01)
+                        // self.labelDer.alpha = 1
+                        self.botonFondo.transform = CGAffineTransformScale(self.botonFondo.transform,0.01, 0.01)
+                        // self.labelIzq.alpha = 1
+                        
+                    }, completion:{ finished in
+                        
+                        // Animamos los botones
+                        
+                        self.boton.setImage(UIImage(named:"Circulo.png")!, forState: UIControlState.Normal)
+                        self.boton.removeTarget(self, action: Selector("mostrarOpcionesShapes"), forControlEvents: UIControlEvents.TouchDown)
+                        self.boton.addTarget(self, action: Selector("mostrarFondoFoto"), forControlEvents: UIControlEvents.TouchDown)
+                        
+                        self.botonFondo.setImage(UIImage(named:"Circulo.png")!, forState: UIControlState.Normal)
+                        self.botonFondo.removeTarget(self, action: Selector("animarCambioMenu"), forControlEvents: UIControlEvents.TouchDown)
+                        self.botonFondo.addTarget(self, action: Selector("mostrarFondoColor"), forControlEvents: UIControlEvents.TouchDown)
+                        
+                        let parag = NSMutableParagraphStyle()
+                        parag.alignment = NSTextAlignment.Center
+                        
+                        let font = UIFont(name: "Arial Rounded MT Bold", size: 24.0)
+                        let attrs = Dictionary(dictionaryLiteral: (NSFontAttributeName, font!),(NSForegroundColorAttributeName,  UIColor.whiteColor()),(NSParagraphStyleAttributeName,         parag) )
+                        let attributedString = NSAttributedString(string: "Foto", attributes: attrs)
+                        let attributedString2 = NSAttributedString(string: "Color", attributes: attrs)
+                        
+                        
+                        self.labelIzq.attributedText = attributedString
+                        self.labelDer.attributedText = attributedString2
+                        self.animarEntradaMenu()
+                })
+                
+                
+                
+        })
+        
+    }
     
         // Acciones
     @IBAction func pasarMenuOpciones(sender : UIButton)
@@ -53,33 +141,74 @@ class ModoLibre: UIViewController, UIImagePickerControllerDelegate, UINavigation
         
        //  menuEditar.mostrarMenu(sender,padreP: self, botonTmp: UIButton(),dImagen: nil , botonOpciones : true)
         
+        
+        //Atributios del texto
+        let parag = NSMutableParagraphStyle()
+        parag.alignment = NSTextAlignment.Center
+        
+        let font = UIFont(name: "Arial Rounded MT Bold", size: 24.0)
+        let attrs = Dictionary(dictionaryLiteral: (NSFontAttributeName, font!),(NSForegroundColorAttributeName,  UIColor.whiteColor()),(NSParagraphStyleAttributeName,         parag) )
+        let attributedString = NSAttributedString(string: "Shapes", attributes: attrs)
+        let attributedString2 = NSAttributedString(string: "Fondo", attributes: attrs)
+        
         vistaBotones = UIView(frame: self.view.frame)
         vistaBotones.backgroundColor = UIColor(white: 0.0, alpha: 0.4)
+      //  vistaBotones.alpha=0
         self.view.addSubview(vistaBotones)
         
         let vista = UIVisualEffectView(effect: UIBlurEffect(style: .Light)) as UIVisualEffectView
         vista.frame = vistaBotones.frame
         vistaBotones.addSubview(vista)
         
-        var boton: UIButton = UIButton(frame: CGRectMake(0,0, 60, 60))
+        boton = UIButton(frame: CGRectMake(0,0, 150, 150))
         boton.tintColor = UIColor.blackColor()
-        boton.setImage(UIImage(named:"Circulo.png")!, forState: UIControlState.Normal)
+        boton.setImage(UIImage(named:"Boton-Shapes.png")!, forState: UIControlState.Normal)
         boton.addTarget(self, action: Selector("mostrarOpcionesShapes"), forControlEvents: UIControlEvents.TouchDown)
         boton.center = self.view.center
-        boton.center.x -= (boton.bounds.size.width)
+        boton.center.x -= 90
+        boton.center.y -= 20
         vistaBotones.addSubview(boton)
         
-        var botonFondo: UIButton = UIButton(frame: CGRectMake(0,0, 60, 60))
+        labelIzq = UILabel()
+        labelIzq.attributedText = attributedString
+        labelIzq.frame = boton.frame
+        labelIzq.center.y += 100
+        labelIzq.shadowColor = UIColor.blackColor()
+        labelIzq.shadowOffset = CGSizeMake(2, 0)
+        vistaBotones.addSubview(labelIzq)
+        
+        
+        botonFondo = UIButton(frame: CGRectMake(0,0, 150, 150))
         botonFondo.tintColor = UIColor.blackColor()
-        botonFondo.setImage(UIImage(named:"Circulo.png")!, forState: UIControlState.Normal)
-        botonFondo.addTarget(self, action: Selector("mostrarOpcionesFondo"), forControlEvents: UIControlEvents.TouchDown)
+        botonFondo.setImage(UIImage(named:"Boton-Color.png")!, forState: UIControlState.Normal)
+        botonFondo.addTarget(self, action: Selector("animarCambioMenu"), forControlEvents: UIControlEvents.TouchDown)
         botonFondo.center = self.view.center
-        botonFondo.center.x += (botonFondo.bounds.size.width)
+        botonFondo.center.x += 90
+        botonFondo.center.y -= 20
         vistaBotones.addSubview(botonFondo)
+        
+        
+        labelDer = UILabel()
+        labelDer.attributedText = attributedString2
+        labelDer.frame = botonFondo.frame
+        labelDer.center.y += 100
+        labelDer.shadowColor = UIColor.blackColor()
+        labelDer.shadowOffset = CGSizeMake(2, 0)
+        vistaBotones.addSubview(labelDer)
         
         let tap = UITapGestureRecognizer(target:self, action:Selector("cerrar:"))
         tap.numberOfTapsRequired = 1
         vistaBotones.addGestureRecognizer(tap)
+        
+        
+        //Animamos la entrada 
+        
+        boton.transform = CGAffineTransformScale(boton.transform,0.01, 0.01)
+        botonFondo.transform = CGAffineTransformScale(botonFondo.transform,0.01 ,0.01)
+        labelIzq.alpha = 0
+        labelDer.alpha = 0
+        animarEntradaMenu()
+
         
     }
    
@@ -96,7 +225,7 @@ class ModoLibre: UIViewController, UIImagePickerControllerDelegate, UINavigation
         vista.frame = vistaBotones.frame
         vistaBotones.addSubview(vista)
         
-        var boton: UIButton = UIButton(frame: CGRectMake(0,0, 60, 60))
+        boton = UIButton(frame: CGRectMake(0,0, 60, 60))
         boton.tintColor = UIColor.blackColor()
         boton.setImage(UIImage(named:"Circulo.png")!, forState: UIControlState.Normal)
         boton.addTarget(self, action: Selector("mostrarFondoFoto"), forControlEvents: UIControlEvents.TouchDown)
@@ -104,7 +233,7 @@ class ModoLibre: UIViewController, UIImagePickerControllerDelegate, UINavigation
         boton.center.x -= (boton.bounds.size.width)
         vistaBotones.addSubview(boton)
         
-        var botonFondo: UIButton = UIButton(frame: CGRectMake(0,0, 60, 60))
+        botonFondo = UIButton(frame: CGRectMake(0,0, 60, 60))
         botonFondo.tintColor = UIColor.blackColor()
         botonFondo.setImage(UIImage(named:"Circulo.png")!, forState: UIControlState.Normal)
         botonFondo.addTarget(self, action: Selector("mostrarFondoColor"), forControlEvents: UIControlEvents.TouchDown)

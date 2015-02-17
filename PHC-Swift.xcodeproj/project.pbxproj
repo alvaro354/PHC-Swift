@@ -19,6 +19,8 @@
 		B12DA24F1A937A1A0005663D /* Boton-Cerrar.png in Resources */ = {isa = PBXBuildFile; fileRef = B12DA24E1A937A1A0005663D /* Boton-Cerrar.png */; };
 		B12DA2511A937AE50005663D /* Boton-Anadir.png in Resources */ = {isa = PBXBuildFile; fileRef = B12DA2501A937AE50005663D /* Boton-Anadir.png */; };
 		B12DA2531A937C500005663D /* Boton-Menu.png in Resources */ = {isa = PBXBuildFile; fileRef = B12DA2521A937C500005663D /* Boton-Menu.png */; };
+		B12DA2551A93E7550005663D /* Boton-Color.png in Resources */ = {isa = PBXBuildFile; fileRef = B12DA2541A93E7550005663D /* Boton-Color.png */; };
+		B12DA2591A93EB6D0005663D /* Boton-Shapes.png in Resources */ = {isa = PBXBuildFile; fileRef = B12DA2581A93EB6D0005663D /* Boton-Shapes.png */; };
 		B140DF451A6EBDB300B7A810 /* Menu-Editar.swift in Sources */ = {isa = PBXBuildFile; fileRef = B140DF441A6EBDB300B7A810 /* Menu-Editar.swift */; };
 		B16B1C431A7D49B100B5C3E6 /* ColorPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = B16B1C421A7D49B100B5C3E6 /* ColorPicker.swift */; };
 		B16B1C451A7D501D00B5C3E6 /* colorPalette.plist in Resources */ = {isa = PBXBuildFile; fileRef = B16B1C441A7D501D00B5C3E6 /* colorPalette.plist */; };
@@ -67,6 +69,8 @@
 		B12DA24E1A937A1A0005663D /* Boton-Cerrar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Boton-Cerrar.png"; sourceTree = "<group>"; };
 		B12DA2501A937AE50005663D /* Boton-Anadir.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Boton-Anadir.png"; sourceTree = "<group>"; };
 		B12DA2521A937C500005663D /* Boton-Menu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Boton-Menu.png"; sourceTree = "<group>"; };
+		B12DA2541A93E7550005663D /* Boton-Color.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Boton-Color.png"; sourceTree = "<group>"; };
+		B12DA2581A93EB6D0005663D /* Boton-Shapes.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Boton-Shapes.png"; sourceTree = "<group>"; };
 		B140DF441A6EBDB300B7A810 /* Menu-Editar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Menu-Editar.swift"; sourceTree = "<group>"; };
 		B16B1C421A7D49B100B5C3E6 /* ColorPicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorPicker.swift; sourceTree = "<group>"; };
 		B16B1C441A7D501D00B5C3E6 /* colorPalette.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = colorPalette.plist; sourceTree = "<group>"; };
@@ -119,6 +123,8 @@
 		B12DA2311A92045A0005663D /* Botones */ = {
 			isa = PBXGroup;
 			children = (
+				B12DA2581A93EB6D0005663D /* Boton-Shapes.png */,
+				B12DA2541A93E7550005663D /* Boton-Color.png */,
 				B12DA2521A937C500005663D /* Boton-Menu.png */,
 				B12DA2501A937AE50005663D /* Boton-Anadir.png */,
 				B12DA24E1A937A1A0005663D /* Boton-Cerrar.png */,
@@ -322,6 +328,7 @@
 				B19B6A3C1A83A21D0079A108 /* Boton-Frames.png in Resources */,
 				B16B1C451A7D501D00B5C3E6 /* colorPalette.plist in Resources */,
 				B12DA2471A9289660005663D /* Boton-Ayuda.png in Resources */,
+				B12DA2551A93E7550005663D /* Boton-Color.png in Resources */,
 				B19083951A6C35260007CE9D /* Main.storyboard in Resources */,
 				B19B6A361A82AFC80079A108 /* ImagenFondo.jpg in Resources */,
 				B1FAAB931A8BEC0900253591 /* imagenFondo1.png in Resources */,
@@ -331,6 +338,7 @@
 				B12DA2451A9287C70005663D /* Boton-Volver.png in Resources */,
 				B12DA24B1A928CC40005663D /* Boton-Terminar.png in Resources */,
 				B19083B91A6D76EF0007CE9D /* Circulo.png in Resources */,
+				B12DA2591A93EB6D0005663D /* Boton-Shapes.png in Resources */,
 				B12DA23F1A927C0D0005663D /* Boton-Casa.png in Resources */,
 				B19083971A6C35260007CE9D /* Images.xcassets in Resources */,
 				B12DA2531A937C500005663D /* Boton-Menu.png in Resources */,
