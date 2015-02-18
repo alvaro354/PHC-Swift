@@ -40,6 +40,8 @@ class MenuShapes : UIViewController, UICollectionViewDelegate ,UICollectionViewD
         
         self.view.addSubview(fondoMenu!)
         
+        
+        
         let layout : UICollectionViewFlowLayout = UICollectionViewFlowLayout()
         layout.sectionInset = UIEdgeInsets(top: 20, left: 20, bottom: 20, right: 20)
         grid = UICollectionView(frame: CGRectMake(0,0, 300, 300), collectionViewLayout: layout )
@@ -48,10 +50,22 @@ class MenuShapes : UIViewController, UICollectionViewDelegate ,UICollectionViewD
         grid!.layer.cornerRadius = 10
         grid!.center = self.view.center
         grid!.registerClass(CeldaShape.self, forCellWithReuseIdentifier: "CeldaShape")
-        
+        grid!.backgroundColor = UIColor(red: 1.0, green: 1.0, blue: 1.0, alpha:0.6)
         self.view.addSubview(grid!)
+       /*
+        var viewFondoGrid : UIView = UIView(frame: grid!.frame)
+        viewFondoGrid.backgroundColor = UIColor.clearColor()
+        viewFondoGrid.layer.cornerRadius = 10
+        self.view.insertSubview(viewFondoGrid, belowSubview: grid!)
         
-        self.view.backgroundColor = UIColor(white: 0.2, alpha: 0.2)
+        
+        var fondoMenuGrid : UIVisualEffectView?;
+        fondoMenuGrid = UIVisualEffectView(effect: UIBlurEffect(style: .Dark)) as UIVisualEffectView
+        fondoMenuGrid!.frame = viewFondoGrid.bounds
+        fondoMenuGrid!.layer.cornerRadius = 10
+        viewFondoGrid.addSubview(fondoMenuGrid!)
+        */
+        //self.view.backgroundColor = UIColor(white: 0.2, alpha: 0.2)
         
         let vistaAtras : UIView = UIView(frame: self.view.bounds)
         vistaAtras.center = self.view.center
