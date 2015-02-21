@@ -50,7 +50,7 @@ class MenuShapes : UIViewController, UICollectionViewDelegate ,UICollectionViewD
         grid!.layer.cornerRadius = 10
         grid!.center = self.view.center
         grid!.registerClass(CeldaShape.self, forCellWithReuseIdentifier: "CeldaShape")
-        grid!.backgroundColor = UIColor(red: 1.0, green: 1.0, blue: 1.0, alpha:0.6)
+        grid!.backgroundColor = UIColor(red: 1.0, green: 1.0, blue: 1.0, alpha:0.6 )
         self.view.addSubview(grid!)
        /*
         var viewFondoGrid : UIView = UIView(frame: grid!.frame)

@@ -33,8 +33,8 @@ class ModoLibre: UIViewController, UIImagePickerControllerDelegate, UINavigation
     var botonFondo: UIButton = UIButton()
     var boton: UIButton = UIButton()
     
-    @IBOutlet var BotonMenuPrincipal: UIButton?
-    @IBOutlet var BotonMenuOpciones: UIButton?
+    @IBOutlet var botonMenuPrincipal: UIButton?
+    @IBOutlet var botonMenuOpciones: UIButton?
     
     var imagenShape: UIImage = UIImage()
     
@@ -558,10 +558,33 @@ class ModoLibre: UIViewController, UIImagePickerControllerDelegate, UINavigation
         self.view.addSubview(menuOpciones!.view)
     }
     
+    func volverMenuPrincipal()
+    {
+        self.modalTransitionStyle = UIModalTransitionStyle.CrossDissolve
+        self.dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+    func capturarImagen() -> UIImage
+    {
+         botonMenuPrincipal!.hidden = true
+         botonMenuOpciones!.hidden = true
+        
+        UIGraphicsBeginImageContext(self.view.frame.size)
+        self.view.layer.renderInContext(UIGraphicsGetCurrentContext())
+        let image = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        
+        botonMenuPrincipal!.hidden = false
+        botonMenuOpciones!.hidden = false
+        
+        return image
+        
+    }
+    
     func traerBotonesAlfrente()
     {
-        self.view.bringSubviewToFront(BotonMenuOpciones!)
-        self.view.bringSubviewToFront(BotonMenuPrincipal!)
+        self.view.bringSubviewToFront(botonMenuOpciones!)
+        self.view.bringSubviewToFront(botonMenuPrincipal!)
     }
     func cerrar(recognizer:UIPanGestureRecognizer)
     {
