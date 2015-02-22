@@ -182,6 +182,21 @@ class MenuOpciones: UIViewController
         self.view.alpha = 1
     }
     
+    @IBAction func subirFotoTwitter()
+    {
+        self.view.alpha = 0
+        Social.sharedSocial.subirTwitter(delegate!.capturarImagen!(),vista: self)
+        self.view.alpha = 1
+    }
+    
+    @IBAction func subirFotoFacebook()
+    {
+        self.view.alpha = 0
+        Social.sharedSocial
+            .subirFacebook(delegate!.capturarImagen!(),vista: self)
+        self.view.alpha = 1
+    }
+    
     
     @IBAction func mostrarAcabar()
     {

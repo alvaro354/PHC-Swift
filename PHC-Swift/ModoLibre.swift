@@ -106,26 +106,7 @@ class ModoLibre: UIViewController, UIImagePickerControllerDelegate, UINavigation
                         
                         // Animamos los botones
                         
-                        self.boton.setImage(UIImage(named:"Circulo.png")!, forState: UIControlState.Normal)
-                        self.boton.removeTarget(self, action: Selector("mostrarOpcionesShapes"), forControlEvents: UIControlEvents.TouchDown)
-                        self.boton.addTarget(self, action: Selector("mostrarFondoFoto"), forControlEvents: UIControlEvents.TouchDown)
-                        
-                        self.botonFondo.setImage(UIImage(named:"Circulo.png")!, forState: UIControlState.Normal)
-                        self.botonFondo.removeTarget(self, action: Selector("animarCambioMenu"), forControlEvents: UIControlEvents.TouchDown)
-                        self.botonFondo.addTarget(self, action: Selector("mostrarFondoColor"), forControlEvents: UIControlEvents.TouchDown)
-                        
-                        let parag = NSMutableParagraphStyle()
-                        parag.alignment = NSTextAlignment.Center
-                        
-                        let font = UIFont(name: "Arial Rounded MT Bold", size: 24.0)
-                        let attrs = Dictionary(dictionaryLiteral: (NSFontAttributeName, font!),(NSForegroundColorAttributeName,  UIColor.whiteColor()),(NSParagraphStyleAttributeName,         parag) )
-                        let attributedString = NSAttributedString(string: "Foto", attributes: attrs)
-                        let attributedString2 = NSAttributedString(string: "Color", attributes: attrs)
-                        
-                        
-                        self.labelIzq.attributedText = attributedString
-                        self.labelDer.attributedText = attributedString2
-                        self.animarEntradaMenu()
+                       self.mostrarOpcionesFondo()
                 })
                 
                 
@@ -180,7 +161,7 @@ class ModoLibre: UIViewController, UIImagePickerControllerDelegate, UINavigation
         
         botonFondo = UIButton(frame: CGRectMake(0,0, 150, 150))
         botonFondo.tintColor = UIColor.blackColor()
-        botonFondo.setImage(UIImage(named:"Boton-Color.png")!, forState: UIControlState.Normal)
+        botonFondo.setImage(UIImage(named:"Boton-FondoColor.png")!, forState: UIControlState.Normal)
         botonFondo.addTarget(self, action: Selector("animarCambioMenu"), forControlEvents: UIControlEvents.TouchDown)
         botonFondo.center = self.view.center
         botonFondo.center.x += 90
@@ -215,35 +196,26 @@ class ModoLibre: UIViewController, UIImagePickerControllerDelegate, UINavigation
     
     func mostrarOpcionesFondo()
     {
-        vistaBotones.removeFromSuperview()
+        self.boton.setImage(UIImage(named:"Boton-FondoFoto.png")!, forState: UIControlState.Normal)
+        self.boton.removeTarget(self, action: Selector("mostrarOpcionesShapes"), forControlEvents: UIControlEvents.TouchDown)
+        self.boton.addTarget(self, action: Selector("mostrarFondoFoto"), forControlEvents: UIControlEvents.TouchDown)
         
-        vistaBotones = UIView(frame: self.view.frame)
-        vistaBotones.backgroundColor = UIColor(white: 0.0, alpha: 0.4)
-        self.view.addSubview(vistaBotones)
+        self.botonFondo.setImage(UIImage(named:"Boton-Color.png")!, forState: UIControlState.Normal)
+        self.botonFondo.removeTarget(self, action: Selector("animarCambioMenu"), forControlEvents: UIControlEvents.TouchDown)
+        self.botonFondo.addTarget(self, action: Selector("mostrarFondoColor"), forControlEvents: UIControlEvents.TouchDown)
         
-        let vista = UIVisualEffectView(effect: UIBlurEffect(style: .Light)) as UIVisualEffectView
-        vista.frame = vistaBotones.frame
-        vistaBotones.addSubview(vista)
+        let parag = NSMutableParagraphStyle()
+        parag.alignment = NSTextAlignment.Center
         
-        boton = UIButton(frame: CGRectMake(0,0, 60, 60))
-        boton.tintColor = UIColor.blackColor()
-        boton.setImage(UIImage(named:"Circulo.png")!, forState: UIControlState.Normal)
-        boton.addTarget(self, action: Selector("mostrarFondoFoto"), forControlEvents: UIControlEvents.TouchDown)
-        boton.center = self.view.center
-        boton.center.x -= (boton.bounds.size.width)
-        vistaBotones.addSubview(boton)
+        let font = UIFont(name: "Arial Rounded MT Bold", size: 24.0)
+        let attrs = Dictionary(dictionaryLiteral: (NSFontAttributeName, font!),(NSForegroundColorAttributeName,  UIColor.whiteColor()),(NSParagraphStyleAttributeName,         parag) )
+        let attributedString = NSAttributedString(string: "Foto", attributes: attrs)
+        let attributedString2 = NSAttributedString(string: "Color", attributes: attrs)
         
-        botonFondo = UIButton(frame: CGRectMake(0,0, 60, 60))
-        botonFondo.tintColor = UIColor.blackColor()
-        botonFondo.setImage(UIImage(named:"Circulo.png")!, forState: UIControlState.Normal)
-        botonFondo.addTarget(self, action: Selector("mostrarFondoColor"), forControlEvents: UIControlEvents.TouchDown)
-        botonFondo.center = self.view.center
-        botonFondo.center.x += (botonFondo.bounds.size.width)
-        vistaBotones.addSubview(botonFondo)
         
-        let tap = UITapGestureRecognizer(target:self, action:Selector("cerrar:"))
-        tap.numberOfTapsRequired = 1
-        vistaBotones.addGestureRecognizer(tap)
+        self.labelIzq.attributedText = attributedString
+        self.labelDer.attributedText = attributedString2
+        self.animarEntradaMenu()
     }
     
     func mostrarFondoFoto()

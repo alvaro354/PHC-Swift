@@ -435,12 +435,12 @@
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r3E-uu-sas">
                                                 <rect key="frame" x="8" y="10" width="104" height="104"/>
-                                                <state key="normal" title="Modo Libre" image="Boton-Terminar.png">
+                                                <state key="normal" title="Modo Libre" image="Boton-Twitter.png">
                                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
                                                 <connections>
-                                                    <action selector="cerrar" destination="a9n-jk-iMX" eventType="touchUpInside" id="L4k-IN-CzE"/>
                                                     <action selector="pasarModoLibre:" destination="BYZ-38-t0r" eventType="touchUpInside" id="dCa-3a-EH0"/>
+                                                    <action selector="subirFotoTwitter" destination="a9n-jk-iMX" eventType="touchUpInside" id="BqV-RA-ZaD"/>
                                                 </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Twitter" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o6R-cD-7Wu">
@@ -464,7 +464,7 @@
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d8A-1N-IBa">
                                                 <rect key="frame" x="8" y="10" width="104" height="104"/>
-                                                <state key="normal" title="Modo Libre" image="Boton-Terminar.png">
+                                                <state key="normal" title="Modo Libre" image="Boton-Instagram.png">
                                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
                                                 <connections>
@@ -493,12 +493,12 @@
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="H5L-T4-ylh">
                                                 <rect key="frame" x="8" y="10" width="104" height="104"/>
-                                                <state key="normal" title="Modo Libre" image="Boton-Terminar.png">
+                                                <state key="normal" title="Modo Libre" image="Boton-Facebook.png">
                                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
                                                 <connections>
-                                                    <action selector="cerrar" destination="a9n-jk-iMX" eventType="touchUpInside" id="BIs-ci-usL"/>
                                                     <action selector="pasarModoLibre:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Sox-7e-3Ev"/>
+                                                    <action selector="subirFotoFacebook" destination="a9n-jk-iMX" eventType="touchUpInside" id="fQJ-V9-clM"/>
                                                 </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Facebook" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zmn-J7-6BU">
@@ -551,7 +551,7 @@
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rkl-bI-IFI">
                                                 <rect key="frame" x="8" y="10" width="104" height="104"/>
-                                                <state key="normal" title="Modo Libre" image="Boton-Terminar.png">
+                                                <state key="normal" title="Modo Libre" image="Boton-Save.png">
                                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
                                                 <connections>
@@ -647,8 +647,12 @@
         <image name="Boton-Anadir.png" width="600" height="600"/>
         <image name="Boton-Ayuda.png" width="600" height="600"/>
         <image name="Boton-Casa.png" width="600" height="600"/>
+        <image name="Boton-Facebook.png" width="600" height="600"/>
+        <image name="Boton-Instagram.png" width="600" height="600"/>
         <image name="Boton-Menu.png" width="600" height="600"/>
+        <image name="Boton-Save.png" width="600" height="600"/>
         <image name="Boton-Terminar.png" width="600" height="600"/>
+        <image name="Boton-Twitter.png" width="600" height="600"/>
         <image name="Boton-Volver.png" width="600" height="600"/>
         <image name="Titulo-PHC.png" width="3439" height="1302"/>
     </resources>

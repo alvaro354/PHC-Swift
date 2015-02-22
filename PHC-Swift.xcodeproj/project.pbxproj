@@ -21,6 +21,17 @@
 		B12DA26B1A98BE730005663D /* Boton-Shapes.png in Resources */ = {isa = PBXBuildFile; fileRef = B12DA2621A98BE730005663D /* Boton-Shapes.png */; };
 		B12DA26C1A98BE730005663D /* Boton-Terminar.png in Resources */ = {isa = PBXBuildFile; fileRef = B12DA2631A98BE730005663D /* Boton-Terminar.png */; };
 		B12DA26D1A98BE730005663D /* Boton-Volver.png in Resources */ = {isa = PBXBuildFile; fileRef = B12DA2641A98BE730005663D /* Boton-Volver.png */; };
+		B12DA26F1A9941D60005663D /* Anuncios.swift in Sources */ = {isa = PBXBuildFile; fileRef = B12DA26E1A9941D60005663D /* Anuncios.swift */; };
+		B12DA2711A9941E20005663D /* Social.swift in Sources */ = {isa = PBXBuildFile; fileRef = B12DA2701A9941E20005663D /* Social.swift */; };
+		B12DA2751A9942600005663D /* iAd.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B12DA2721A9942600005663D /* iAd.framework */; };
+		B12DA2761A9942600005663D /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B12DA2731A9942600005663D /* Social.framework */; };
+		B12DA2771A9942600005663D /* Twitter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B12DA2741A9942600005663D /* Twitter.framework */; };
+		B12DA2791A9A5C750005663D /* Boton-Twitter.png in Resources */ = {isa = PBXBuildFile; fileRef = B12DA2781A9A5C750005663D /* Boton-Twitter.png */; };
+		B12DA27B1A9A5E0E0005663D /* Boton-Instagram.png in Resources */ = {isa = PBXBuildFile; fileRef = B12DA27A1A9A5E0E0005663D /* Boton-Instagram.png */; };
+		B12DA27D1A9A606E0005663D /* Boton-Facebook.png in Resources */ = {isa = PBXBuildFile; fileRef = B12DA27C1A9A606E0005663D /* Boton-Facebook.png */; };
+		B12DA27F1A9A6E220005663D /* Boton-Save.png in Resources */ = {isa = PBXBuildFile; fileRef = B12DA27E1A9A6E220005663D /* Boton-Save.png */; };
+		B12DA2811A9A75270005663D /* Boton-FondoColor.png in Resources */ = {isa = PBXBuildFile; fileRef = B12DA2801A9A75270005663D /* Boton-FondoColor.png */; };
+		B12DA2831A9A7C0C0005663D /* Boton-FondoFoto.png in Resources */ = {isa = PBXBuildFile; fileRef = B12DA2821A9A7C0C0005663D /* Boton-FondoFoto.png */; };
 		B140DF451A6EBDB300B7A810 /* Menu-Editar.swift in Sources */ = {isa = PBXBuildFile; fileRef = B140DF441A6EBDB300B7A810 /* Menu-Editar.swift */; };
 		B16B1C431A7D49B100B5C3E6 /* ColorPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = B16B1C421A7D49B100B5C3E6 /* ColorPicker.swift */; };
 		B16B1C451A7D501D00B5C3E6 /* colorPalette.plist in Resources */ = {isa = PBXBuildFile; fileRef = B16B1C441A7D501D00B5C3E6 /* colorPalette.plist */; };
@@ -70,6 +81,17 @@
 		B12DA2621A98BE730005663D /* Boton-Shapes.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Boton-Shapes.png"; sourceTree = "<group>"; };
 		B12DA2631A98BE730005663D /* Boton-Terminar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Boton-Terminar.png"; sourceTree = "<group>"; };
 		B12DA2641A98BE730005663D /* Boton-Volver.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Boton-Volver.png"; sourceTree = "<group>"; };
+		B12DA26E1A9941D60005663D /* Anuncios.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Anuncios.swift; sourceTree = "<group>"; };
+		B12DA2701A9941E20005663D /* Social.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Social.swift; sourceTree = "<group>"; };
+		B12DA2721A9942600005663D /* iAd.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = iAd.framework; path = System/Library/Frameworks/iAd.framework; sourceTree = SDKROOT; };
+		B12DA2731A9942600005663D /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
+		B12DA2741A9942600005663D /* Twitter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Twitter.framework; path = System/Library/Frameworks/Twitter.framework; sourceTree = SDKROOT; };
+		B12DA2781A9A5C750005663D /* Boton-Twitter.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Boton-Twitter.png"; sourceTree = "<group>"; };
+		B12DA27A1A9A5E0E0005663D /* Boton-Instagram.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Boton-Instagram.png"; sourceTree = "<group>"; };
+		B12DA27C1A9A606E0005663D /* Boton-Facebook.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Boton-Facebook.png"; sourceTree = "<group>"; };
+		B12DA27E1A9A6E220005663D /* Boton-Save.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Boton-Save.png"; sourceTree = "<group>"; };
+		B12DA2801A9A75270005663D /* Boton-FondoColor.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Boton-FondoColor.png"; sourceTree = "<group>"; };
+		B12DA2821A9A7C0C0005663D /* Boton-FondoFoto.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Boton-FondoFoto.png"; sourceTree = "<group>"; };
 		B140DF441A6EBDB300B7A810 /* Menu-Editar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Menu-Editar.swift"; sourceTree = "<group>"; };
 		B16B1C421A7D49B100B5C3E6 /* ColorPicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorPicker.swift; sourceTree = "<group>"; };
 		B16B1C441A7D501D00B5C3E6 /* colorPalette.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = colorPalette.plist; sourceTree = "<group>"; };
@@ -105,6 +127,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B12DA2751A9942600005663D /* iAd.framework in Frameworks */,
+				B12DA2761A9942600005663D /* Social.framework in Frameworks */,
+				B12DA2771A9942600005663D /* Twitter.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -123,11 +148,17 @@
 			children = (
 				B12DA25C1A98BE730005663D /* Boton-Anadir.png */,
 				B12DA25D1A98BE730005663D /* Boton-Ayuda.png */,
+				B12DA2821A9A7C0C0005663D /* Boton-FondoFoto.png */,
+				B12DA2801A9A75270005663D /* Boton-FondoColor.png */,
 				B12DA25E1A98BE730005663D /* Boton-Casa.png */,
+				B12DA27A1A9A5E0E0005663D /* Boton-Instagram.png */,
 				B12DA25F1A98BE730005663D /* Boton-Cerrar.png */,
+				B12DA27E1A9A6E220005663D /* Boton-Save.png */,
 				B12DA2601A98BE730005663D /* Boton-Color.png */,
 				B12DA2611A98BE730005663D /* Boton-Menu.png */,
 				B12DA2621A98BE730005663D /* Boton-Shapes.png */,
+				B12DA27C1A9A606E0005663D /* Boton-Facebook.png */,
+				B12DA2781A9A5C750005663D /* Boton-Twitter.png */,
 				B12DA2631A98BE730005663D /* Boton-Terminar.png */,
 				B12DA2641A98BE730005663D /* Boton-Volver.png */,
 			);
@@ -147,6 +178,9 @@
 		B19083811A6C35260007CE9D = {
 			isa = PBXGroup;
 			children = (
+				B12DA2721A9942600005663D /* iAd.framework */,
+				B12DA2731A9942600005663D /* Social.framework */,
+				B12DA2741A9942600005663D /* Twitter.framework */,
 				B190838C1A6C35260007CE9D /* PHC-Swift */,
 				B19083A21A6C35260007CE9D /* PHC-SwiftTests */,
 				B190838B1A6C35260007CE9D /* Products */,
@@ -225,6 +259,8 @@
 				B1FAAB821A88E82B00253591 /* FondoSelector.swift */,
 				B1FAAB801A88E5FC00253591 /* FondoMenus.swift */,
 				B12DA2341A9215400005663D /* VistaBoton.swift */,
+				B12DA26E1A9941D60005663D /* Anuncios.swift */,
+				B12DA2701A9941E20005663D /* Social.swift */,
 			);
 			name = Objetos;
 			sourceTree = "<group>";
@@ -320,25 +356,31 @@
 			buildActionMask = 2147483647;
 			files = (
 				B16B1C471A7D560C00B5C3E6 /* palette2.png in Resources */,
+				B12DA2811A9A75270005663D /* Boton-FondoColor.png in Resources */,
 				B12DA2681A98BE730005663D /* Boton-Cerrar.png in Resources */,
 				B12DA26C1A98BE730005663D /* Boton-Terminar.png in Resources */,
+				B12DA27B1A9A5E0E0005663D /* Boton-Instagram.png in Resources */,
 				B10A76BD1A7AAF0800D7A922 /* Corazon.png in Resources */,
 				B12DA2651A98BE730005663D /* Boton-Anadir.png in Resources */,
 				B10A76BE1A7AAF0800D7A922 /* Cuadroc.png in Resources */,
 				B16B1C451A7D501D00B5C3E6 /* colorPalette.plist in Resources */,
 				B12DA26D1A98BE730005663D /* Boton-Volver.png in Resources */,
 				B19083951A6C35260007CE9D /* Main.storyboard in Resources */,
+				B12DA2831A9A7C0C0005663D /* Boton-FondoFoto.png in Resources */,
 				B19B6A361A82AFC80079A108 /* ImagenFondo.jpg in Resources */,
+				B12DA27F1A9A6E220005663D /* Boton-Save.png in Resources */,
 				B12DA2661A98BE730005663D /* Boton-Ayuda.png in Resources */,
 				B1FAAB931A8BEC0900253591 /* imagenFondo1.png in Resources */,
 				B190839A1A6C35260007CE9D /* LaunchScreen.xib in Resources */,
 				B1FAAB941A8BEC0900253591 /* imagenFondo2.png in Resources */,
 				B19083B91A6D76EF0007CE9D /* Circulo.png in Resources */,
 				B12DA26A1A98BE730005663D /* Boton-Menu.png in Resources */,
+				B12DA2791A9A5C750005663D /* Boton-Twitter.png in Resources */,
 				B12DA2671A98BE730005663D /* Boton-Casa.png in Resources */,
 				B12DA26B1A98BE730005663D /* Boton-Shapes.png in Resources */,
 				B19083971A6C35260007CE9D /* Images.xcassets in Resources */,
 				B19B6A3A1A82BAE10079A108 /* Titulo-PHC.png in Resources */,
+				B12DA27D1A9A606E0005663D /* Boton-Facebook.png in Resources */,
 				B12DA2691A98BE730005663D /* Boton-Color.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -359,6 +401,7 @@
 			files = (
 				B19083B31A6C405D0007CE9D /* Imagen.swift in Sources */,
 				B1FAAB811A88E5FC00253591 /* FondoMenus.swift in Sources */,
+				B12DA2711A9941E20005663D /* Social.swift in Sources */,
 				B12DA2351A9215400005663D /* VistaBoton.swift in Sources */,
 				B19083B01A6C38780007CE9D /* ModoLibre.swift in Sources */,
 				B12DA2371A92161D0005663D /* Menu-Opciones.swift in Sources */,
@@ -370,6 +413,7 @@
 				B10A76C01A7AB14B00D7A922 /* CeldaShape.swift in Sources */,
 				B1FAAB871A8A391900253591 /* iCarousel.m in Sources */,
 				B19083901A6C35260007CE9D /* AppDelegate.swift in Sources */,
+				B12DA26F1A9941D60005663D /* Anuncios.swift in Sources */,
 				B19083B71A6D41D80007CE9D /* Cortar.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
