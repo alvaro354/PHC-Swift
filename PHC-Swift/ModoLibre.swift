@@ -8,14 +8,14 @@
 
 import UIKit
 
-class ModoLibre: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIGestureRecognizerDelegate , CortarDelegate ,ShapesDelegate, ColorPickerDelegate,FondoDelegate,MenuOpcionesDelegate{
+class ModoLibre: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIGestureRecognizerDelegate , CortarDelegate ,ShapesDelegate, MenuColorPickerDelegate,FondoDelegate,MenuOpcionesDelegate{
     
     //Declaracion Variables
     
     var cameraRoll = UIImagePickerController()
     var cortarView:Cortar?
     var menuShapes:MenuShapes?
-    var menuColor:ColorPicker?
+    var menuColor:MenuColorPicker?
     var fondoSelector:FondoSelector?
     var menuOpciones:MenuOpciones?
     var menuEditar: MenuEditar = MenuEditar()
@@ -238,7 +238,7 @@ class ModoLibre: UIViewController, UIImagePickerControllerDelegate, UINavigation
     {
         vistaBotones.removeFromSuperview()
         let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-        self.menuColor = mainStoryboard.instantiateViewControllerWithIdentifier("ColorPicker") as? ColorPicker
+        self.menuColor = mainStoryboard.instantiateViewControllerWithIdentifier("MenuColorPicker") as? MenuColorPicker
         self.menuColor!.delegate = self
         self.view.addSubview(menuColor!.view)
     }
@@ -267,7 +267,7 @@ class ModoLibre: UIViewController, UIImagePickerControllerDelegate, UINavigation
         
         imagenT = imagenP
         let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-        self.menuColor = mainStoryboard.instantiateViewControllerWithIdentifier("ColorPicker") as? ColorPicker
+        self.menuColor = mainStoryboard.instantiateViewControllerWithIdentifier("MenuColorPicker") as? MenuColorPicker
         self.menuColor!.delegate = self
         self.view.addSubview(menuColor!.view)
     }

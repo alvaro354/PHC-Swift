@@ -233,6 +233,43 @@
             </objects>
             <point key="canvasLocation" x="1191" y="-377"/>
         </scene>
+        <!--Menu Color Picker-->
+        <scene sceneID="BmX-At-EjX">
+            <objects>
+                <viewController storyboardIdentifier="MenuColorPicker" id="jjU-rD-SIl" customClass="MenuColorPicker" customModule="PHC_Swift" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="ruB-KS-G4H"/>
+                        <viewControllerLayoutGuide type="bottom" id="HH2-YU-Kw8"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="NZW-8W-66z">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VrF-49-RoO">
+                                <rect key="frame" x="308" y="28" width="50" height="50"/>
+                                <state key="normal" title="Button" image="Boton-Cerrar.png">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="cerrarVista" destination="jjU-rD-SIl" eventType="touchUpInside" id="nzd-gI-KVH"/>
+                                </connections>
+                            </button>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="52b-XB-Nmy">
+                                <rect key="frame" x="21" y="130" width="332" height="408"/>
+                            </scrollView>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="cerrar" destination="VrF-49-RoO" id="Wdt-t0-wha"/>
+                        <outlet property="hueScroll" destination="52b-XB-Nmy" id="b9K-kl-YCe"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="idU-wK-r5M" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1701.5" y="-1393.5"/>
+        </scene>
         <!--Fondo Selector-->
         <scene sceneID="NNq-Fd-YvU">
             <objects>
@@ -249,7 +286,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="O6N-nB-ka0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2191" y="-1004"/>
+            <point key="canvasLocation" x="2051" y="-706"/>
         </scene>
         <!--ColorPicker-->
         <scene sceneID="cZF-3S-EXc">
@@ -647,6 +684,7 @@
         <image name="Boton-Anadir.png" width="600" height="600"/>
         <image name="Boton-Ayuda.png" width="600" height="600"/>
         <image name="Boton-Casa.png" width="600" height="600"/>
+        <image name="Boton-Cerrar.png" width="600" height="600"/>
         <image name="Boton-Facebook.png" width="600" height="600"/>
         <image name="Boton-Instagram.png" width="600" height="600"/>
         <image name="Boton-Menu.png" width="600" height="600"/>

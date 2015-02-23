@@ -14,7 +14,7 @@ import UIKit
 
  var sharedMenu : MenuEditar? = nil
 
-class MenuEditar : NSObject,ColorPickerDelegate
+class MenuEditar : NSObject,MenuColorPickerDelegate
 {
     //Si secambia radio y alpha al esocnder restablecer
     var RADIO :CGFloat = 30.0
@@ -28,7 +28,7 @@ class MenuEditar : NSObject,ColorPickerDelegate
     var mostrando : Bool = false
     var centro : CGPoint?
     var datosImagen : Imagen?
-    var menuColor:ColorPicker?
+    var menuColor:MenuColorPicker?
 
     func mostrarMenu(imagenP:UIView ,padreP:UIViewController,botonTmp:UIButton ,dImagen : Imagen? , botonOpciones: Bool)
     {
@@ -126,7 +126,7 @@ class MenuEditar : NSObject,ColorPickerDelegate
     func elegirColorBorde()
     {
         let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-        self.menuColor = mainStoryboard.instantiateViewControllerWithIdentifier("ColorPicker") as? ColorPicker
+        self.menuColor = mainStoryboard.instantiateViewControllerWithIdentifier("MenuColorPicker") as? MenuColorPicker
         self.menuColor!.delegate = self
         padreController!.view.addSubview(menuColor!.view)
     }
