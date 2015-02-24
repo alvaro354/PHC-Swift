@@ -246,7 +246,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VrF-49-RoO">
-                                <rect key="frame" x="308" y="28" width="50" height="50"/>
+                                <rect key="frame" x="325" y="28" width="34" height="32"/>
                                 <state key="normal" title="Button" image="Boton-Cerrar.png">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -254,16 +254,27 @@
                                     <action selector="cerrarVista" destination="jjU-rD-SIl" eventType="touchUpInside" id="nzd-gI-KVH"/>
                                 </connections>
                             </button>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="52b-XB-Nmy">
-                                <rect key="frame" x="21" y="130" width="332" height="408"/>
-                            </scrollView>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4az-uM-gWN">
+                                <rect key="frame" x="0.0" y="105" width="375" height="444"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kZe-hJ-HjC">
+                                <rect key="frame" x="16" y="28" width="34" height="32"/>
+                                <state key="normal" title="Button" image="Boton-Volver.png">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="volverAtras" destination="jjU-rD-SIl" eventType="touchUpInside" id="BZy-Rq-cS7"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
+                        <outlet property="atras" destination="kZe-hJ-HjC" id="GTa-Pc-Yn1"/>
                         <outlet property="cerrar" destination="VrF-49-RoO" id="Wdt-t0-wha"/>
-                        <outlet property="hueScroll" destination="52b-XB-Nmy" id="b9K-kl-YCe"/>
+                        <outlet property="hueScroll" destination="4az-uM-gWN" id="DZd-wP-xJy"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="idU-wK-r5M" userLabel="First Responder" sceneMemberID="firstResponder"/>
