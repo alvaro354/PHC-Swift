@@ -67,8 +67,11 @@ class Cortar: UIViewController,UIScrollViewDelegate
         scrollView!.minimumZoomScale = 0.5;
         scrollView!.maximumZoomScale = 3.0;
         
-        self.imagenView = UIImageView(frame:CGRectMake(0.0, self.photo!.size.height / 4,self.photo!.size.width / 2,self.photo!.size.height / 2))
+        var scala : CGFloat = self.view.frame.width / self.photo!.size.width
+        
+        self.imagenView = UIImageView(frame:CGRectMake(0.0, 0.0 ,self.photo!.size.width * scala ,self.photo!.size.height * scala))
         self.imagenView!.image = photo
+        self.imagenView!.center = self.view!.center
         self.scrollView!.addSubview(imagenView!)
         
         var doubleTapRecognizer = UITapGestureRecognizer(target: self, action: "scrollViewDoubleTapped:")
@@ -94,7 +97,7 @@ class Cortar: UIViewController,UIScrollViewDelegate
     
     @IBAction func cortar()
     {
-        
+        //Capturamos la iamgen
         //Cortar
     
         let ox: CGFloat = self.scrollView!.contentOffset.x;

@@ -484,7 +484,9 @@ class ModoLibre: UIViewController, UIImagePickerControllerDelegate, UINavigation
             
         }
         
-        cameraRoll.allowsEditing = true
+        //Activamos o desactivamos la opciond de cortar
+        
+        cameraRoll.allowsEditing = false
         presentViewController(cameraRoll, animated: true, nil);
     }
     
