@@ -98,6 +98,26 @@ class Cortar: UIViewController,UIScrollViewDelegate
     @IBAction func cortar()
     {
         //Capturamos la iamgen
+        
+        UIGraphicsBeginImageContext(self.scrollView!.frame.size)
+        self.scrollView!.layer.renderInContext(UIGraphicsGetCurrentContext())
+        var imageCap = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        
+        var imagenView = UIImageView(frame: CGRectMake(imageCap.size.width,imageCap.size.height,0,0))
+        imagenView.image = imageCap
+        
+        UIGraphicsBeginImageContext(self.plantillaView.frame.size);
+        imageCap.drawAtPoint(CGPointMake(self.plantillaView.frame.origin.x,self.plantillaView.frame.origin.y))
+        imageCap = UIGraphicsGetImageFromCurrentImageContext();
+        UIGraphicsEndImageContext();
+        
+        let imageRef2:CGImageRef = CGImageCreateWithImageInRect(imageCap.CGImage, CGRectMake(self.plantillaView.frame.origin.x,self.plantillaView.frame.origin.y,self.plantillaView.frame.width,self.plantillaView.frame.height))
+        imageCap = UIImage(CGImage: imageRef2)
+
+        
+        imagenView = UIImageView(frame: CGRectMake(imageCap.size.width,imageCap.size.height,0,0))
+        imagenView.image = imageCap
         //Cortar
     
         let ox: CGFloat = self.scrollView!.contentOffset.x;
@@ -111,7 +131,7 @@ class Cortar: UIViewController,UIScrollViewDelegate
         
         
         
-        let imageRef:CGImageRef = CGImageCreateWithImageInRect(self.photo!.CGImage, cropRect);
+        let imageRef:CGImageRef = CGImageCreateWithImageInRect(imageCap.CGImage, cropRect);
         
         photoCortada = UIImage(CGImage: imageRef)
         
