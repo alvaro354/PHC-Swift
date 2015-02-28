@@ -12,6 +12,9 @@ class ModoLibre: UIViewController, UIImagePickerControllerDelegate, UINavigation
     
     //Declaracion Variables
     
+    var vistaCollage:UIView = UIView()
+    var cuadrado : Bool = false
+    
     var cameraRoll = UIImagePickerController()
     var cortarView:Cortar?
     var menuShapes:MenuShapes?
@@ -46,7 +49,29 @@ class ModoLibre: UIViewController, UIImagePickerControllerDelegate, UINavigation
         cameraRoll.allowsEditing = false
         // Do any additional setup after loading the view, typically from a nib.
         
+        
+        //Inicializamos la view Collages 
+        
+        if(cuadrado)
+        {
+            vistaCollage = UIView(frame: CGRectMake(0, 0, 320, 320))
+        }
+        else
+        {
+            vistaCollage = UIView(frame: CGRectMake(0, 0, self.view.frame.width, self.view.frame.height))
+        }
+        
+        vistaCollage.center = self.view.center
+        vistaCollage.layer.borderWidth = 2
+        vistaCollage.layer.borderColor = UIColor.grayColor().CGColor
+        self.view.addSubview(vistaCollage)
+        
+        self.traerBotonesAlfrente()
+        
     }
+    
+
+    
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -377,10 +402,10 @@ class ModoLibre: UIViewController, UIImagePickerControllerDelegate, UINavigation
         
         if(imagen.borde)
         {
-            self.view.bringSubviewToFront(imagen.vistaBorde);
+            self.vistaCollage.bringSubviewToFront(imagen.vistaBorde);
         }
         
-        self.view.bringSubviewToFront(imagen.vistaImagen);
+        self.vistaCollage.bringSubviewToFront(imagen.vistaImagen);
         
         
         self.traerBotonesAlfrente()
@@ -523,15 +548,17 @@ class ModoLibre: UIViewController, UIImagePickerControllerDelegate, UINavigation
     func eleccionColorFinalizado(color:UIColor)
     {
         viewFondo.removeFromSuperview()
-        self.view.backgroundColor = color
+        self.vistaCollage.backgroundColor = color
     }
     
     func eleccionFondoFinalizado(imagen:String)
     {
         self.viewFondo.removeFromSuperview()
-        self.viewFondo = UIImageView(frame: self.view.bounds)
+        self.viewFondo = UIImageView(frame: CGRectMake(0, 0, self.vistaCollage.bounds.width, self.vistaCollage.bounds.height))
         self.viewFondo.image = UIImage(named: imagen)
-        self.view.insertSubview(self.viewFondo, atIndex: 0)
+        self.viewFondo.clipsToBounds = true;
+        self.viewFondo.contentMode = UIViewContentMode.ScaleAspectFill
+        self.vistaCollage.insertSubview(self.viewFondo, atIndex: 0)
         
         self.camaraFondo = false
     }
@@ -555,8 +582,8 @@ class ModoLibre: UIViewController, UIImagePickerControllerDelegate, UINavigation
          botonMenuPrincipal!.hidden = true
          botonMenuOpciones!.hidden = true
         
-        UIGraphicsBeginImageContext(self.view.frame.size)
-        self.view.layer.renderInContext(UIGraphicsGetCurrentContext())
+        UIGraphicsBeginImageContext(self.vistaCollage.frame.size)
+        self.vistaCollage.layer.renderInContext(UIGraphicsGetCurrentContext())
         let image = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
         

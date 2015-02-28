@@ -63,7 +63,7 @@ class MenuEditar : NSObject,MenuColorPickerDelegate
         boton.addTarget(self, action: Selector(funcion), forControlEvents: UIControlEvents.TouchDown)
         boton.center = imagenP.center
         boton.alpha = 0
-        padreP.view.addSubview(boton)
+        (padreP as ModoLibre).vistaCollage.addSubview(boton)
         
         UIButton.animateWithDuration(0.15, delay: 0, options: .CurveEaseOut, animations:
             {
@@ -220,7 +220,7 @@ class MenuEditar : NSObject,MenuColorPickerDelegate
         imagenViewF.center =  imagenView.center
         imagenViewF.transform = imagenView.transform
         imagenViewF.transform = CGAffineTransformScale(imagenViewF.transform,(imagenView.bounds.width + radio) / imagenView.bounds.width  , (imagenView.bounds.height + radio) / imagenView.bounds.height )
-        padreController!.view.insertSubview(imagenViewF, belowSubview: datosImagen!.vistaImagen)
+        (padreController! as ModoLibre).vistaCollage.insertSubview(imagenViewF, belowSubview: datosImagen!.vistaImagen)
         datosImagen?.vistaBorde = imagenViewF
         datosImagen?.borde = true
     }

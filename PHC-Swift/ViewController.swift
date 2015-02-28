@@ -18,10 +18,10 @@ class ViewController: UIViewController {
 
     //Declaracion Variables
     
-    @IBOutlet var ModoLibre: UIButton?
     @IBOutlet var vistaLibre: UIView?
     @IBOutlet var vistaFrame: UIView?
      var imagenFondo : UIImageView?
+    var elegirCuadrado : Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -60,6 +60,7 @@ class ViewController: UIViewController {
 
     @IBAction func pasarModoLibre(sender: UIButton)
     {
+        elegirCuadrado = (sender.tag == 1)
           self.performSegueWithIdentifier("ModoLibre", sender: self);
     }
 
@@ -69,7 +70,8 @@ class ViewController: UIViewController {
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "ModoLibre"
         {
-            
+            var libre : ModoLibre = segue.destinationViewController as ModoLibre
+            libre.cuadrado = elegirCuadrado
         }
     }
     /*

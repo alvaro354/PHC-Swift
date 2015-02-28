@@ -86,10 +86,10 @@ class Imagen: NSObject, UIGestureRecognizerDelegate{
         
         // Añadir
         
-        
-        controller.view.addSubview(vistaImagen);
-        controller.view.bringSubviewToFront(vistaImagen);
         var modoLibre = controller as ModoLibre
+        
+         modoLibre.vistaCollage.addSubview(vistaImagen);
+        modoLibre.vistaCollage.bringSubviewToFront(vistaImagen);
         modoLibre.imagenes.append(self)
         
         //Escalamos la imagen

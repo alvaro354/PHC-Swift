@@ -39,7 +39,7 @@ import UIKit
                 
             }, completion:{ finished in
                 
-               // sleep(5)
+               
                 
                 UIView.animateWithDuration(0.20, delay: 2, options: .CurveEaseOut, animations:
                     {
