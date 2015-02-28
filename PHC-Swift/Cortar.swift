@@ -107,20 +107,24 @@ class Cortar: UIViewController,UIScrollViewDelegate
         var imagenView = UIImageView(frame: CGRectMake(imageCap.size.width,imageCap.size.height,0,0))
         imagenView.image = imageCap
         
-        UIGraphicsBeginImageContext(self.plantillaView.frame.size);
+       /* UIGraphicsBeginImageContext(self.plantillaView.frame.size);
         imageCap.drawAtPoint(CGPointMake(self.plantillaView.frame.origin.x,self.plantillaView.frame.origin.y))
         imageCap = UIGraphicsGetImageFromCurrentImageContext();
         UIGraphicsEndImageContext();
         
+        imagenView.image = imageCap
+        */
+        
+        //Obtenemos un cuadrado dela imagen con als dimensiones del Shape
         let imageRef2:CGImageRef = CGImageCreateWithImageInRect(imageCap.CGImage, CGRectMake(self.plantillaView.frame.origin.x,self.plantillaView.frame.origin.y,self.plantillaView.frame.width,self.plantillaView.frame.height))
         imageCap = UIImage(CGImage: imageRef2)
 
         
-        imagenView = UIImageView(frame: CGRectMake(imageCap.size.width,imageCap.size.height,0,0))
-        imagenView.image = imageCap
+       // imagenView = UIImageView(frame: CGRectMake(0,0,imageCap.size.width,imageCap.size.height))
+       // imagenView.image = imageCap
         //Cortar
     
-        let ox: CGFloat = self.scrollView!.contentOffset.x;
+    /*    let ox: CGFloat = self.scrollView!.contentOffset.x;
         let oy: CGFloat  = self.scrollView!.contentOffset.y;
         let zoomScale :CGFloat = self.scrollView!.zoomScale;
         let cx :CGFloat = (ox + self.plantillaView.frame.origin.x + 15.0) * 2.0 / zoomScale  ;
@@ -133,7 +137,9 @@ class Cortar: UIViewController,UIScrollViewDelegate
         
         let imageRef:CGImageRef = CGImageCreateWithImageInRect(imageCap.CGImage, cropRect);
         
-        photoCortada = UIImage(CGImage: imageRef)
+        photoCortada = UIImage(CGImage: imageRef)ç
+
+*/
         
        /*
         //Mask
@@ -165,7 +171,7 @@ class Cortar: UIViewController,UIScrollViewDelegate
         
         var ratio:CGFloat  = 0;
         let scale:CGFloat  = 0.5;
-        let image :UIImage = photo!
+        let image :UIImage = imageCap!
         
         ratio = plantilla.size.width / image.size.width;
         

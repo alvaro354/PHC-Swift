@@ -38,6 +38,7 @@ class MenuShapes : UIViewController, UICollectionViewDelegate ,UICollectionViewD
         fondoMenu = UIVisualEffectView(effect: UIBlurEffect(style: .Dark)) as UIVisualEffectView
         fondoMenu!.frame = self.view.bounds
         
+        
         self.view.addSubview(fondoMenu!)
         
         
@@ -75,6 +76,22 @@ class MenuShapes : UIViewController, UICollectionViewDelegate ,UICollectionViewD
         tap.numberOfTapsRequired = 1
         vistaAtras.addGestureRecognizer(tap)
         
+        
+        //Animamo la entrada
+        
+         self.grid!.transform = CGAffineTransformScale(self.grid!.transform,0.01, 0.01)
+        
+        UIView.animateWithDuration(0.20, delay: 0, options: .CurveEaseOut, animations:
+            {
+                
+                self.grid!.transform = CGAffineTransformScale(self.grid!.transform,100.0, 100.0)
+                
+                
+            }, completion:{ finished in
+                
+            
+        })
+        
     }
     
     override func didReceiveMemoryWarning() {
@@ -84,7 +101,17 @@ class MenuShapes : UIViewController, UICollectionViewDelegate ,UICollectionViewD
 
     @IBAction func cerrarVista()
     {
-        self.view.removeFromSuperview()
+        UIView.animateWithDuration(0.20, delay: 0, options: .CurveEaseOut, animations:
+            {
+                
+                self.grid!.transform = CGAffineTransformScale(self.grid!.transform,0.01, 0.01)
+                 self.fondoMenu!.alpha = 0
+                
+            }, completion:{ finished in
+                
+                self.view.removeFromSuperview()
+        })
+        
     }
     
     //Delegado COllection

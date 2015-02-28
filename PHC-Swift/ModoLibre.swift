@@ -25,6 +25,7 @@ class ModoLibre: UIViewController, UIImagePickerControllerDelegate, UINavigation
     var vistaBotones : UIView = UIView()
     var camaraFondo : Bool = false
      var viewFondo : UIImageView = UIImageView()
+    var mostrarShapes : Bool = false
     
     //Menus Mostrar
     
@@ -56,7 +57,7 @@ class ModoLibre: UIViewController, UIImagePickerControllerDelegate, UINavigation
     {
      //   vistaBotones.alpha=0
                 
-                UIView.animateWithDuration(0.25, delay: 0, options: .CurveEaseOut, animations:
+                UIView.animateWithDuration(0.20, delay: 0, options: .CurveEaseOut, animations:
                     {
                         
                         self.boton.transform = CGAffineTransformScale(self.boton.transform,100, 100)
@@ -66,7 +67,7 @@ class ModoLibre: UIViewController, UIImagePickerControllerDelegate, UINavigation
                         
                     }, completion:{ finished in
                         
-                        UIView.animateWithDuration(0.25, delay: 0, options: .CurveEaseOut, animations:
+                        UIView.animateWithDuration(0.20, delay: 0, options: .CurveEaseOut, animations:
                             {
                               self.labelDer.alpha = 1
                               self.labelIzq.alpha = 1
@@ -85,9 +86,11 @@ class ModoLibre: UIViewController, UIImagePickerControllerDelegate, UINavigation
 
     }
     
-    func animarCambioMenu()
+    func animarCambioMenu(sender : UIButton)
     {
-        UIView.animateWithDuration(0.25, delay: 0, options: .CurveEaseOut, animations:
+        mostrarShapes = (sender.tag == 1)
+        
+        UIView.animateWithDuration(0.20, delay: 0, options: .CurveEaseOut, animations:
             {
                 
                 self.labelDer.alpha = 0
@@ -95,7 +98,7 @@ class ModoLibre: UIViewController, UIImagePickerControllerDelegate, UINavigation
                 
             }, completion:{ finished in
                 
-                UIView.animateWithDuration(0.25, delay: 0, options: .CurveEaseOut, animations:
+                UIView.animateWithDuration(0.20, delay: 0, options: .CurveEaseOut, animations:
                     {
                         self.boton.transform = CGAffineTransformScale(self.boton.transform,0.01, 0.01)
                         // self.labelDer.alpha = 1
@@ -105,8 +108,15 @@ class ModoLibre: UIViewController, UIImagePickerControllerDelegate, UINavigation
                     }, completion:{ finished in
                         
                         // Animamos los botones
-                        
-                       self.mostrarOpcionesFondo()
+                        if(!self.mostrarShapes)
+                        {
+                            self.mostrarOpcionesFondo()
+                        }
+                        else
+                        {
+                            self.mostrarShapes = false
+                            self.mostrarOpcionesShapes()
+                        }
                 })
                 
                 
@@ -144,7 +154,9 @@ class ModoLibre: UIViewController, UIImagePickerControllerDelegate, UINavigation
         boton = UIButton(frame: CGRectMake(0,0, 150, 150))
         boton.tintColor = UIColor.blackColor()
         boton.setImage(UIImage(named:"Boton-Shapes.png")!, forState: UIControlState.Normal)
-        boton.addTarget(self, action: Selector("mostrarOpcionesShapes"), forControlEvents: UIControlEvents.TouchDown)
+        //Con el tag indicamos que es la opcion de mostrar shapes para luego la animacion
+        boton.tag = 1
+        boton.addTarget(self, action: Selector("animarCambioMenu:"), forControlEvents: UIControlEvents.TouchDown)
         boton.center = self.view.center
         boton.center.x -= 90
         boton.center.y -= 20
@@ -162,7 +174,7 @@ class ModoLibre: UIViewController, UIImagePickerControllerDelegate, UINavigation
         botonFondo = UIButton(frame: CGRectMake(0,0, 150, 150))
         botonFondo.tintColor = UIColor.blackColor()
         botonFondo.setImage(UIImage(named:"Boton-FondoColor.png")!, forState: UIControlState.Normal)
-        botonFondo.addTarget(self, action: Selector("animarCambioMenu"), forControlEvents: UIControlEvents.TouchDown)
+        botonFondo.addTarget(self, action: Selector("animarCambioMenu:"), forControlEvents: UIControlEvents.TouchDown)
         botonFondo.center = self.view.center
         botonFondo.center.x += 90
         botonFondo.center.y -= 20
@@ -201,7 +213,7 @@ class ModoLibre: UIViewController, UIImagePickerControllerDelegate, UINavigation
         self.boton.addTarget(self, action: Selector("mostrarFondoFoto"), forControlEvents: UIControlEvents.TouchDown)
         
         self.botonFondo.setImage(UIImage(named:"Boton-Color.png")!, forState: UIControlState.Normal)
-        self.botonFondo.removeTarget(self, action: Selector("animarCambioMenu"), forControlEvents: UIControlEvents.TouchDown)
+        self.botonFondo.removeTarget(self, action: Selector("animarCambioMenu:"), forControlEvents: UIControlEvents.TouchDown)
         self.botonFondo.addTarget(self, action: Selector("mostrarFondoColor"), forControlEvents: UIControlEvents.TouchDown)
         
         let parag = NSMutableParagraphStyle()
@@ -562,6 +574,20 @@ class ModoLibre: UIViewController, UIImagePickerControllerDelegate, UINavigation
     }
     func cerrar(recognizer:UIPanGestureRecognizer)
     {
-        recognizer.view?.removeFromSuperview()
+        self.labelDer.alpha = 0
+        self.labelIzq.alpha = 0
+        
+        UIView.animateWithDuration(0.20, delay: 0, options: .CurveEaseOut, animations:
+            {
+                self.vistaBotones.alpha = 0
+                self.boton.transform = CGAffineTransformScale(self.boton.transform,0.01, 0.01)
+                // self.labelDer.alpha = 1
+                self.botonFondo.transform = CGAffineTransformScale(self.botonFondo.transform,0.01, 0.01)
+                
+            }, completion:{ finished in
+                
+                
+                self.vistaBotones.removeFromSuperview()
+        })
     }
 }
