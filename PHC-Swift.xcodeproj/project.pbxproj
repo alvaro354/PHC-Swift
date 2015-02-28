@@ -48,6 +48,7 @@
 		B19083B91A6D76EF0007CE9D /* Circulo.png in Resources */ = {isa = PBXBuildFile; fileRef = B19083B81A6D76EF0007CE9D /* Circulo.png */; };
 		B19B6A361A82AFC80079A108 /* ImagenFondo.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B19B6A351A82AFC80079A108 /* ImagenFondo.jpg */; };
 		B19B6A3A1A82BAE10079A108 /* Titulo-PHC.png in Resources */ = {isa = PBXBuildFile; fileRef = B19B6A391A82BAE10079A108 /* Titulo-PHC.png */; };
+		B1D944E41AA27BD1002E0327 /* Notificacion.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1D944E31AA27BD1002E0327 /* Notificacion.swift */; };
 		B1E24F261A7419E7000CF06A /* Menu-Shapes.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1E24F251A7419E7000CF06A /* Menu-Shapes.swift */; };
 		B1E5FCB11A9BB7DE00EDB167 /* Menu-ColorPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1E5FCB01A9BB7DE00EDB167 /* Menu-ColorPicker.swift */; };
 		B1E5FCB31A9BB8B700EDB167 /* color-picker-hue@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B1E5FCB21A9BB8B700EDB167 /* color-picker-hue@2x.png */; };
@@ -115,6 +116,7 @@
 		B19083B81A6D76EF0007CE9D /* Circulo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Circulo.png; sourceTree = "<group>"; };
 		B19B6A351A82AFC80079A108 /* ImagenFondo.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = ImagenFondo.jpg; sourceTree = "<group>"; };
 		B19B6A391A82BAE10079A108 /* Titulo-PHC.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Titulo-PHC.png"; sourceTree = "<group>"; };
+		B1D944E31AA27BD1002E0327 /* Notificacion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Notificacion.swift; sourceTree = "<group>"; };
 		B1E24F251A7419E7000CF06A /* Menu-Shapes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Menu-Shapes.swift"; sourceTree = "<group>"; };
 		B1E5FCB01A9BB7DE00EDB167 /* Menu-ColorPicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Menu-ColorPicker.swift"; sourceTree = "<group>"; };
 		B1E5FCB21A9BB8B700EDB167 /* color-picker-hue@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "color-picker-hue@2x.png"; sourceTree = "<group>"; };
@@ -270,6 +272,7 @@
 				B12DA2341A9215400005663D /* VistaBoton.swift */,
 				B12DA26E1A9941D60005663D /* Anuncios.swift */,
 				B12DA2701A9941E20005663D /* Social.swift */,
+				B1D944E31AA27BD1002E0327 /* Notificacion.swift */,
 			);
 			name = Objetos;
 			sourceTree = "<group>";
@@ -425,6 +428,7 @@
 				B10A76C01A7AB14B00D7A922 /* CeldaShape.swift in Sources */,
 				B1FAAB871A8A391900253591 /* iCarousel.m in Sources */,
 				B19083901A6C35260007CE9D /* AppDelegate.swift in Sources */,
+				B1D944E41AA27BD1002E0327 /* Notificacion.swift in Sources */,
 				B12DA26F1A9941D60005663D /* Anuncios.swift in Sources */,
 				B19083B71A6D41D80007CE9D /* Cortar.swift in Sources */,
 			);

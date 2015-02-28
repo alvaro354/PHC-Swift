@@ -180,6 +180,8 @@ class MenuOpciones: UIViewController
         self.view.alpha = 0
         UIImageWriteToSavedPhotosAlbum(delegate!.capturarImagen!(), nil, nil, nil)
         self.view.alpha = 1
+        Notificacion().notfFotoGuardada(self)
+       
     }
     
     @IBAction func subirFotoTwitter()
