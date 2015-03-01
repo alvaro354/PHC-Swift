@@ -177,6 +177,7 @@
                             <constraint firstItem="Ae6-6Y-9of" firstAttribute="top" secondItem="RZ6-0E-g6O" secondAttribute="bottom" constant="8" symbolic="YES" id="wYu-Y3-fR6"/>
                         </constraints>
                     </view>
+                    <nil key="simulatedStatusBarMetrics"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
                         <outlet property="vistaFrame" destination="Ae6-6Y-9of" id="mZP-3W-f2n"/>
@@ -660,6 +661,9 @@
                         </subviews>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                     </view>
+                    <nil key="simulatedStatusBarMetrics"/>
+                    <nil key="simulatedTopBarMetrics"/>
+                    <nil key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="botonMenuOpciones" destination="FGy-kJ-xIu" id="7Yh-rX-fOl"/>
                         <outlet property="botonMenuPrincipal" destination="ZBT-rK-vaY" id="ngu-vp-Q9n"/>

@@ -15,6 +15,8 @@ class ModoLibre: UIViewController, UIImagePickerControllerDelegate, UINavigation
     var vistaCollage:UIView = UIView()
     var cuadrado : Bool = false
     
+    var fondoNegro : UIVisualEffectView?;
+    
     var cameraRoll = UIImagePickerController()
     var cortarView:Cortar?
     var menuShapes:MenuShapes?
@@ -54,17 +56,29 @@ class ModoLibre: UIViewController, UIImagePickerControllerDelegate, UINavigation
         
         if(cuadrado)
         {
-            vistaCollage = UIView(frame: CGRectMake(0, 0, 320, 320))
+            vistaCollage = UIView(frame: CGRectMake(0, 0, self.view.frame.width, self.view.frame.width))
+            vistaCollage.layer.borderWidth = 2
+            vistaCollage.layer.borderColor = UIColor.grayColor().CGColor
+            vistaCollage.center = self.view.center
+            vistaCollage.center.y = self.view.center.y + 20
         }
         else
         {
-            vistaCollage = UIView(frame: CGRectMake(0, 0, self.view.frame.width, self.view.frame.height))
+            vistaCollage = UIView(frame: CGRectMake(0, 0, self.view.bounds.width,self.view.bounds.height))
+            vistaCollage.center = self.view.center
         }
         
-        vistaCollage.center = self.view.center
-        vistaCollage.layer.borderWidth = 2
-        vistaCollage.layer.borderColor = UIColor.grayColor().CGColor
+        vistaCollage.clipsToBounds = true
+        vistaCollage.backgroundColor = UIColor.grayColor()
         self.view.addSubview(vistaCollage)
+        
+        var vistaNegro : UIView = UIView(frame: self.view.frame)
+        vistaNegro.backgroundColor = UIColor.grayColor()
+        self.view.insertSubview(vistaNegro, atIndex: 0)
+        
+        fondoNegro = UIVisualEffectView(effect: UIBlurEffect(style: .Dark)) as UIVisualEffectView
+        fondoNegro!.frame = self.view.bounds
+        self.view.insertSubview(fondoNegro!, aboveSubview: vistaNegro)
         
         self.traerBotonesAlfrente()
         
@@ -342,7 +356,7 @@ class ModoLibre: UIViewController, UIImagePickerControllerDelegate, UINavigation
                 self.viewFondo.removeFromSuperview()
                 self.viewFondo = UIImageView(frame: self.view.bounds)
                 self.viewFondo.image = tempImage
-                self.view.insertSubview(self.viewFondo, atIndex: 0)
+                self.view.insertSubview(self.viewFondo, aboveSubview:self.fondoNegro!)
                 
                 self.camaraFondo = false
             }
@@ -470,7 +484,7 @@ class ModoLibre: UIViewController, UIImagePickerControllerDelegate, UINavigation
         // NSLog("Borrar");
        if(recognizer.state == UIGestureRecognizerState.Began)
        {
-        menuEditar.mostrarMenu(recognizer.view!,padreP: self, botonTmp: UIButton(),dImagen:self.devolverImagen(recognizer.view!)!, botonOpciones : false)
+        menuEditar.mostrarMenu2(recognizer.view!,padreP: self, botonTmp: UIButton(),dImagen:self.devolverImagen(recognizer.view!)!, botonOpciones : false)
         }
     }
     

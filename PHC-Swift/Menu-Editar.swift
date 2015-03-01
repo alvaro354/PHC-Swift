@@ -29,6 +29,85 @@ class MenuEditar : NSObject,MenuColorPickerDelegate
     var centro : CGPoint?
     var datosImagen : Imagen?
     var menuColor:MenuColorPicker?
+    var viewBotones: UIView = UIView()
+    
+    var fondoMenu : UIVisualEffectView?;
+    
+    
+    func mostrarMenu2(imagenP:UIView ,padreP:UIViewController,botonTmp:UIButton ,dImagen : Imagen?, botonOpciones: Bool)
+    {
+        self.contador = 0
+        padre = imagenP
+        padreController = padreP
+        datosImagen = dImagen
+        
+         viewBotones = UIView(frame: padreP.view.frame)
+        viewBotones.center = padreController!.view.center
+        
+        fondoMenu = UIVisualEffectView(effect: UIBlurEffect(style: .Dark)) as UIVisualEffectView
+        fondoMenu!.frame = padreP.view.bounds
+        viewBotones.addSubview(fondoMenu!)
+        (padreP as ModoLibre).view.addSubview(viewBotones)
+        
+        var array : [(String,String)] = [(String,String)]()
+        array = opcionesBotones
+        
+        self.veces = array.count
+        
+        for(var i = 0 ; i < array.count ; i++)
+        {
+            
+            let(imagen:String,funcion:String) = array[i]
+            var boton: UIButton = UIButton(frame: CGRectMake(0,0, 100, 100))
+            boton.tintColor = UIColor.blackColor()
+            boton.setImage(UIImage(named:imagen)!, forState: UIControlState.Normal)
+            boton.addTarget(self, action: Selector(funcion), forControlEvents: UIControlEvents.TouchDown)
+            boton.center = imagenP.center
+            boton.alpha = 0
+            viewBotones.addSubview(boton)
+        
+            boton.transform = CGAffineTransformScale(boton.transform,0.01, 0.01)
+        
+            botones.append(boton)
+        }
+    
+        padreP.view.bringSubviewToFront(viewBotones);
+       animarEntradaBotones(0)
+      
+        
+    }
+    
+    func animarEntradaBotones(var vez : Int)
+    {
+       
+        var boton : UIButton = self.botones[vez]
+        
+        UIButton.animateWithDuration(0.15, delay: 0, options: .CurveEaseOut, animations:
+            {
+                
+                
+                boton.transform = CGAffineTransformScale(boton.transform,100, 100)
+                boton.frame = CGRectMake(60 + CGFloat((vez % 2) * 160 ),200 + CGFloat((vez / 2) * 200), 100, 100)
+                boton.alpha = 1
+                
+            }, completion:{ finished in
+                println("Animacion Acabada")
+                
+                
+                if(++self.contador < self.veces)
+                {
+                    self.animarEntradaBotones(self.contador)
+                   
+                }
+                else
+                {
+                    self.centro=self.padre!.center
+                    self.mostrando = true
+                }
+                
+                
+        })
+    }
 
     func mostrarMenu(imagenP:UIView ,padreP:UIViewController,botonTmp:UIButton ,dImagen : Imagen? , botonOpciones: Bool)
     {
@@ -251,6 +330,7 @@ class MenuEditar : NSObject,MenuColorPickerDelegate
                 }
                 else
                 {
+                self.viewBotones.removeFromSuperview()
                    self.botones.removeAll(keepCapacity: false)
                    self.RADIO = 30.0
                 }})
