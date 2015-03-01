@@ -49,6 +49,11 @@ class MenuEditar : NSObject,MenuColorPickerDelegate
         viewBotones.addSubview(fondoMenu!)
         (padreP as ModoLibre).view.addSubview(viewBotones)
         
+        let tap = UITapGestureRecognizer(target:self, action:Selector("esconderMenu"))
+        tap.numberOfTapsRequired = 1
+        viewBotones.addGestureRecognizer(tap)
+        
+        
         var array : [(String,String)] = [(String,String)]()
         array = opcionesBotones
         
