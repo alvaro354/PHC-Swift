@@ -9,7 +9,7 @@
 import UIKit
 
 
- let opcionesBotones : [(String,String)] = [("Circulo.png","elegirColorBorde"),("Circulo.png",""),("Circulo.png",""),("Circulo.png","esconderMenu")]
+ let opcionesBotones : [(String,String)] = [("Boton-Terminar.png","elegirColorBorde"),("Boton-Terminar.png",""),("Boton-Terminar.png",""),("Boton-Volver.png","esconderMenu")]
  let opcionesEditar : [(String,String)] = [("Circulo.png","añadirFoto"),("Circulo.png","cambiarFondo")]
 
  var sharedMenu : MenuEditar? = nil
@@ -76,6 +76,7 @@ class MenuEditar : NSObject,MenuColorPickerDelegate
             botones.append(boton)
         }
     
+        (padreP as ModoLibre).botonesHide(true)
         padreP.view.bringSubviewToFront(viewBotones);
        animarEntradaBotones(0)
       
@@ -84,7 +85,7 @@ class MenuEditar : NSObject,MenuColorPickerDelegate
     
     func animarEntradaBotones(var vez : Int)
     {
-       
+     //  self.padreController!.view.bringSubviewToFront(self.viewBotones);
         var boton : UIButton = self.botones[vez]
         
         UIButton.animateWithDuration(0.15, delay: 0, options: .CurveEaseOut, animations:
@@ -108,6 +109,8 @@ class MenuEditar : NSObject,MenuColorPickerDelegate
                 {
                     self.centro=self.padre!.center
                     self.mostrando = true
+                    
+                    
                 }
                 
                 
@@ -192,6 +195,8 @@ class MenuEditar : NSObject,MenuColorPickerDelegate
     {
         if(mostrando)
         {
+            (padreController as ModoLibre).botonesHide(false)
+            fondoMenu?.removeFromSuperview()
             esconderMenuRecursivo()
         }
     }
@@ -307,6 +312,8 @@ class MenuEditar : NSObject,MenuColorPickerDelegate
         (padreController! as ModoLibre).vistaCollage.insertSubview(imagenViewF, belowSubview: datosImagen!.vistaImagen)
         datosImagen?.vistaBorde = imagenViewF
         datosImagen?.borde = true
+        
+        self.esconderMenu()
     }
 
     func esconderMenuRecursivo()
@@ -318,6 +325,7 @@ class MenuEditar : NSObject,MenuColorPickerDelegate
             {
                 if(self.contador > 0)
                 {
+                    self.botones[self.contador-1].transform = CGAffineTransformMakeScale(0.01, 0.01)
                     self.botones[self.contador-1].center = self.centro!
                     self.botones[self.contador-1].alpha = 0
                     

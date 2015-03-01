@@ -177,7 +177,15 @@ class MenuColorPicker : UIViewController,UIGestureRecognizerDelegate
     
     @IBAction func cerrarVista()
     {
-        self.view.removeFromSuperview()
+        UIView.animateWithDuration(0.15, delay: 0, options: .CurveEaseOut, animations:
+            {
+                    self.view.alpha = 0
+                
+            }, completion:{ finished in
+                
+               self.view.removeFromSuperview()
+                
+        })
     }
     
     //Animacipones

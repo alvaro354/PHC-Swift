@@ -58,7 +58,7 @@ class ModoLibre: UIViewController, UIImagePickerControllerDelegate, UINavigation
         {
             vistaCollage = UIView(frame: CGRectMake(0, 0, self.view.frame.width, self.view.frame.width))
             vistaCollage.layer.borderWidth = 2
-            vistaCollage.layer.borderColor = UIColor.grayColor().CGColor
+          //  vistaCollage.layer.borderColor = UIColor.grayColor().CGColor
             vistaCollage.center = self.view.center
             vistaCollage.center.y = self.view.center.y + 20
         }
@@ -69,14 +69,14 @@ class ModoLibre: UIViewController, UIImagePickerControllerDelegate, UINavigation
         }
         
         vistaCollage.clipsToBounds = true
-        vistaCollage.backgroundColor = UIColor.grayColor()
+        vistaCollage.backgroundColor = UIColor.whiteColor()
         self.view.addSubview(vistaCollage)
         
         var vistaNegro : UIView = UIView(frame: self.view.frame)
-        vistaNegro.backgroundColor = UIColor.grayColor()
+        vistaNegro.backgroundColor = UIColor.whiteColor()
         self.view.insertSubview(vistaNegro, atIndex: 0)
         
-        fondoNegro = UIVisualEffectView(effect: UIBlurEffect(style: .Dark)) as UIVisualEffectView
+        fondoNegro = UIVisualEffectView(effect: UIBlurEffect(style: .Light)) as UIVisualEffectView
         fondoNegro!.frame = self.view.bounds
         self.view.insertSubview(fondoNegro!, aboveSubview: vistaNegro)
         
@@ -612,6 +612,11 @@ class ModoLibre: UIViewController, UIImagePickerControllerDelegate, UINavigation
     {
         self.view.bringSubviewToFront(botonMenuOpciones!)
         self.view.bringSubviewToFront(botonMenuPrincipal!)
+    }
+    func botonesHide(ocultar: Bool)
+    {
+        botonMenuOpciones!.hidden = ocultar
+        botonMenuPrincipal!.hidden = ocultar
     }
     func cerrar(recognizer:UIPanGestureRecognizer)
     {

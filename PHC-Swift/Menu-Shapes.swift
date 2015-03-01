@@ -105,7 +105,8 @@ class MenuShapes : UIViewController, UICollectionViewDelegate ,UICollectionViewD
             {
                 
                 self.grid!.transform = CGAffineTransformScale(self.grid!.transform,0.01, 0.01)
-                 self.fondoMenu!.alpha = 0
+               //  self.fondoMenu!.alpha = 0
+                self.view.alpha = 0
                 
             }, completion:{ finished in
                 

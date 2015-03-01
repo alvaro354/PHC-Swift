@@ -50,10 +50,14 @@ class FondoSelector : UIViewController, iCarouselDataSource, iCarouselDelegate
         botonCerrar!.addTarget(self, action: Selector("cerrar"), forControlEvents: UIControlEvents.TouchDown)
         botonCerrar!.center = CGPointMake(self.view.bounds.width - 80, 80)
         self.view.addSubview(botonCerrar!)
+   /*
+        var vistaTap : UIView = UIView(frame: self.view.frame)
+        self.view.insertSubview(vistaTap, belowSubview: carousel)
         
         let tap = UITapGestureRecognizer(target:self, action:Selector("cerrar"))
         tap.numberOfTapsRequired = 1
-        self.view.addGestureRecognizer(tap)
+        vistaTap.addGestureRecognizer(tap)
+*/
     }
     
     func numberOfItemsInCarousel(carousel: iCarousel!) -> Int
@@ -120,7 +124,15 @@ class FondoSelector : UIViewController, iCarouselDataSource, iCarouselDelegate
 
     func cerrar()
     {
-        self.view.removeFromSuperview()
+        UIView.animateWithDuration(0.15, delay: 0, options: .CurveEaseOut, animations:
+            {
+                self.view.alpha = 0
+                
+            }, completion:{ finished in
+                
+                self.view.removeFromSuperview()
+                
+        })
     }
     
 }

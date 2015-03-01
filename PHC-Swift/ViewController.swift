@@ -28,10 +28,17 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view, typically from a nib.
         
         var imagen: UIImage = UIImage(named: "ImagenFondo.jpg")!
+        
+        //Comprobamos si hay imagen anteriror
+        var userDefaults = NSUserDefaults.standardUserDefaults()
+        if let datosImagen: NSData = userDefaults.valueForKey("ultimaImagen") as? NSData {
+            imagen = UIImage(data: datosImagen)!
+            NSLog("Imagen Recuperada")
+        }
+        
+        
         var aspecRadio = imagen.size.height / self.view.bounds.height
         
-        
-    
         
         imagenFondo = UIImageView (frame: CGRectMake(0, 0, imagen.size.width * (1 / aspecRadio), self.view.bounds.height))
         imagenFondo?.image = imagen
@@ -50,6 +57,8 @@ class ViewController: UIViewController {
                 
                 // self.animarFondo(vez)
         })
+        
+           descargarImagen()
      
     }
 
@@ -91,6 +100,57 @@ class ViewController: UIViewController {
     }
     
  */
+    
+    func descargarImagen()
+    {
+       // var image : UIImage;
+         var userDefaults = NSUserDefaults.standardUserDefaults()
+        let date = NSDate()
+        let calendar = NSCalendar.currentCalendar()
+        let components = calendar.components(.CalendarUnitDay, fromDate: date)
+        var dia = components.day
+        var urlString = "http://www.lanchosoftware.com:9095/imagenes/imagen" + toString(dia) + ".jpg"
+        
+        var imgURL: NSURL = NSURL(string:urlString)!
+        
+        if let ultimoDia: Int = userDefaults.valueForKey("ultimaDia") as? Int {
+         
+            if(dia != ultimoDia)
+            {
+        // Download an NSData representation of the image at the URL
+        let request: NSURLRequest = NSURLRequest(URL: imgURL)
+        NSURLConnection.sendAsynchronousRequest(request, queue: NSOperationQueue.mainQueue(), completionHandler: {(response: NSURLResponse!,data: NSData!,error: NSError!) -> Void in
+            if error == nil {
+
+               
+                userDefaults.setValue(data, forKey: "ultimaImagen")
+                userDefaults.setValue(dia, forKey: "ultimaDia")
+                userDefaults.synchronize() // don't forget this!!!!
+                
+                 println("Descargada Imagen")
+                dispatch_async(dispatch_get_main_queue(), {
+                      var  image = UIImage(data: data)!
+                    //Animamos el cambiod e iamgen
+                     self.imagenFondo!.image = image
+                    //UIView.transitionWithView(self.imagenFondo!, duration: 2, options: UIViewAnimationOptions.TransitionCrossDissolve, animations: { self.imagenFondo!.image = image },completion: nil)
+                })
+            }
+            else {
+                println("Error: \(error.localizedDescription)")
+            }
+        })
+        }
+        }
+        else
+        {
+            // El dia no extiste lo creamos a 0
+            var userDefaults = NSUserDefaults.standardUserDefaults()
+            userDefaults.setValue(0, forKey: "ultimaDia")
+            descargarImagen()
+            
+        }
+
+    }
 
 }
 
