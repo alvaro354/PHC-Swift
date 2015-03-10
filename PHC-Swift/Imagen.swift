@@ -22,6 +22,12 @@ class Imagen: NSObject, UIGestureRecognizerDelegate{
     var move:UIPanGestureRecognizer?;
 
 
+    override init()
+    {
+       vistaImagen = UIImageView()
+        vistaBorde = UIImageView()
+    }
+    
     
     init(imagen:UIImageView)
     {
@@ -47,6 +53,18 @@ class Imagen: NSObject, UIGestureRecognizerDelegate{
         }
         
         vistaImagen.removeFromSuperview()
+        
+    }
+    
+    func cambiarAlpha(alpha:CGFloat)
+    {
+        
+        if(borde)
+        {
+            vistaBorde.alpha = alpha
+        }
+        
+        vistaImagen.alpha = alpha
         
     }
     
@@ -96,7 +114,6 @@ class Imagen: NSObject, UIGestureRecognizerDelegate{
         vistaImagen.transform = CGAffineTransformScale(vistaImagen.transform,
             0.6, 0.6)
     }
-    
     
     func gestureRecognizer(UIGestureRecognizer,
         shouldRecognizeSimultaneouslyWithGestureRecognizer:UIGestureRecognizer) -> Bool {

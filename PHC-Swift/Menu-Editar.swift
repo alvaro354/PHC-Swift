@@ -9,7 +9,7 @@
 import UIKit
 
 
- let opcionesBotones : [(String,String)] = [("Boton-Terminar.png","elegirColorBorde"),("Boton-Terminar.png",""),("Boton-Terminar.png",""),("Boton-Volver.png","esconderMenu")]
+ let opcionesBotones : [(String,String)] = [("Boton-Terminar.png","elegirColorBorde"),("Boton-Terminar.png","mostrarMenuCambiarAlpha"),("Boton-Terminar.png",""),("Boton-Volver.png","esconderMenu")]
  let opcionesEditar : [(String,String)] = [("Circulo.png","añadirFoto"),("Circulo.png","cambiarFondo")]
 
  var sharedMenu : MenuEditar? = nil
@@ -27,11 +27,15 @@ class MenuEditar : NSObject,MenuColorPickerDelegate
     var veces = 0;
     var mostrando : Bool = false
     var centro : CGPoint?
+    var datosImagenTmp : Imagen?
     var datosImagen : Imagen?
     var menuColor:MenuColorPicker?
     var viewBotones: UIView = UIView()
-    
+    var imagenB :UIImageView!
+     var imagenF:UIImageView!
+    var alphaFinal : CGFloat = 0.0
     var fondoMenu : UIVisualEffectView?;
+    var botonCerrar : UIButton!
     
     
     func mostrarMenu2(imagenP:UIView ,padreP:UIViewController,botonTmp:UIButton ,dImagen : Imagen?, botonOpciones: Bool)
@@ -93,7 +97,7 @@ class MenuEditar : NSObject,MenuColorPickerDelegate
                 
                 
                 boton.transform = CGAffineTransformScale(boton.transform,100, 100)
-                boton.frame = CGRectMake(60 + CGFloat((vez % 2) * 160 ),200 + CGFloat((vez / 2) * 200), 100, 100)
+                boton.frame = CGRectMake(60 + CGFloat((vez % 2) * 160 ),150 + CGFloat((vez / 2) * 200), 100, 100)
                 boton.alpha = 1
                 
             }, completion:{ finished in
@@ -197,7 +201,7 @@ class MenuEditar : NSObject,MenuColorPickerDelegate
         {
             (padreController as ModoLibre).botonesHide(false)
             fondoMenu?.removeFromSuperview()
-            esconderMenuRecursivo()
+            esconderMenuRecursivo(true)
         }
     }
     
@@ -223,6 +227,63 @@ class MenuEditar : NSObject,MenuColorPickerDelegate
      func eleccionColorFinalizado(color:UIColor)
      {
         añadirBorde(color)
+    }
+    
+    func mostrarMenuCambiarAlpha()
+    {
+        esconderMenuRecursivo(false)
+    }
+    func mostrarCambiarAlpha()
+    {
+        datosImagenTmp = Imagen()
+        
+        botonCerrar = UIButton(frame: CGRectMake(0,0, 30, 30))
+        botonCerrar!.tintColor = UIColor.blackColor()
+        botonCerrar!.setImage(UIImage(named:"Boton-Cerrar.png")!, forState: UIControlState.Normal)
+        botonCerrar!.addTarget(self, action: Selector("finalizar"), forControlEvents: UIControlEvents.TouchDown)
+        botonCerrar!.center = CGPointMake(viewBotones.bounds.width - 80, 80)
+        viewBotones.addSubview(botonCerrar!)
+        
+        imagenB = UIImageView(frame: datosImagen!.vistaBorde.frame)
+        imagenB.image = datosImagen!.vistaBorde.image
+        imagenB.alpha = datosImagen!.vistaBorde.alpha
+        imagenB.center = padreController!.view.center
+        imagenB.center.y -= 50
+        datosImagenTmp?.vistaBorde = imagenB
+        
+        imagenF = UIImageView(frame: datosImagen!.vistaImagen.frame)
+        imagenF.image = datosImagen!.vistaImagen.image
+        imagenF.alpha = datosImagen!.vistaImagen.alpha
+        imagenF.center = padreController!.view.center
+        imagenF.center.y -= 50
+        datosImagenTmp?.vistaImagen = imagenF
+        
+        var barra = UISlider(frame: CGRectMake(0, 0, 230, 20))
+        barra.minimumValue = 0.0
+        barra.maximumValue = 1.0
+        barra.value = Float(imagenF.alpha)
+        barra.center =  padreController!.view.center
+        barra.center.y = padreController!.view.frame.height - 100
+        barra.addTarget(self, action: Selector("valorModificado:"), forControlEvents: UIControlEvents.ValueChanged)
+
+        viewBotones.addSubview(imagenB)
+        viewBotones.addSubview(imagenF)
+        viewBotones.addSubview(barra)
+    }
+    
+    func valorModificado(sender : UISlider)
+    {
+     //   datosImagenTmp?.cambiarAlpha(CGFloat(sender.value))
+        imagenB.alpha = CGFloat(sender.value)
+        imagenF.alpha = CGFloat(sender.value)
+        alphaFinal = CGFloat(sender.value)
+    }
+    
+    func finalizar()
+    {
+        datosImagen?.cambiarAlpha(alphaFinal)
+        self.viewBotones.removeFromSuperview()
+        (padreController as ModoLibre).botonesHide(false)
     }
     
     func añadirBorde(color:UIColor)
@@ -316,11 +377,11 @@ class MenuEditar : NSObject,MenuColorPickerDelegate
         self.esconderMenu()
     }
 
-    func esconderMenuRecursivo()
+    func esconderMenuRecursivo( eliminarVista:Bool)
     {
     
      self.mostrando=false
-    
+        
       UIButton.animateWithDuration(0.15, delay: 0, options: .CurveEaseOut, animations:
             {
                 if(self.contador > 0)
@@ -339,13 +400,21 @@ class MenuEditar : NSObject,MenuColorPickerDelegate
                     self.botones[self.contador-1].removeFromSuperview()
                     self.botones.removeLast()
                     self.contador--
-                    self.esconderMenuRecursivo()
+                    self.esconderMenuRecursivo(eliminarVista)
                 }
                 else
                 {
+                    if(eliminarVista)
+                    {
                 self.viewBotones.removeFromSuperview()
                    self.botones.removeAll(keepCapacity: false)
-                   self.RADIO = 30.0
+                    }
+                    else
+                    {
+                        self.mostrarCambiarAlpha()
+                    }
+                    
+                    self.RADIO = 30.0
                 }})
 
     }
