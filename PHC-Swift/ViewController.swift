@@ -27,20 +27,25 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
-        var imagen: UIImage = UIImage(named: "ImagenFondo.jpg")!
+        var imagen: UIImage? = UIImage(named: "ImagenFondo.jpg")!
         
         //Comprobamos si hay imagen anteriror
         var userDefaults = NSUserDefaults.standardUserDefaults()
-        if let datosImagen: NSData = userDefaults.valueForKey("ultimaImagen") as? NSData {
-            imagen = UIImage(data: datosImagen)!
+        if let datosImagen: AnyObject = userDefaults.valueForKey("ultimaImagen"){
+            
+            imagen = UIImage(data: datosImagen as NSData)
+            if(imagen == nil)
+            {
+                imagen = UIImage(named: "ImagenFondo.jpg")!
+            }
             NSLog("Imagen Recuperada")
         }
         
         
-        var aspecRadio = imagen.size.height / self.view.bounds.height
+        var aspecRadio = imagen!.size.height / self.view.bounds.height
         
         
-        imagenFondo = UIImageView (frame: CGRectMake(0, 0, imagen.size.width * (1 / aspecRadio), self.view.bounds.height))
+        imagenFondo = UIImageView (frame: CGRectMake(0, 0, imagen!.size.width * (1 / aspecRadio), self.view.bounds.height))
         imagenFondo?.image = imagen
         
         var visualEffectView = UIVisualEffectView(effect: UIBlurEffect(style: .Light)) as UIVisualEffectView
@@ -120,6 +125,7 @@ class ViewController: UIViewController {
         // Download an NSData representation of the image at the URL
         let request: NSURLRequest = NSURLRequest(URL: imgURL)
         NSURLConnection.sendAsynchronousRequest(request, queue: NSOperationQueue.mainQueue(), completionHandler: {(response: NSURLResponse!,data: NSData!,error: NSError!) -> Void in
+            
             if error == nil {
 
                

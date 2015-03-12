@@ -82,7 +82,7 @@ class MenuColorPicker : UIViewController,UIGestureRecognizerDelegate
                 var indexC : Int = (colorCount * tagColor) + index++
                 var color : UIColor = colores[indexC]
                 view.backgroundColor = color
-                
+                view.hidden = true
                 
                 view.addTarget(self, action: Selector("colorGridTapped:"), forControlEvents: UIControlEvents.TouchDown)
                 
@@ -122,6 +122,7 @@ class MenuColorPicker : UIViewController,UIGestureRecognizerDelegate
             boton.layer.borderColor = UIColor.blackColor().CGColor
             boton.backgroundColor = colores[3 + 24 * i]
             boton.tag = i
+            boton.hidden = true
             boton.addTarget(self, action: Selector("botonSeleccionPulsado:"), forControlEvents: UIControlEvents.TouchDown)
             self.setupShadow(boton.layer)
             self.view.addSubview(boton)
@@ -195,7 +196,9 @@ class MenuColorPicker : UIViewController,UIGestureRecognizerDelegate
         
         UIView.animateWithDuration(0.03, delay: 0, options: .CurveEaseOut, animations: {
             
+           self.botones[index].hidden = false;
             self.botones[index].transform = CGAffineTransformScale(self.botones[index].transform, 100, 100)
+           
             
             }
             , completion:
@@ -220,6 +223,7 @@ class MenuColorPicker : UIViewController,UIGestureRecognizerDelegate
         UIView.animateWithDuration(0.03, delay: 0, options: .CurveEaseOut, animations: {
             
             self.botones[index].transform = CGAffineTransformScale(self.botones[index].transform, 0.01, 0.01)
+            self.botones[index].hidden = true;
             
             }
             , completion:

@@ -59,12 +59,21 @@ class Imagen: NSObject, UIGestureRecognizerDelegate{
     func cambiarAlpha(alpha:CGFloat)
     {
         
-        if(borde)
-        {
-            vistaBorde.alpha = alpha
-        }
-        
         vistaImagen.alpha = alpha
+        
+        if(alpha < 1)
+        {
+            vistaBorde.hidden = true
+        }
+        else
+        {
+            
+            if(borde)
+            {
+                vistaBorde.alpha = alpha
+            }
+            vistaBorde.hidden = false
+        }
         
     }
     

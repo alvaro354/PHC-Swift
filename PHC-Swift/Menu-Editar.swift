@@ -274,9 +274,21 @@ class MenuEditar : NSObject,MenuColorPickerDelegate
     func valorModificado(sender : UISlider)
     {
      //   datosImagenTmp?.cambiarAlpha(CGFloat(sender.value))
-        imagenB.alpha = CGFloat(sender.value)
+      //  imagenB.alpha = CGFloat(sender.value)
         imagenF.alpha = CGFloat(sender.value)
         alphaFinal = CGFloat(sender.value)
+        
+        
+        //Si el alpha es menor que uno ocultamos la imgen del borde
+        if(sender.value < 1)
+        {
+            imagenB.hidden = true
+        }
+        else
+        {
+             imagenB.hidden = false
+            imagenB.alpha = CGFloat(sender.value)
+        }
     }
     
     func finalizar()

@@ -98,9 +98,10 @@ class ModoLibre: UIViewController, UIImagePickerControllerDelegate, UINavigation
                 
                 UIView.animateWithDuration(0.20, delay: 0, options: .CurveEaseOut, animations:
                     {
-                        
+                        self.boton.hidden = false
                         self.boton.transform = CGAffineTransformScale(self.boton.transform,100, 100)
                        // self.labelDer.alpha = 1
+                        self.botonFondo.hidden = false
                         self.botonFondo.transform = CGAffineTransformScale(self.botonFondo.transform,100, 100)
                        // self.labelIzq.alpha = 1
                         
@@ -144,9 +145,13 @@ class ModoLibre: UIViewController, UIImagePickerControllerDelegate, UINavigation
                         self.botonFondo.transform = CGAffineTransformScale(self.botonFondo.transform,0.01, 0.01)
                         // self.labelIzq.alpha = 1
                         
+                      
+                        
                     }, completion:{ finished in
                         
                         // Animamos los botones
+                        self.boton.hidden = true
+                        self.botonFondo.hidden = true
                         if(!self.mostrarShapes)
                         {
                             self.mostrarOpcionesFondo()
@@ -266,6 +271,8 @@ class ModoLibre: UIViewController, UIImagePickerControllerDelegate, UINavigation
         
         self.labelIzq.attributedText = attributedString
         self.labelDer.attributedText = attributedString2
+        self.boton.hidden = true
+        self.botonFondo.hidden = true
         self.animarEntradaMenu()
     }
     
