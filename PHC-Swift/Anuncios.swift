@@ -25,31 +25,42 @@ class Anuncios : NSObject, ADBannerViewDelegate
     }
     
     var iAd : ADBannerView = ADBannerView()
-    
+    var mostrando = false
     
     
     
     func ponerAnuncioArriba(vista : UIView)
     {
-        iAd = ADBannerView(adType: ADAdType.Banner)
-        iAd.frame = CGRectOffset(iAd.frame, 0, iAd.frame.size.height)
-        iAd.delegate = self;
+        if(mostrando)
+        {
+            quitarAnuncio()
+        }
         
-        vista.addSubview(iAd)
-    }
+        iAd = ADBannerView(adType: ADAdType.Banner)
+        iAd.frame = CGRectOffset(iAd.frame, 0,0)
+        iAd.delegate = self;
+        UIApplication.sharedApplication().keyWindow?.rootViewController?.canDisplayBannerAds = true
+         vista.addSubview(iAd)    }
     
     func ponerAnuncioAbajo(vista : UIView)
     {
+        if(mostrando)
+        {
+            quitarAnuncio()
+        }
+        
         iAd = ADBannerView(adType: ADAdType.Banner)
-        iAd.frame = CGRectOffset(iAd.frame, 0, UIScreen.mainScreen().bounds.size.height - iAd.frame.size.height)
+        iAd.frame = CGRectOffset(iAd.frame, 0, UIScreen.mainScreen().bounds.size.height - (iAd.frame.size.height / 2))
         iAd.delegate = self;
         
+        UIApplication.sharedApplication().keyWindow?.rootViewController?.canDisplayBannerAds = true
         vista.addSubview(iAd)
     }
     
     func quitarAnuncio()
     {
         iAd.removeFromSuperview()
+        mostrando = false
     }
     
     func bannerView(banner: ADBannerView!, didFailToReceiveAdWithError error: NSError!) {
@@ -58,6 +69,7 @@ class Anuncios : NSObject, ADBannerViewDelegate
     }
     
     func bannerViewDidLoadAd(banner: ADBannerView!) {
+        mostrando = true;
         NSLog("Anuncio iAD Cargado")
     }
     

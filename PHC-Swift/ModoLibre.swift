@@ -181,8 +181,6 @@ class ModoLibre: UIViewController, UIImagePickerControllerDelegate, UINavigation
        //  menuEditar.mostrarMenu(sender,padreP: self, botonTmp: UIButton(),dImagen: nil , botonOpciones : true)
         
         //Ponemos el anuncio
-         self.canDisplayBannerAds = true
-        Anuncios.sharedAnuncios.ponerAnuncioArriba(vistaBotones)
         
         //Atributios del texto
         let parag = NSMutableParagraphStyle()
@@ -201,6 +199,9 @@ class ModoLibre: UIViewController, UIImagePickerControllerDelegate, UINavigation
         let vista = UIVisualEffectView(effect: UIBlurEffect(style: .Light)) as UIVisualEffectView
         vista.frame = vistaBotones.frame
         vistaBotones.addSubview(vista)
+        
+        //Añadir anuncio
+        Anuncios.sharedAnuncios.ponerAnuncioArriba(vistaBotones)
         
         boton = UIButton(frame: CGRectMake(0,0, 150, 150))
         boton.tintColor = UIColor.blackColor()
@@ -252,6 +253,8 @@ class ModoLibre: UIViewController, UIImagePickerControllerDelegate, UINavigation
         labelIzq.alpha = 0
         labelDer.alpha = 0
         animarEntradaMenu()
+        
+        
 
         
     }

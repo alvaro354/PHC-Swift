@@ -62,6 +62,8 @@ class MenuColorPicker : UIViewController,UIGestureRecognizerDelegate
     
         
         colocarBotones()
+        //Añadir anuncio
+        Anuncios.sharedAnuncios.ponerAnuncioAbajo(self.view)
        
     }
     
