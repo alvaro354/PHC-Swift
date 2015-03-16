@@ -32,7 +32,7 @@ class Anuncios : NSObject, ADBannerViewDelegate
     func ponerAnuncioArriba(vista : UIView)
     {
         iAd = ADBannerView(adType: ADAdType.Banner)
-        iAd.center.y = iAd.frame.size.height / 2
+        iAd.frame = CGRectOffset(iAd.frame, 0, iAd.frame.size.height)
         iAd.delegate = self;
         
         vista.addSubview(iAd)
@@ -41,7 +41,7 @@ class Anuncios : NSObject, ADBannerViewDelegate
     func ponerAnuncioAbajo(vista : UIView)
     {
         iAd = ADBannerView(adType: ADAdType.Banner)
-        iAd.center.y = vista.bounds.size.height - iAd.frame.size.height / 2
+        iAd.frame = CGRectOffset(iAd.frame, 0, UIScreen.mainScreen().bounds.size.height - iAd.frame.size.height)
         iAd.delegate = self;
         
         vista.addSubview(iAd)
