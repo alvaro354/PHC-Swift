@@ -46,6 +46,10 @@ class ModoLibre: UIViewController, UIImagePickerControllerDelegate, UINavigation
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
+     //  self.canDisplayBannerAds = true
+        
         cameraRoll.delegate = self
         cameraRoll.sourceType = UIImagePickerControllerSourceType.SavedPhotosAlbum
         cameraRoll.allowsEditing = false
@@ -176,6 +180,9 @@ class ModoLibre: UIViewController, UIImagePickerControllerDelegate, UINavigation
         
        //  menuEditar.mostrarMenu(sender,padreP: self, botonTmp: UIButton(),dImagen: nil , botonOpciones : true)
         
+        //Ponemos el anuncio
+         self.canDisplayBannerAds = true
+        Anuncios.sharedAnuncios.ponerAnuncioArriba(vistaBotones)
         
         //Atributios del texto
         let parag = NSMutableParagraphStyle()
